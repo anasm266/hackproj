@@ -38,8 +38,10 @@ import {
 
 const DashboardPage = () => {
   const navigate = useNavigate();
-  const courses = useStudyPlanStore((state) => state.courses);
-  const courseOrder = useStudyPlanStore((state) => state.courseOrder);
+  const { courses, courseOrder } = useStudyPlanStore((state) => ({
+    courses: state.courses,
+    courseOrder: state.courseOrder
+  }));
 
   // Show empty state if no courses exist
   if (courseOrder.length === 0) {
@@ -64,12 +66,12 @@ const DashboardPage = () => {
 
   const overallAnalytics = useMemo(
     () => calculateOverallAnalytics(courses, courseOrder),
-    [courses, courseOrder]
+    [JSON.stringify(courseOrder)]
   );
 
   const courseAnalytics = useMemo(
     () => courseOrder.map((id) => calculateCourseAnalytics(id, courses[id])).filter(Boolean),
-    [courses, courseOrder]
+    [JSON.stringify(courseOrder)]
   );
 
   const allExamReadiness = useMemo(() => {
@@ -80,22 +82,7 @@ const DashboardPage = () => {
         courseName: courses[id].studyMap.course.name,
       }));
     });
-  }, [courses, courseOrder]);
-
-  if (!courseOrder.length) {
-    return (
-      <div className="rounded-3xl border border-dashed border-slate-200 bg-white p-10 text-center text-slate-600">
-        <p className="text-lg font-semibold text-slate-900">No course planners yet.</p>
-        <p className="mt-2 text-sm">Start from the landing page to upload a syllabus and generate the map.</p>
-        <button
-          className="mt-4 rounded-full bg-slate-900 px-6 py-3 text-sm font-semibold text-white"
-          onClick={() => navigate("/")}
-        >
-          Create Planner
-        </button>
-      </div>
-    );
-  }
+  }, [JSON.stringify(courseOrder)]);
 
   // Prepare data for charts
   const courseProgressData = courseAnalytics.map((c) => ({
