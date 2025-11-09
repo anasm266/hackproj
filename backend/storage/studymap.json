@@ -6892,6 +6892,1828 @@
       "quizHistory": [],
       "quizResults": [],
       "lastUpdated": "2025-11-09T09:24:17.908Z"
+    },
+    "course-1762681414430": {
+      "studyMap": {
+        "course": {
+          "id": "course-1762681414430",
+          "name": "linear algebra",
+          "createdAt": "2025-11-09T09:43:34.430Z"
+        },
+        "topics": [
+          {
+            "id": "topic-linear-systems",
+            "title": "Systems of Linear Equations",
+            "description": "Solving linear systems using Row Echelon Form and Reduced Row Echelon Form",
+            "tags": [
+              "exam-1",
+              "foundational"
+            ],
+            "rationale": "Core technique for solving systems of linear equations, essential for all subsequent linear algebra topics",
+            "subTopics": [
+              {
+                "id": "subtopic-linear-systems-basics",
+                "title": "Linear Systems Fundamentals",
+                "description": "Introduction to systems of linear equations and their representations",
+                "rationale": "Foundational understanding needed before learning solution methods",
+                "microTopics": [
+                  {
+                    "id": "micro-system-definitions",
+                    "title": "System Definitions and Notation",
+                    "description": "Understanding what constitutes a linear system and how to represent it",
+                    "tags": [
+                      "foundational",
+                      "notation"
+                    ],
+                    "examScopeIds": [
+                      "exam-1"
+                    ],
+                    "completed": true,
+                    "rationale": "Essential vocabulary and notation for all subsequent work"
+                  },
+                  {
+                    "id": "micro-solution-types",
+                    "title": "Solution Types and Existence",
+                    "description": "Understanding unique, infinite, and no solutions cases",
+                    "tags": [
+                      "foundational",
+                      "analysis"
+                    ],
+                    "examScopeIds": [
+                      "exam-1"
+                    ],
+                    "completed": true,
+                    "rationale": "Critical for understanding when systems have solutions"
+                  }
+                ]
+              },
+              {
+                "id": "subtopic-row-echelon-form",
+                "title": "Row Echelon Form and RREF",
+                "description": "Techniques for transforming matrices to Row Echelon Form and Reduced Row Echelon Form",
+                "rationale": "Primary computational method for solving linear systems",
+                "microTopics": [
+                  {
+                    "id": "micro-row-operations",
+                    "title": "Elementary Row Operations",
+                    "description": "Swap, scale, and add operations on matrix rows",
+                    "tags": [
+                      "computational",
+                      "technique"
+                    ],
+                    "examScopeIds": [
+                      "exam-1"
+                    ],
+                    "completed": false,
+                    "rationale": "Fundamental operations for all row reduction procedures"
+                  },
+                  {
+                    "id": "micro-row-echelon",
+                    "title": "Row Echelon Form",
+                    "description": "Converting matrices to row echelon form and solving systems",
+                    "tags": [
+                      "computational",
+                      "technique"
+                    ],
+                    "examScopeIds": [
+                      "exam-1"
+                    ],
+                    "completed": false,
+                    "rationale": "Standard form for forward elimination in Gaussian elimination"
+                  },
+                  {
+                    "id": "micro-reduced-row-echelon",
+                    "title": "Reduced Row Echelon Form",
+                    "description": "Converting matrices to RREF and reading solutions directly",
+                    "tags": [
+                      "computational",
+                      "technique"
+                    ],
+                    "examScopeIds": [
+                      "exam-1"
+                    ],
+                    "completed": false,
+                    "rationale": "Provides unique canonical form for solving systems"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "topic-matrices",
+            "title": "Matrices and Matrix Operations",
+            "description": "Matrix arithmetic, algebraic properties, and elementary matrices",
+            "tags": [
+              "exam-1",
+              "foundational"
+            ],
+            "rationale": "Matrices are the central computational object in linear algebra",
+            "subTopics": [
+              {
+                "id": "subtopic-matrix-arithmetic",
+                "title": "Matrix Arithmetic",
+                "description": "Addition, subtraction, scalar multiplication, and matrix multiplication",
+                "rationale": "Basic operations needed for all matrix computations",
+                "microTopics": [
+                  {
+                    "id": "micro-matrix-addition",
+                    "title": "Matrix Addition and Subtraction",
+                    "description": "Adding and subtracting matrices element-wise",
+                    "tags": [
+                      "computational",
+                      "basic"
+                    ],
+                    "examScopeIds": [
+                      "exam-1"
+                    ],
+                    "completed": false,
+                    "rationale": "Fundamental operation for matrix algebra"
+                  },
+                  {
+                    "id": "micro-scalar-multiplication",
+                    "title": "Scalar Multiplication",
+                    "description": "Multiplying matrices by scalars",
+                    "tags": [
+                      "computational",
+                      "basic"
+                    ],
+                    "examScopeIds": [
+                      "exam-1"
+                    ],
+                    "completed": false,
+                    "rationale": "Essential operation for matrix algebra"
+                  },
+                  {
+                    "id": "micro-matrix-multiplication",
+                    "title": "Matrix Multiplication",
+                    "description": "Multiplying matrices and understanding non-commutativity",
+                    "tags": [
+                      "computational",
+                      "important"
+                    ],
+                    "examScopeIds": [
+                      "exam-1"
+                    ],
+                    "completed": false,
+                    "rationale": "Central operation with applications throughout linear algebra"
+                  }
+                ]
+              },
+              {
+                "id": "subtopic-matrix-algebra",
+                "title": "Matrix Algebra Properties",
+                "description": "Algebraic properties of matrix operations and special matrices",
+                "rationale": "Understanding properties enables efficient computation and theory",
+                "microTopics": [
+                  {
+                    "id": "micro-associativity",
+                    "title": "Associativity and Distributivity",
+                    "description": "Properties of matrix operations",
+                    "tags": [
+                      "theory",
+                      "properties"
+                    ],
+                    "examScopeIds": [
+                      "exam-1"
+                    ],
+                    "completed": false,
+                    "rationale": "Fundamental properties for manipulating matrix expressions"
+                  },
+                  {
+                    "id": "micro-identity-matrix",
+                    "title": "Identity and Zero Matrices",
+                    "description": "Special matrices and their properties",
+                    "tags": [
+                      "theory",
+                      "special-matrices"
+                    ],
+                    "examScopeIds": [
+                      "exam-1"
+                    ],
+                    "completed": false,
+                    "rationale": "Important special cases in matrix algebra"
+                  },
+                  {
+                    "id": "micro-matrix-transpose",
+                    "title": "Matrix Transpose",
+                    "description": "Transposing matrices and transpose properties",
+                    "tags": [
+                      "computational",
+                      "properties"
+                    ],
+                    "examScopeIds": [
+                      "exam-1"
+                    ],
+                    "completed": false,
+                    "rationale": "Important operation with applications in orthogonality"
+                  }
+                ]
+              },
+              {
+                "id": "subtopic-elementary-matrices",
+                "title": "Elementary Matrices",
+                "description": "Matrices representing elementary row operations",
+                "rationale": "Connects row operations to matrix multiplication",
+                "microTopics": [
+                  {
+                    "id": "micro-elementary-matrix-definition",
+                    "title": "Elementary Matrix Definition",
+                    "description": "Matrices obtained by single row operations on identity matrix",
+                    "tags": [
+                      "theory",
+                      "matrices"
+                    ],
+                    "examScopeIds": [
+                      "exam-1"
+                    ],
+                    "completed": false,
+                    "rationale": "Fundamental concept linking operations to matrices"
+                  },
+                  {
+                    "id": "micro-row-operations-as-multiplication",
+                    "title": "Row Operations as Matrix Multiplication",
+                    "description": "Representing row operations through left multiplication",
+                    "tags": [
+                      "theory",
+                      "computational"
+                    ],
+                    "examScopeIds": [
+                      "exam-1"
+                    ],
+                    "completed": false,
+                    "rationale": "Connects procedural operations to matrix algebra"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "topic-determinants",
+            "title": "Determinants",
+            "description": "Computing determinants and understanding their properties and applications",
+            "tags": [
+              "exam-1",
+              "important"
+            ],
+            "rationale": "Determinants characterize invertibility and have geometric significance",
+            "subTopics": [
+              {
+                "id": "subtopic-determinant-computation",
+                "title": "Computing Determinants",
+                "description": "Methods for calculating determinants of matrices",
+                "rationale": "Essential computational skill for determinant applications",
+                "microTopics": [
+                  {
+                    "id": "micro-2x2-determinant",
+                    "title": "2x2 Determinant Formula",
+                    "description": "Direct formula for 2x2 matrix determinants",
+                    "tags": [
+                      "computational",
+                      "basic"
+                    ],
+                    "examScopeIds": [
+                      "exam-1"
+                    ],
+                    "completed": false,
+                    "rationale": "Simplest case and foundation for larger matrices"
+                  },
+                  {
+                    "id": "micro-cofactor-expansion",
+                    "title": "Cofactor Expansion",
+                    "description": "Computing determinants using cofactor expansion along rows or columns",
+                    "tags": [
+                      "computational",
+                      "technique"
+                    ],
+                    "examScopeIds": [
+                      "exam-1"
+                    ],
+                    "completed": false,
+                    "rationale": "General method for computing determinants of any size"
+                  },
+                  {
+                    "id": "micro-row-reduction-determinant",
+                    "title": "Determinant via Row Reduction",
+                    "description": "Computing determinants using row operations",
+                    "tags": [
+                      "computational",
+                      "efficient"
+                    ],
+                    "examScopeIds": [
+                      "exam-1"
+                    ],
+                    "completed": false,
+                    "rationale": "Efficient method for large matrices"
+                  }
+                ]
+              },
+              {
+                "id": "subtopic-determinant-properties",
+                "title": "Properties of Determinants",
+                "description": "Theoretical properties and applications of determinants",
+                "rationale": "Properties enable efficient computation and theoretical understanding",
+                "microTopics": [
+                  {
+                    "id": "micro-determinant-row-operations",
+                    "title": "Determinant and Row Operations",
+                    "description": "How row operations affect determinants",
+                    "tags": [
+                      "theory",
+                      "properties"
+                    ],
+                    "examScopeIds": [
+                      "exam-1"
+                    ],
+                    "completed": false,
+                    "rationale": "Essential for understanding row reduction method"
+                  },
+                  {
+                    "id": "micro-determinant-product",
+                    "title": "Determinant of Product",
+                    "description": "det(AB) = det(A)det(B) and related properties",
+                    "tags": [
+                      "theory",
+                      "properties"
+                    ],
+                    "examScopeIds": [
+                      "exam-1"
+                    ],
+                    "completed": false,
+                    "rationale": "Important multiplicative property"
+                  },
+                  {
+                    "id": "micro-singular-matrix",
+                    "title": "Singular Matrices and Invertibility",
+                    "description": "Relationship between determinant and matrix invertibility",
+                    "tags": [
+                      "theory",
+                      "important"
+                    ],
+                    "examScopeIds": [
+                      "exam-1"
+                    ],
+                    "completed": false,
+                    "rationale": "Critical connection between determinant and invertibility"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "topic-vector-spaces",
+            "title": "Vector Spaces and Subspaces",
+            "description": "Abstract vector spaces, subspaces, and their axioms",
+            "tags": [
+              "exam-1",
+              "exam-2",
+              "theoretical"
+            ],
+            "rationale": "Vector spaces provide the abstract framework for linear algebra",
+            "subTopics": [
+              {
+                "id": "subtopic-vector-space-axioms",
+                "title": "Vector Space Axioms",
+                "description": "Definition and axioms of vector spaces",
+                "rationale": "Foundational definition for all abstract vector space theory",
+                "microTopics": [
+                  {
+                    "id": "micro-vector-space-definition",
+                    "title": "Vector Space Definition",
+                    "description": "Formal definition of a vector space with 10 axioms",
+                    "tags": [
+                      "theory",
+                      "foundational"
+                    ],
+                    "examScopeIds": [
+                      "exam-1"
+                    ],
+                    "completed": false,
+                    "rationale": "Essential definition for entire course"
+                  },
+                  {
+                    "id": "micro-vector-space-examples",
+                    "title": "Vector Space Examples",
+                    "description": "Examples of vector spaces: R^n, polynomials, functions, matrices",
+                    "tags": [
+                      "theory",
+                      "examples"
+                    ],
+                    "examScopeIds": [
+                      "exam-1"
+                    ],
+                    "completed": false,
+                    "rationale": "Concrete examples illustrating abstract definition"
+                  },
+                  {
+                    "id": "micro-vector-space-verification",
+                    "title": "Verifying Vector Spaces",
+                    "description": "Checking whether a set with operations is a vector space",
+                    "tags": [
+                      "theory",
+                      "technique"
+                    ],
+                    "examScopeIds": [
+                      "exam-1"
+                    ],
+                    "completed": false,
+                    "rationale": "Practical skill for determining vector spaces"
+                  }
+                ]
+              },
+              {
+                "id": "subtopic-subspaces",
+                "title": "Subspaces",
+                "description": "Subsets of vector spaces that are themselves vector spaces",
+                "rationale": "Subspaces are fundamental structures in linear algebra",
+                "microTopics": [
+                  {
+                    "id": "micro-subspace-definition",
+                    "title": "Subspace Definition",
+                    "description": "Definition and characterization of subspaces",
+                    "tags": [
+                      "theory",
+                      "foundational"
+                    ],
+                    "examScopeIds": [
+                      "exam-1"
+                    ],
+                    "completed": false,
+                    "rationale": "Essential definition for subspace theory"
+                  },
+                  {
+                    "id": "micro-subspace-test",
+                    "title": "Subspace Test",
+                    "description": "Three conditions for verifying subspaces",
+                    "tags": [
+                      "theory",
+                      "technique"
+                    ],
+                    "examScopeIds": [
+                      "exam-1"
+                    ],
+                    "completed": false,
+                    "rationale": "Practical method for verifying subspaces"
+                  },
+                  {
+                    "id": "micro-subspace-examples",
+                    "title": "Subspace Examples",
+                    "description": "Examples of subspaces and non-subspaces",
+                    "tags": [
+                      "theory",
+                      "examples"
+                    ],
+                    "examScopeIds": [
+                      "exam-1"
+                    ],
+                    "completed": false,
+                    "rationale": "Concrete examples illustrating subspace concept"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "topic-linear-independence",
+            "title": "Linear Independence and Dependence",
+            "description": "Linear independence, span, and basis concepts",
+            "tags": [
+              "exam-2",
+              "important"
+            ],
+            "rationale": "Linear independence is fundamental to understanding vector space structure",
+            "subTopics": [
+              {
+                "id": "subtopic-linear-independence-basics",
+                "title": "Linear Independence Fundamentals",
+                "description": "Definition and characterization of linear independence",
+                "rationale": "Core concept for understanding vector relationships",
+                "microTopics": [
+                  {
+                    "id": "micro-linear-independence-definition",
+                    "title": "Linear Independence Definition",
+                    "description": "Formal definition of linearly independent and dependent sets",
+                    "tags": [
+                      "theory",
+                      "foundational"
+                    ],
+                    "examScopeIds": [
+                      "exam-2"
+                    ],
+                    "completed": false,
+                    "rationale": "Essential definition for entire topic"
+                  },
+                  {
+                    "id": "micro-linear-independence-test",
+                    "title": "Testing Linear Independence",
+                    "description": "Methods for determining if vectors are linearly independent",
+                    "tags": [
+                      "computational",
+                      "technique"
+                    ],
+                    "examScopeIds": [
+                      "exam-2"
+                    ],
+                    "completed": false,
+                    "rationale": "Practical skill for analyzing vector sets"
+                  },
+                  {
+                    "id": "micro-linear-independence-examples",
+                    "title": "Linear Independence Examples",
+                    "description": "Examples of independent and dependent vector sets",
+                    "tags": [
+                      "theory",
+                      "examples"
+                    ],
+                    "examScopeIds": [
+                      "exam-2"
+                    ],
+                    "completed": false,
+                    "rationale": "Concrete examples illustrating concept"
+                  }
+                ]
+              },
+              {
+                "id": "subtopic-span",
+                "title": "Span of Vectors",
+                "description": "Span as the set of all linear combinations",
+                "rationale": "Span describes the subspace generated by vectors",
+                "microTopics": [
+                  {
+                    "id": "micro-span-definition",
+                    "title": "Span Definition",
+                    "description": "Span as all linear combinations of a set of vectors",
+                    "tags": [
+                      "theory",
+                      "foundational"
+                    ],
+                    "examScopeIds": [
+                      "exam-2"
+                    ],
+                    "completed": false,
+                    "rationale": "Essential definition for span concept"
+                  },
+                  {
+                    "id": "micro-span-computation",
+                    "title": "Computing Span",
+                    "description": "Finding and describing the span of a set of vectors",
+                    "tags": [
+                      "computational",
+                      "technique"
+                    ],
+                    "examScopeIds": [
+                      "exam-2"
+                    ],
+                    "completed": false,
+                    "rationale": "Practical skill for determining subspaces"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "topic-basis-dimension",
+            "title": "Basis and Dimension",
+            "description": "Bases for vector spaces, dimension, and coordinate systems",
+            "tags": [
+              "exam-2",
+              "important"
+            ],
+            "rationale": "Basis and dimension characterize the structure of vector spaces",
+            "subTopics": [
+              {
+                "id": "subtopic-basis",
+                "title": "Basis of Vector Spaces",
+                "description": "Definition and properties of bases",
+                "rationale": "Basis provides a coordinate system for vector spaces",
+                "microTopics": [
+                  {
+                    "id": "micro-basis-definition",
+                    "title": "Basis Definition",
+                    "description": "Basis as linearly independent spanning set",
+                    "tags": [
+                      "theory",
+                      "foundational"
+                    ],
+                    "examScopeIds": [
+                      "exam-2"
+                    ],
+                    "completed": false,
+                    "rationale": "Essential definition for basis concept"
+                  },
+                  {
+                    "id": "micro-basis-examples",
+                    "title": "Basis Examples",
+                    "description": "Standard and non-standard bases for various vector spaces",
+                    "tags": [
+                      "theory",
+                      "examples"
+                    ],
+                    "examScopeIds": [
+                      "exam-2"
+                    ],
+                    "completed": false,
+                    "rationale": "Concrete examples illustrating basis concept"
+                  },
+                  {
+                    "id": "micro-basis-uniqueness",
+                    "title": "Basis Uniqueness and Coordinates",
+                    "description": "Unique representation of vectors in a basis",
+                    "tags": [
+                      "theory",
+                      "important"
+                    ],
+                    "examScopeIds": [
+                      "exam-2"
+                    ],
+                    "completed": false,
+                    "rationale": "Fundamental property enabling coordinate systems"
+                  }
+                ]
+              },
+              {
+                "id": "subtopic-dimension",
+                "title": "Dimension",
+                "description": "Dimension of vector spaces and subspaces",
+                "rationale": "Dimension measures the size of vector spaces",
+                "microTopics": [
+                  {
+                    "id": "micro-dimension-definition",
+                    "title": "Dimension Definition",
+                    "description": "Dimension as the number of basis vectors",
+                    "tags": [
+                      "theory",
+                      "foundational"
+                    ],
+                    "examScopeIds": [
+                      "exam-2"
+                    ],
+                    "completed": false,
+                    "rationale": "Essential definition for dimension concept"
+                  },
+                  {
+                    "id": "micro-dimension-computation",
+                    "title": "Computing Dimension",
+                    "description": "Finding dimension of subspaces",
+                    "tags": [
+                      "computational",
+                      "technique"
+                    ],
+                    "examScopeIds": [
+                      "exam-2"
+                    ],
+                    "completed": false,
+                    "rationale": "Practical skill for analyzing vector spaces"
+                  }
+                ]
+              },
+              {
+                "id": "subtopic-change-of-basis",
+                "title": "Change of Basis",
+                "description": "Transition matrices and coordinate transformations",
+                "rationale": "Change of basis is essential for applications and computations",
+                "microTopics": [
+                  {
+                    "id": "micro-transition-matrix",
+                    "title": "Transition Matrices",
+                    "description": "Matrices for changing between coordinate systems",
+                    "tags": [
+                      "computational",
+                      "important"
+                    ],
+                    "examScopeIds": [
+                      "exam-2"
+                    ],
+                    "completed": false,
+                    "rationale": "Essential tool for coordinate transformations"
+                  },
+                  {
+                    "id": "micro-coordinate-transformation",
+                    "title": "Coordinate Transformations",
+                    "description": "Converting coordinates between different bases",
+                    "tags": [
+                      "computational",
+                      "technique"
+                    ],
+                    "examScopeIds": [
+                      "exam-2"
+                    ],
+                    "completed": false,
+                    "rationale": "Practical application of transition matrices"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "topic-linear-transformations",
+            "title": "Linear Transformations",
+            "description": "Linear transformations, matrix representations, and applications",
+            "tags": [
+              "exam-2",
+              "important"
+            ],
+            "rationale": "Linear transformations are functions preserving vector space structure",
+            "subTopics": [
+              {
+                "id": "subtopic-linear-transformation-basics",
+                "title": "Linear Transformation Fundamentals",
+                "description": "Definition and properties of linear transformations",
+                "rationale": "Foundational concepts for understanding transformations",
+                "microTopics": [
+                  {
+                    "id": "micro-linear-transformation-definition",
+                    "title": "Linear Transformation Definition",
+                    "description": "Functions preserving addition and scalar multiplication",
+                    "tags": [
+                      "theory",
+                      "foundational"
+                    ],
+                    "examScopeIds": [
+                      "exam-2"
+                    ],
+                    "completed": false,
+                    "rationale": "Essential definition for entire topic"
+                  },
+                  {
+                    "id": "micro-linear-transformation-examples",
+                    "title": "Linear Transformation Examples",
+                    "description": "Examples: rotations, projections, reflections, differentiation",
+                    "tags": [
+                      "theory",
+                      "examples"
+                    ],
+                    "examScopeIds": [
+                      "exam-2"
+                    ],
+                    "completed": false,
+                    "rationale": "Concrete examples illustrating concept"
+                  },
+                  {
+                    "id": "micro-linear-transformation-properties",
+                    "title": "Linear Transformation Properties",
+                    "description": "Properties of linear transformations",
+                    "tags": [
+                      "theory",
+                      "properties"
+                    ],
+                    "examScopeIds": [
+                      "exam-2"
+                    ],
+                    "completed": false,
+                    "rationale": "Important properties for working with transformations"
+                  }
+                ]
+              },
+              {
+                "id": "subtopic-matrix-representation",
+                "title": "Matrix Representation of Linear Transformations",
+                "description": "Representing linear transformations as matrices",
+                "rationale": "Matrix representation enables computational methods",
+                "microTopics": [
+                  {
+                    "id": "micro-matrix-representation-definition",
+                    "title": "Matrix Representation Definition",
+                    "description": "Representing transformations using matrices",
+                    "tags": [
+                      "theory",
+                      "important"
+                    ],
+                    "examScopeIds": [
+                      "exam-2"
+                    ],
+                    "completed": false,
+                    "rationale": "Essential connection between transformations and matrices"
+                  },
+                  {
+                    "id": "micro-matrix-representation-computation",
+                    "title": "Computing Matrix Representations",
+                    "description": "Finding matrix representations for given transformations",
+                    "tags": [
+                      "computational",
+                      "technique"
+                    ],
+                    "examScopeIds": [
+                      "exam-2"
+                    ],
+                    "completed": false,
+                    "rationale": "Practical skill for working with transformations"
+                  },
+                  {
+                    "id": "micro-basis-dependence",
+                    "title": "Basis Dependence of Representations",
+                    "description": "How matrix representation depends on choice of basis",
+                    "tags": [
+                      "theory",
+                      "important"
+                    ],
+                    "examScopeIds": [
+                      "exam-2"
+                    ],
+                    "completed": false,
+                    "rationale": "Important for understanding coordinate-free nature of transformations"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "topic-norms-inner-products",
+            "title": "Norms and Inner Products",
+            "description": "Norms, inner products, and orthogonality",
+            "tags": [
+              "exam-2",
+              "important"
+            ],
+            "rationale": "Inner products provide geometric structure to vector spaces",
+            "subTopics": [
+              {
+                "id": "subtopic-norms",
+                "title": "Norms",
+                "description": "Vector norms and their properties",
+                "rationale": "Norms measure vector magnitude",
+                "microTopics": [
+                  {
+                    "id": "micro-norm-definition",
+                    "title": "Norm Definition",
+                    "description": "Formal definition of vector norms",
+                    "tags": [
+                      "theory",
+                      "foundational"
+                    ],
+                    "examScopeIds": [
+                      "exam-2"
+                    ],
+                    "completed": false,
+                    "rationale": "Essential definition for norm concept"
+                  },
+                  {
+                    "id": "micro-common-norms",
+                    "title": "Common Norms",
+                    "description": "L1, L2 (Euclidean), and infinity norms",
+                    "tags": [
+                      "computational",
+                      "important"
+                    ],
+                    "examScopeIds": [
+                      "exam-2"
+                    ],
+                    "completed": false,
+                    "rationale": "Most commonly used norms in applications"
+                  },
+                  {
+                    "id": "micro-norm-properties",
+                    "title": "Norm Properties",
+                    "description": "Properties of norms and norm inequalities",
+                    "tags": [
+                      "theory",
+                      "properties"
+                    ],
+                    "examScopeIds": [
+                      "exam-2"
+                    ],
+                    "completed": false,
+                    "rationale": "Important properties for theoretical work"
+                  }
+                ]
+              },
+              {
+                "id": "subtopic-inner-products",
+                "title": "Inner Products",
+                "description": "Inner product spaces and their properties",
+                "rationale": "Inner products generalize dot product to abstract spaces",
+                "microTopics": [
+                  {
+                    "id": "micro-inner-product-definition",
+                    "title": "Inner Product Definition",
+                    "description": "Formal definition of inner products",
+                    "tags": [
+                      "theory",
+                      "foundational"
+                    ],
+                    "examScopeIds": [
+                      "exam-2"
+                    ],
+                    "completed": false,
+                    "rationale": "Essential definition for inner product concept"
+                  },
+                  {
+                    "id": "micro-inner-product-examples",
+                    "title": "Inner Product Examples",
+                    "description": "Examples: dot product, weighted inner products, function spaces",
+                    "tags": [
+                      "theory",
+                      "examples"
+                    ],
+                    "examScopeIds": [
+                      "exam-2"
+                    ],
+                    "completed": false,
+                    "rationale": "Concrete examples illustrating concept"
+                  },
+                  {
+                    "id": "micro-inner-product-properties",
+                    "title": "Inner Product Properties",
+                    "description": "Properties and inequalities (Cauchy-Schwarz)",
+                    "tags": [
+                      "theory",
+                      "properties"
+                    ],
+                    "examScopeIds": [
+                      "exam-2"
+                    ],
+                    "completed": false,
+                    "rationale": "Important properties for theoretical work"
+                  }
+                ]
+              },
+              {
+                "id": "subtopic-orthogonality",
+                "title": "Orthogonality",
+                "description": "Orthogonal and orthonormal sets",
+                "rationale": "Orthogonality simplifies computations and provides geometric insight",
+                "microTopics": [
+                  {
+                    "id": "micro-orthogonal-vectors",
+                    "title": "Orthogonal Vectors",
+                    "description": "Vectors with zero inner product",
+                    "tags": [
+                      "theory",
+                      "foundational"
+                    ],
+                    "examScopeIds": [
+                      "exam-2"
+                    ],
+                    "completed": false,
+                    "rationale": "Essential concept for orthogonality"
+                  },
+                  {
+                    "id": "micro-orthonormal-sets",
+                    "title": "Orthonormal Sets",
+                    "description": "Orthogonal sets with unit norm vectors",
+                    "tags": [
+                      "theory",
+                      "important"
+                    ],
+                    "examScopeIds": [
+                      "exam-2"
+                    ],
+                    "completed": false,
+                    "rationale": "Simplest and most useful orthogonal sets"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "topic-orthogonal-subspaces",
+            "title": "Orthogonal Subspaces and Projections",
+            "description": "Orthogonal complements, projections, and least squares",
+            "tags": [
+              "exam-2",
+              "important"
+            ],
+            "rationale": "Orthogonal projections are fundamental for applications",
+            "subTopics": [
+              {
+                "id": "subtopic-orthogonal-complements",
+                "title": "Orthogonal Complements",
+                "description": "Orthogonal complements and fundamental subspaces",
+                "rationale": "Orthogonal complements characterize orthogonal relationships",
+                "microTopics": [
+                  {
+                    "id": "micro-orthogonal-complement-definition",
+                    "title": "Orthogonal Complement Definition",
+                    "description": "Set of all vectors orthogonal to a subspace",
+                    "tags": [
+                      "theory",
+                      "foundational"
+                    ],
+                    "examScopeIds": [
+                      "exam-2"
+                    ],
+                    "completed": false,
+                    "rationale": "Essential definition for orthogonal complement"
+                  },
+                  {
+                    "id": "micro-fundamental-subspaces",
+                    "title": "Fundamental Subspaces Theorem",
+                    "description": "Row space, column space, null space, and left null space",
+                    "tags": [
+                      "theory",
+                      "important"
+                    ],
+                    "examScopeIds": [
+                      "exam-2"
+                    ],
+                    "completed": false,
+                    "rationale": "Central theorem relating fundamental subspaces"
+                  },
+                  {
+                    "id": "micro-orthogonal-complement-computation",
+                    "title": "Computing Orthogonal Complements",
+                    "description": "Finding bases for orthogonal complements",
+                    "tags": [
+                      "computational",
+                      "technique"
+                    ],
+                    "examScopeIds": [
+                      "exam-2"
+                    ],
+                    "completed": false,
+                    "rationale": "Practical skill for finding orthogonal complements"
+                  }
+                ]
+              },
+              {
+                "id": "subtopic-orthogonal-projections",
+                "title": "Orthogonal Projections",
+                "description": "Projecting vectors onto subspaces",
+                "rationale": "Projections are fundamental for approximation problems",
+                "microTopics": [
+                  {
+                    "id": "micro-projection-definition",
+                    "title": "Orthogonal Projection Definition",
+                    "description": "Projection of vector onto subspace",
+                    "tags": [
+                      "theory",
+                      "foundational"
+                    ],
+                    "examScopeIds": [
+                      "exam-2"
+                    ],
+                    "completed": false,
+                    "rationale": "Essential definition for projection concept"
+                  },
+                  {
+                    "id": "micro-projection-formula",
+                    "title": "Projection Formula",
+                    "description": "Formula for computing orthogonal projections",
+                    "tags": [
+                      "computational",
+                      "important"
+                    ],
+                    "examScopeIds": [
+                      "exam-2"
+                    ],
+                    "completed": false,
+                    "rationale": "Essential formula for computing projections"
+                  },
+                  {
+                    "id": "micro-projection-properties",
+                    "title": "Projection Properties",
+                    "description": "Properties of projection matrices",
+                    "tags": [
+                      "theory",
+                      "properties"
+                    ],
+                    "examScopeIds": [
+                      "exam-2"
+                    ],
+                    "completed": false,
+                    "rationale": "Important properties for theoretical work"
+                  }
+                ]
+              },
+              {
+                "id": "subtopic-least-squares",
+                "title": "Least Squares Problems",
+                "description": "Solving overdetermined systems and data fitting",
+                "rationale": "Least squares is fundamental for applications and data analysis",
+                "microTopics": [
+                  {
+                    "id": "micro-least-squares-problem",
+                    "title": "Least Squares Problem",
+                    "description": "Formulation of least squares problems",
+                    "tags": [
+                      "theory",
+                      "important"
+                    ],
+                    "examScopeIds": [
+                      "exam-2"
+                    ],
+                    "completed": false,
+                    "rationale": "Essential problem formulation"
+                  },
+                  {
+                    "id": "micro-normal-equations",
+                    "title": "Normal Equations",
+                    "description": "Solving least squares via normal equations",
+                    "tags": [
+                      "computational",
+                      "technique"
+                    ],
+                    "examScopeIds": [
+                      "exam-2"
+                    ],
+                    "completed": false,
+                    "rationale": "Standard method for solving least squares"
+                  },
+                  {
+                    "id": "micro-data-fitting",
+                    "title": "Data Fitting and Regression",
+                    "description": "Fitting curves to data using least squares",
+                    "tags": [
+                      "application",
+                      "important"
+                    ],
+                    "examScopeIds": [
+                      "exam-2"
+                    ],
+                    "completed": false,
+                    "rationale": "Important application of least squares"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "topic-gram-schmidt",
+            "title": "Gram-Schmidt Orthogonalization",
+            "description": "Gram-Schmidt algorithm for constructing orthonormal bases",
+            "tags": [
+              "exam-2",
+              "important"
+            ],
+            "rationale": "Gram-Schmidt provides method for constructing orthonormal bases",
+            "subTopics": [
+              {
+                "id": "subtopic-gram-schmidt-algorithm",
+                "title": "Gram-Schmidt Algorithm",
+                "description": "Step-by-step Gram-Schmidt orthogonalization process",
+                "rationale": "Algorithm for constructing orthonormal bases from arbitrary bases",
+                "microTopics": [
+                  {
+                    "id": "micro-gram-schmidt-process",
+                    "title": "Gram-Schmidt Process",
+                    "description": "Orthogonalization and normalization steps",
+                    "tags": [
+                      "computational",
+                      "algorithm"
+                    ],
+                    "examScopeIds": [
+                      "exam-2"
+                    ],
+                    "completed": false,
+                    "rationale": "Essential algorithm for constructing orthonormal bases"
+                  },
+                  {
+                    "id": "micro-gram-schmidt-examples",
+                    "title": "Gram-Schmidt Examples",
+                    "description": "Examples of applying Gram-Schmidt algorithm",
+                    "tags": [
+                      "computational",
+                      "examples"
+                    ],
+                    "examScopeIds": [
+                      "exam-2"
+                    ],
+                    "completed": false,
+                    "rationale": "Concrete examples illustrating algorithm"
+                  },
+                  {
+                    "id": "micro-gram-schmidt-properties",
+                    "title": "Gram-Schmidt Properties",
+                    "description": "Properties and numerical stability considerations",
+                    "tags": [
+                      "theory",
+                      "properties"
+                    ],
+                    "examScopeIds": [
+                      "exam-2"
+                    ],
+                    "completed": false,
+                    "rationale": "Important properties for understanding algorithm"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "topic-eigenvalues-eigenvectors",
+            "title": "Eigenvalues and Eigenvectors",
+            "description": "Finding and using eigenvalues and eigenvectors",
+            "tags": [
+              "final-exam",
+              "important"
+            ],
+            "rationale": "Eigenvalues and eigenvectors characterize matrix behavior",
+            "subTopics": [
+              {
+                "id": "subtopic-eigenvalue-basics",
+                "title": "Eigenvalues and Eigenvectors Fundamentals",
+                "description": "Definition and basic properties",
+                "rationale": "Foundational concepts for eigenvalue theory",
+                "microTopics": [
+                  {
+                    "id": "micro-eigenvalue-definition",
+                    "title": "Eigenvalue and Eigenvector Definition",
+                    "description": "Formal definition of eigenvalues and eigenvectors",
+                    "tags": [
+                      "theory",
+                      "foundational"
+                    ],
+                    "examScopeIds": [
+                      "final-exam"
+                    ],
+                    "completed": false,
+                    "rationale": "Essential definition for entire topic"
+                  },
+                  {
+                    "id": "micro-characteristic-polynomial",
+                    "title": "Characteristic Polynomial",
+                    "description": "Finding eigenvalues via characteristic polynomial",
+                    "tags": [
+                      "computational",
+                      "important"
+                    ],
+                    "examScopeIds": [
+                      "final-exam"
+                    ],
+                    "completed": false,
+                    "rationale": "Standard method for finding eigenvalues"
+                  },
+                  {
+                    "id": "micro-eigenspace",
+                    "title": "Eigenspace",
+                    "description": "Eigenspace as null space of (A - λI)",
+                    "tags": [
+                      "theory",
+                      "important"
+                    ],
+                    "examScopeIds": [
+                      "final-exam"
+                    ],
+                    "completed": false,
+                    "rationale": "Essential concept for understanding eigenvectors"
+                  }
+                ]
+              },
+              {
+                "id": "subtopic-diagonalization",
+                "title": "Diagonalization",
+                "description": "Diagonalizing matrices and applications",
+                "rationale": "Diagonalization simplifies matrix computations",
+                "microTopics": [
+                  {
+                    "id": "micro-diagonalization-definition",
+                    "title": "Diagonalization Definition",
+                    "description": "Expressing matrix as PDP^(-1)",
+                    "tags": [
+                      "theory",
+                      "important"
+                    ],
+                    "examScopeIds": [
+                      "final-exam"
+                    ],
+                    "completed": false,
+                    "rationale": "Essential concept for diagonalization"
+                  },
+                  {
+                    "id": "micro-diagonalizability-test",
+                    "title": "Diagonalizability Test",
+                    "description": "Determining whether a matrix is diagonalizable",
+                    "tags": [
+                      "computational",
+                      "technique"
+                    ],
+                    "examScopeIds": [
+                      "final-exam"
+                    ],
+                    "completed": false,
+                    "rationale": "Practical skill for determining diagonalizability"
+                  },
+                  {
+                    "id": "micro-diagonalization-computation",
+                    "title": "Computing Diagonalization",
+                    "description": "Finding P and D for diagonalization",
+                    "tags": [
+                      "computational",
+                      "technique"
+                    ],
+                    "examScopeIds": [
+                      "final-exam"
+                    ],
+                    "completed": false,
+                    "rationale": "Practical skill for computing diagonalization"
+                  },
+                  {
+                    "id": "micro-diagonalization-applications",
+                    "title": "Diagonalization Applications",
+                    "description": "Using diagonalization for matrix powers and exponentials",
+                    "tags": [
+                      "application",
+                      "important"
+                    ],
+                    "examScopeIds": [
+                      "final-exam"
+                    ],
+                    "completed": false,
+                    "rationale": "Important applications of diagonalization"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "topic-matrix-factorizations",
+            "title": "Matrix Factorizations",
+            "description": "LU, QR, and SVD decompositions",
+            "tags": [
+              "final-exam",
+              "important"
+            ],
+            "rationale": "Matrix factorizations are essential for numerical computations",
+            "subTopics": [
+              {
+                "id": "subtopic-lu-decomposition",
+                "title": "LU Decomposition",
+                "description": "Factoring matrices as LU",
+                "rationale": "LU decomposition is fundamental for solving linear systems",
+                "microTopics": [
+                  {
+                    "id": "micro-lu-definition",
+                    "title": "LU Decomposition Definition",
+                    "description": "Factoring A = LU",
+                    "tags": [
+                      "theory",
+                      "foundational"
+                    ],
+                    "examScopeIds": [
+                      "final-exam"
+                    ],
+                    "completed": false,
+                    "rationale": "Essential definition for LU decomposition"
+                  },
+                  {
+                    "id": "micro-lu-computation",
+                    "title": "Computing LU Decomposition",
+                    "description": "Finding L and U via Gaussian elimination",
+                    "tags": [
+                      "computational",
+                      "technique"
+                    ],
+                    "examScopeIds": [
+                      "final-exam"
+                    ],
+                    "completed": false,
+                    "rationale": "Practical skill for computing LU decomposition"
+                  },
+                  {
+                    "id": "micro-lu-applications",
+                    "title": "LU Decomposition Applications",
+                    "description": "Using LU for solving systems and computing determinants",
+                    "tags": [
+                      "application",
+                      "important"
+                    ],
+                    "examScopeIds": [
+                      "final-exam"
+                    ],
+                    "completed": false,
+                    "rationale": "Important applications of LU decomposition"
+                  }
+                ]
+              },
+              {
+                "id": "subtopic-qr-decomposition",
+                "title": "QR Decomposition",
+                "description": "Factoring matrices as QR",
+                "rationale": "QR decomposition is numerically stable for least squares",
+                "microTopics": [
+                  {
+                    "id": "micro-qr-definition",
+                    "title": "QR Decomposition Definition",
+                    "description": "Factoring A = QR with Q orthogonal",
+                    "tags": [
+                      "theory",
+                      "foundational"
+                    ],
+                    "examScopeIds": [
+                      "final-exam"
+                    ],
+                    "completed": false,
+                    "rationale": "Essential definition for QR decomposition"
+                  },
+                  {
+                    "id": "micro-qr-computation",
+                    "title": "Computing QR Decomposition",
+                    "description": "Finding Q and R via Gram-Schmidt",
+                    "tags": [
+                      "computational",
+                      "technique"
+                    ],
+                    "examScopeIds": [
+                      "final-exam"
+                    ],
+                    "completed": false,
+                    "rationale": "Practical skill for computing QR decomposition"
+                  },
+                  {
+                    "id": "micro-qr-applications",
+                    "title": "QR Decomposition Applications",
+                    "description": "Using QR for least squares and eigenvalue problems",
+                    "tags": [
+                      "application",
+                      "important"
+                    ],
+                    "examScopeIds": [
+                      "final-exam"
+                    ],
+                    "completed": false,
+                    "rationale": "Important applications of QR decomposition"
+                  }
+                ]
+              },
+              {
+                "id": "subtopic-svd",
+                "title": "Singular Value Decomposition",
+                "description": "SVD and its properties and applications",
+                "rationale": "SVD is the most general and powerful matrix decomposition",
+                "microTopics": [
+                  {
+                    "id": "micro-svd-definition",
+                    "title": "SVD Definition",
+                    "description": "Factoring A = UΣV^T",
+                    "tags": [
+                      "theory",
+                      "foundational"
+                    ],
+                    "examScopeIds": [
+                      "final-exam"
+                    ],
+                    "completed": false,
+                    "rationale": "Essential definition for SVD"
+                  },
+                  {
+                    "id": "micro-singular-values",
+                    "title": "Singular Values",
+                    "description": "Singular values and their interpretation",
+                    "tags": [
+                      "theory",
+                      "important"
+                    ],
+                    "examScopeIds": [
+                      "final-exam"
+                    ],
+                    "completed": false,
+                    "rationale": "Important concept for understanding SVD"
+                  },
+                  {
+                    "id": "micro-svd-computation",
+                    "title": "Computing SVD",
+                    "description": "Finding U, Σ, V via eigenvalue decomposition",
+                    "tags": [
+                      "computational",
+                      "technique"
+                    ],
+                    "examScopeIds": [
+                      "final-exam"
+                    ],
+                    "completed": false,
+                    "rationale": "Practical skill for computing SVD"
+                  },
+                  {
+                    "id": "micro-svd-applications",
+                    "title": "SVD Applications",
+                    "description": "Using SVD for rank, pseudoinverse, and data compression",
+                    "tags": [
+                      "application",
+                      "important"
+                    ],
+                    "examScopeIds": [
+                      "final-exam"
+                    ],
+                    "completed": false,
+                    "rationale": "Important applications of SVD"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "topic-matlab-applications",
+            "title": "MATLAB and Computational Applications",
+            "description": "Using MATLAB to explore and solve linear algebra problems",
+            "tags": [
+              "lab-0",
+              "lab-1",
+              "lab-2",
+              "lab-3",
+              "lab-4",
+              "lab-5",
+              "lab-6"
+            ],
+            "rationale": "Computational tools are essential for practical applications",
+            "subTopics": [
+              {
+                "id": "subtopic-matlab-basics",
+                "title": "MATLAB Fundamentals",
+                "description": "Basic MATLAB operations and matrix manipulation",
+                "rationale": "Foundation for all computational work",
+                "microTopics": [
+                  {
+                    "id": "micro-matlab-matrices",
+                    "title": "Matrix Creation and Operations",
+                    "description": "Creating and manipulating matrices in MATLAB",
+                    "tags": [
+                      "computational",
+                      "tool"
+                    ],
+                    "examScopeIds": [],
+                    "completed": false,
+                    "rationale": "Essential skill for MATLAB work"
+                  },
+                  {
+                    "id": "micro-matlab-functions",
+                    "title": "MATLAB Built-in Functions",
+                    "description": "Using MATLAB functions for linear algebra",
+                    "tags": [
+                      "computational",
+                      "tool"
+                    ],
+                    "examScopeIds": [],
+                    "completed": false,
+                    "rationale": "Essential skill for efficient computation"
+                  }
+                ]
+              },
+              {
+                "id": "subtopic-matlab-applications",
+                "title": "MATLAB Applications",
+                "description": "Applying MATLAB to solve linear algebra problems",
+                "rationale": "Practical application of computational tools",
+                "microTopics": [
+                  {
+                    "id": "micro-matlab-systems",
+                    "title": "Solving Linear Systems",
+                    "description": "Using MATLAB to solve systems of equations",
+                    "tags": [
+                      "computational",
+                      "application"
+                    ],
+                    "examScopeIds": [],
+                    "completed": false,
+                    "rationale": "Practical application of computational methods"
+                  },
+                  {
+                    "id": "micro-matlab-eigenvalues",
+                    "title": "Computing Eigenvalues",
+                    "description": "Using MATLAB to find eigenvalues and eigenvectors",
+                    "tags": [
+                      "computational",
+                      "application"
+                    ],
+                    "examScopeIds": [],
+                    "completed": false,
+                    "rationale": "Practical application of eigenvalue computation"
+                  },
+                  {
+                    "id": "micro-matlab-decompositions",
+                    "title": "Matrix Decompositions",
+                    "description": "Using MATLAB for LU, QR, and SVD",
+                    "tags": [
+                      "computational",
+                      "application"
+                    ],
+                    "examScopeIds": [],
+                    "completed": false,
+                    "rationale": "Practical application of matrix factorizations"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "assignments": [
+          {
+            "id": "assignment-matlab-lab-0",
+            "title": "MATLAB LAB 0",
+            "description": "Introductory MATLAB lab (extra credit)",
+            "dueDate": "2025-08-29T23:59:59.000Z",
+            "type": "project",
+            "relatedTopicIds": [
+              "topic-matlab-applications"
+            ],
+            "scopeText": "Introduction to MATLAB"
+          },
+          {
+            "id": "assignment-matlab-lab-1",
+            "title": "MATLAB LAB 1",
+            "description": "MATLAB lab on matrix operations and systems",
+            "dueDate": "2025-09-05T23:59:59.000Z",
+            "type": "project",
+            "relatedTopicIds": [
+              "topic-matrices",
+              "topic-linear-systems"
+            ],
+            "scopeText": "Covers 1.2-1.5"
+          },
+          {
+            "id": "assignment-matlab-lab-2",
+            "title": "MATLAB LAB 2",
+            "description": "MATLAB lab on vector spaces and subspaces",
+            "dueDate": "2025-09-19T23:59:59.000Z",
+            "type": "project",
+            "relatedTopicIds": [
+              "topic-vector-spaces"
+            ],
+            "scopeText": "Covers 3.1-3.2"
+          },
+          {
+            "id": "assignment-matlab-lab-3",
+            "title": "MATLAB LAB 3",
+            "description": "MATLAB lab on linear independence and basis",
+            "dueDate": "2025-10-03T23:59:59.000Z",
+            "type": "project",
+            "relatedTopicIds": [
+              "topic-linear-independence",
+              "topic-basis-dimension"
+            ],
+            "scopeText": "Covers 3.3-3.4"
+          },
+          {
+            "id": "assignment-matlab-lab-4",
+            "title": "MATLAB LAB 4",
+            "description": "MATLAB lab on linear transformations",
+            "dueDate": "2025-10-24T23:59:59.000Z",
+            "type": "project",
+            "relatedTopicIds": [
+              "topic-linear-transformations"
+            ],
+            "scopeText": "Covers 4.1-4.2, 5.1"
+          },
+          {
+            "id": "assignment-matlab-lab-5",
+            "title": "MATLAB LAB 5",
+            "description": "MATLAB lab on orthogonality and projections",
+            "dueDate": "2025-11-14T23:59:59.000Z",
+            "type": "project",
+            "relatedTopicIds": [
+              "topic-orthogonal-subspaces",
+              "topic-gram-schmidt"
+            ],
+            "scopeText": "Covers 5.2-5.5"
+          },
+          {
+            "id": "assignment-matlab-lab-6",
+            "title": "MATLAB LAB 6",
+            "description": "MATLAB lab on eigenvalues and decompositions",
+            "dueDate": "2025-12-05T23:59:59.000Z",
+            "type": "project",
+            "relatedTopicIds": [
+              "topic-eigenvalues-eigenvectors",
+              "topic-matrix-factorizations"
+            ],
+            "scopeText": "Covers 6.1, 6.3, 6.5"
+          },
+          {
+            "id": "exam-1",
+            "title": "Exam 1",
+            "description": "First midterm exam",
+            "dueDate": "2025-09-26T23:59:59.000Z",
+            "type": "exam",
+            "relatedTopicIds": [
+              "topic-linear-systems",
+              "topic-matrices",
+              "topic-determinants",
+              "topic-vector-spaces"
+            ],
+            "scopeText": "Covers 1.1-1.5, 2.1, 2.2, 3.1"
+          },
+          {
+            "id": "exam-2",
+            "title": "Exam 2",
+            "description": "Second midterm exam",
+            "dueDate": "2025-10-31T23:59:59.000Z",
+            "type": "exam",
+            "relatedTopicIds": [
+              "topic-vector-spaces",
+              "topic-linear-independence",
+              "topic-basis-dimension",
+              "topic-linear-transformations",
+              "topic-norms-inner-products",
+              "topic-orthogonal-subspaces"
+            ],
+            "scopeText": "Covers 3.2-3.6, 4.1, 4.2, 5.1"
+          },
+          {
+            "id": "exam-final",
+            "title": "Final Exam",
+            "description": "Comprehensive final exam",
+            "dueDate": "2025-12-11T14:10:00.000Z",
+            "type": "exam",
+            "relatedTopicIds": [
+              "topic-linear-systems",
+              "topic-matrices",
+              "topic-determinants",
+              "topic-vector-spaces",
+              "topic-linear-independence",
+              "topic-basis-dimension",
+              "topic-linear-transformations",
+              "topic-norms-inner-products",
+              "topic-orthogonal-subspaces",
+              "topic-gram-schmidt",
+              "topic-eigenvalues-eigenvectors",
+              "topic-matrix-factorizations"
+            ],
+            "scopeText": "Comprehensive exam covering all course material"
+          }
+        ],
+        "resources": {
+          "topic-linear-systems": [
+            {
+              "id": "resource-textbook-leon",
+              "title": "Linear Algebra with Applications, 10e",
+              "url": "https://www.pearson.com/",
+              "summary": "Primary textbook by Steven J. Leon, Lisette G. De Pillise covering all course topics",
+              "type": "doc",
+              "duration": "semester-long"
+            },
+            {
+              "id": "resource-tutoring-asu",
+              "title": "ASU Math Tutoring Center",
+              "url": "https://tutoring.asu.edu/",
+              "summary": "Free tutoring services for mathematics courses",
+              "type": "interactive",
+              "duration": "ongoing"
+            }
+          ],
+          "topic-matrices": [
+            {
+              "id": "resource-textbook-leon",
+              "title": "Linear Algebra with Applications, 10e",
+              "url": "https://www.pearson.com/",
+              "summary": "Primary textbook by Steven J. Leon, Lisette G. De Pillise covering all course topics",
+              "type": "doc",
+              "duration": "semester-long"
+            }
+          ],
+          "topic-matlab-applications": [
+            {
+              "id": "resource-matlab-myapps",
+              "title": "MATLAB via MyApps",
+              "url": "https://myapps.asu.edu/",
+              "summary": "Access MATLAB through ASU MyApps or download for local use",
+              "type": "interactive",
+              "duration": "semester-long"
+            }
+          ]
+        },
+        "exams": [
+          {
+            "id": "exam-1",
+            "title": "Exam 1",
+            "description": "First midterm examination covering linear systems, matrices, determinants, and vector spaces",
+            "date": "2025-09-26",
+            "relatedTopicIds": [
+              "topic-linear-systems",
+              "topic-matrices",
+              "topic-determinants",
+              "topic-vector-spaces"
+            ],
+            "uncertainty": "Exact time not specified in syllabus"
+          },
+          {
+            "id": "exam-2",
+            "title": "Exam 2",
+            "description": "Second midterm examination covering subspaces, linear independence, basis, dimension, linear transformations, and inner products",
+            "date": "2025-10-31",
+            "relatedTopicIds": [
+              "topic-vector-spaces",
+              "topic-linear-independence",
+              "topic-basis-dimension",
+              "topic-linear-transformations",
+              "topic-norms-inner-products",
+              "topic-orthogonal-subspaces"
+            ],
+            "uncertainty": "Exact time not specified in syllabus"
+          },
+          {
+            "id": "exam-final",
+            "title": "Final Exam",
+            "description": "Comprehensive final examination covering all course material",
+            "date": "2025-12-11",
+            "relatedTopicIds": [
+              "topic-linear-systems",
+              "topic-matrices",
+              "topic-determinants",
+              "topic-vector-spaces",
+              "topic-linear-independence",
+              "topic-basis-dimension",
+              "topic-linear-transformations",
+              "topic-norms-inner-products",
+              "topic-orthogonal-subspaces",
+              "topic-gram-schmidt",
+              "topic-eigenvalues-eigenvectors",
+              "topic-matrix-factorizations"
+            ],
+            "uncertainty": "Time specified as 12:10 - 2:00 PM"
+          }
+        ]
+      },
+      "quizHistory": [],
+      "quizResults": [],
+      "lastUpdated": "2025-11-09T09:44:52.239Z"
     }
   },
   "courseOrder": [
@@ -6901,6 +8723,7 @@
     "course-1762652682167",
     "course-1762652802085",
     "course-1762655433489",
-    "course-1762680146210"
+    "course-1762680146210",
+    "course-1762681414430"
   ]
 }

@@ -38,10 +38,9 @@ import {
 
 const DashboardPage = () => {
   const navigate = useNavigate();
-  const { courses, courseOrder } = useStudyPlanStore((state) => ({
-    courses: state.courses,
-    courseOrder: state.courseOrder
-  }));
+  // Use separate selectors to avoid creating new object references
+  const courses = useStudyPlanStore(state => state.courses);
+  const courseOrder = useStudyPlanStore(state => state.courseOrder);
 
   // Show empty state if no courses exist
   if (courseOrder.length === 0) {
@@ -64,14 +63,15 @@ const DashboardPage = () => {
     );
   }
 
+  // Memoize with courseOrder length as dependency - simpler and more stable
   const overallAnalytics = useMemo(
     () => calculateOverallAnalytics(courses, courseOrder),
-    [JSON.stringify(courseOrder)]
+    [courseOrder.length]
   );
 
   const courseAnalytics = useMemo(
     () => courseOrder.map((id) => calculateCourseAnalytics(id, courses[id])).filter(Boolean),
-    [JSON.stringify(courseOrder)]
+    [courseOrder.length]
   );
 
   const allExamReadiness = useMemo(() => {
@@ -82,7 +82,7 @@ const DashboardPage = () => {
         courseName: courses[id].studyMap.course.name,
       }));
     });
-  }, [JSON.stringify(courseOrder)]);
+  }, [courseOrder.length]);
 
   // Prepare data for charts
   const courseProgressData = courseAnalytics.map((c) => ({
