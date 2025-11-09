@@ -33,3 +33,4 @@ coverage/
 
 # Storage backups (keep main database)
 backend/storage/*.backup
+.vercel
