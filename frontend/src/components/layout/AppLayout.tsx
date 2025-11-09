@@ -45,6 +45,34 @@ const AppLayout = () => {
     };
   }, [courses, courseOrder, activeCourseId]);
   
+  // Get removeCourse action from store
+  const removeCourse = useStudyPlanStore((state) => state.removeCourse);
+  
+  // Handler for course deletion
+  const handleDeleteCourse = async (courseId: string, courseName: string) => {
+    if (!confirm(`Are you sure you want to delete "${courseName}"? This action cannot be undone.`)) {
+      return;
+    }
+    
+    try {
+      await studyApi.deleteCourse(courseId);
+      removeCourse(courseId);
+      toast.success("Course deleted successfully");
+      setIsDropdownOpen(false);
+      
+      // If we deleted the active course and there are courses remaining, navigate to the new active one
+      const remainingCourses = courseOrder.filter(id => id !== courseId);
+      if (courseId === activeCourseId && remainingCourses.length > 0) {
+        navigate(`/courses/${remainingCourses[0]}/map`);
+      } else if (remainingCourses.length === 0) {
+        navigate("/dashboard");
+      }
+    } catch (error) {
+      console.error("Failed to delete course", error);
+      toast.error("Unable to delete course. Please try again.");
+    }
+  };
+  
   // Handlers for creating new planner
   const handleDraftReady = (payload: StudyMapPayload, warningMessages?: string[]) => {
     setDraft(payload);
@@ -297,28 +325,50 @@ const AppLayout = () => {
                         </div>
                       ) : (
                         courseList.map((course) => (
-                          <button
+                          <div
                             key={course.studyMap.course.id}
-                            onClick={() => {
-                              setActiveCourse(course.studyMap.course.id);
-                              navigate(`/courses/${course.studyMap.course.id}/map`);
-                              setIsDropdownOpen(false);
-                            }}
-                            className={`w-full text-left px-2.5 py-2 text-xs transition-all rounded-lg ${
+                            className={`group flex items-center gap-2 px-2.5 py-2 text-xs transition-all rounded-lg ${
                               activeCourseId === course.studyMap.course.id
-                                ? "bg-gradient-to-r from-blue-50 to-indigo-50 text-blue-700 font-medium shadow-sm"
-                                : "text-slate-700 hover:bg-slate-50"
+                                ? "bg-gradient-to-r from-blue-50 to-indigo-50"
+                                : "hover:bg-slate-50"
                             }`}
                           >
-                            <div className="font-medium truncate">{course.studyMap.course.name}</div>
-                            {course.studyMap.course.term && (
-                              <div className={`text-[10px] mt-0.5 truncate ${
-                                activeCourseId === course.studyMap.course.id ? "text-blue-600" : "text-slate-500"
+                            <button
+                              onClick={() => {
+                                setActiveCourse(course.studyMap.course.id);
+                                navigate(`/courses/${course.studyMap.course.id}/map`);
+                                setIsDropdownOpen(false);
+                              }}
+                              className="flex-1 text-left"
+                            >
+                              <div className={`font-medium truncate ${
+                                activeCourseId === course.studyMap.course.id
+                                  ? "text-blue-700"
+                                  : "text-slate-700"
                               }`}>
-                                {course.studyMap.course.term}
+                                {course.studyMap.course.name}
                               </div>
-                            )}
-                          </button>
+                              {course.studyMap.course.term && (
+                                <div className={`text-[10px] mt-0.5 truncate ${
+                                  activeCourseId === course.studyMap.course.id ? "text-blue-600" : "text-slate-500"
+                                }`}>
+                                  {course.studyMap.course.term}
+                                </div>
+                              )}
+                            </button>
+                            <button
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                handleDeleteCourse(course.studyMap.course.id, course.studyMap.course.name);
+                              }}
+                              className="opacity-0 group-hover:opacity-100 p-1.5 rounded-md hover:bg-red-100 text-slate-400 hover:text-red-600 transition-all"
+                              title="Delete course"
+                            >
+                              <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                              </svg>
+                            </button>
+                          </div>
                         ))
                       )}
                     </div>

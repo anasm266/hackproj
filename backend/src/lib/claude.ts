@@ -550,6 +550,7 @@ CRITICAL INSTRUCTIONS FOR EXAMS:
   ): Promise<QuizResponsePayload> {
     console.log("=== generateQuiz called ===");
     console.log("Topics:", payload.topics.length);
+    console.log("Topic IDs being sent:", payload.topics.map(t => ({ id: t.id, title: t.title })));
     console.log("Difficulty:", payload.difficulty);
     console.log("Length:", payload.length);
     console.log("Question type:", payload.questionType);
@@ -585,7 +586,8 @@ ${topic.microTopics
         "ALWAYS provide exactly 4 choices with ONLY ONE correct answer for every question. " +
         "Use 'mcq' as the type for all questions. " +
         "Use the EXACT microtopic IDs provided in the user message for relatedMicroTopicIds field. " +
-        "For each question, assign ONE topicId from the topics provided - this helps identify weak spots. " +
+        "For each question, assign the topicId of the SPECIFIC topic the question is about (use the Topic ID from the list - could be a main topic, subtopic, or microtopic). " +
+        "The topicId should be the MOST SPECIFIC topic that matches the question content. " +
         "Return ONLY valid JSON array with no markdown or explanation.",
       messages: [
         {
@@ -605,9 +607,9 @@ IMPORTANT FORMAT RULES:
 - Include an "answer" field with the correct letter (e.g., "A", "B", "C", or "D") - ONLY ONE correct answer per question
 - Every question must have an "explanation" field
 - Every question must have "relatedMicroTopicIds" array using the EXACT IDs from the microtopics list above (e.g., ["micro-qualitative-data", "micro-hypothesis-testing"])
-- Every question must have a "topicId" field with the ID of the ONE main topic it belongs to (choose from the Topic IDs listed above)
+- Every question MUST have a "topicId" field with the EXACT ID from the topics list above - use the MOST SPECIFIC topic ID that the question is about
 
-Return JSON array: [{id,prompt,type:"mcq",choices:["A) ...","B) ...","C) ...","D) ..."],answer:"A",explanation,relatedMicroTopicIds:["micro-..."],topicId:"topic-..."}]`
+Return JSON array: [{id,prompt,type:"mcq",choices:["A) ...","B) ...","C) ...","D) ..."],answer:"A",explanation,relatedMicroTopicIds:["micro-..."],topicId:"<use exact topic ID from list>"}]`
             }
           ]
         }
@@ -835,7 +837,10 @@ Return JSON array: [{id,prompt,type:"mcq",choices:["A) ...","B) ...","C) ...","D
     });
 
     console.log("=== Normalized questions ===");
+    const expectedTopicIds = payload.topics.map(t => t.id);
+    console.log("Expected topic IDs from request:", expectedTopicIds);
     normalizedQuestions.forEach((q, idx) => {
+      const isExpected = expectedTopicIds.includes(q.topicId || '');
       console.log(`Q${idx + 1}:`, {
         id: q.id,
         type: q.type,
@@ -843,6 +848,7 @@ Return JSON array: [{id,prompt,type:"mcq",choices:["A) ...","B) ...","C) ...","D
         choicesCount: q.choices?.length,
         choices: q.choices?.map(c => ({ id: c.id, label: c.label.substring(0, 50), correct: c.correct })),
         topicId: q.topicId,
+        topicIdMatches: isExpected ? '✓' : '✗ MISMATCH',
         hasTopicId: !!q.topicId,
         relatedMicroTopicIds: q.relatedMicroTopicIds
       });

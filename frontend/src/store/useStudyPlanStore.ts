@@ -34,6 +34,7 @@ interface StudyPlanState {
   ingestStudyMap: (payload: StudyMapPayload) => void;
   hydrateFromServer: (payload: { courses: Record<string, CourseRecord>; courseOrder: string[] }) => void;
   setActiveCourse: (courseId: string) => void;
+  removeCourse: (courseId: string) => void;
   toggleMicroTopic: (courseId: string, microTopicId: string) => void;
   updateNodeTitle: (courseId: string, nodeId: string, title: string) => void;
   reorderNode: (courseId: string, payload: ReorderNodeInput) => void;
@@ -163,6 +164,20 @@ export const useStudyPlanStore = create<StudyPlanState>((set) => ({
     set(() => ({
       activeCourseId: courseId
     })),
+  removeCourse: (courseId) =>
+    set((state) => {
+      const { [courseId]: removed, ...remainingCourses } = state.courses;
+      const newCourseOrder = state.courseOrder.filter(id => id !== courseId);
+      const newActiveCourseId = state.activeCourseId === courseId 
+        ? newCourseOrder[0] 
+        : state.activeCourseId;
+      
+      return {
+        courses: remainingCourses,
+        courseOrder: newCourseOrder,
+        activeCourseId: newActiveCourseId
+      };
+    }),
   toggleMicroTopic: (courseId, microTopicId) =>
     set((state) => {
       const course = state.courses[courseId];

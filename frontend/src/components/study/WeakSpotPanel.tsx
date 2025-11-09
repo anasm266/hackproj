@@ -27,7 +27,7 @@ const WeakSpotPanel = ({ topic, resources, quizHistory, courseTitle, onClose, on
   const topicResources = resources.filter((r) => r.id.includes(topic.id) || r.summary.toLowerCase().includes(topic.title.toLowerCase()));
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4">
+    <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/50 p-4">
       <div className="relative flex h-[85vh] w-full max-w-3xl flex-col rounded-3xl border border-slate-200 bg-white shadow-2xl">
         {/* Header */}
         <div className="flex items-start justify-between border-b border-slate-200 p-6">

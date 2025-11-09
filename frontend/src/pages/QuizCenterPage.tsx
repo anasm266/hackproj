@@ -1,9 +1,11 @@
 import { useEffect, useMemo, useState } from "react";
+import { createPortal } from "react-dom";
 import { useParams } from "react-router-dom";
 import toast from "react-hot-toast";
 import type { QuizResponsePayload, Topic } from "@studymap/types";
 import QuizPlayer from "../components/quiz/QuizPlayer";
 import WeakSpotPanel from "../components/study/WeakSpotPanel";
+import ChatInterface from "../components/chat/ChatInterface";
 import { studyApi } from "../lib/api";
 import { useStudyPlanStore, type QuizResult } from "../store/useStudyPlanStore";
 
@@ -26,10 +28,12 @@ const QuizCenterPage = () => {
   const [deleteConfirm, setDeleteConfirm] = useState<string | null>(null);
   const [deleteQuizConfirm, setDeleteQuizConfirm] = useState<string | null>(null);
   const [expandedTopics, setExpandedTopics] = useState<Set<string>>(new Set());
+  const [expandedQuizIds, setExpandedQuizIds] = useState<Set<string>>(new Set());
   const [showWeakSpotPanel, setShowWeakSpotPanel] = useState(false);
   const [selectedWeakTopic, setSelectedWeakTopic] = useState<Topic | null>(null);
   const [showWeakSpotsList, setShowWeakSpotsList] = useState(false);
   const [currentWeakTopicIds, setCurrentWeakTopicIds] = useState<string[]>([]);
+  const [showChatOverlay, setShowChatOverlay] = useState(false);
 
   useEffect(() => {
     if (course?.quizHistory?.[0]) {
@@ -37,10 +41,34 @@ const QuizCenterPage = () => {
     }
   }, [course?.quizHistory]);
 
-  // Full topic map for quiz generation
+  // Full topic map for quiz generation (includes topics, subtopics, and microtopics as Topic objects)
   const fullTopicMap = useMemo(() => {
     const map = new Map<string, Topic>();
-    course?.studyMap.topics.forEach((topic) => map.set(topic.id, topic));
+    course?.studyMap.topics.forEach((topic) => {
+      // Add main topic
+      map.set(topic.id, topic);
+      
+      // Add subtopics (convert to Topic format)
+      topic.subTopics.forEach((subTopic) => {
+        map.set(subTopic.id, {
+          ...subTopic,
+          subTopics: subTopic.microTopics.map(micro => ({
+            ...micro,
+            microTopics: []
+          })),
+          tags: []
+        } as Topic);
+        
+        // Add microtopics (convert to Topic format)
+        subTopic.microTopics.forEach((microTopic) => {
+          map.set(microTopic.id, {
+            ...microTopic,
+            subTopics: [],
+            tags: []
+          } as Topic);
+        });
+      });
+    });
     return map;
   }, [course]);
 
@@ -113,8 +141,8 @@ const QuizCenterPage = () => {
       } else {
         // Select all
         const newSelections = [...prev, ...allIdsToToggle.filter(id => !prev.includes(id))];
-        if (newSelections.length > 8) {
-          toast.error("You can select up to 8 topics.");
+        if (newSelections.length > 20) {
+          toast.error("You can select up to 20 topics.");
           return prev;
         }
         return newSelections;
@@ -173,40 +201,35 @@ const QuizCenterPage = () => {
         length,
         questionType,
         topics: selectedTopics.map((topicId) => {
-          // Try to find as main topic first
-          let topic = fullTopicMap.get(topicId);
+          // Get the actual selected topic (could be main topic, subtopic, or microtopic)
+          const selectedTopic = fullTopicMap.get(topicId);
           
-          // If not found, it might be a subtopic or microtopic, find parent topic
-          if (!topic) {
-            for (const mainTopic of course!.studyMap.topics) {
-              if (mainTopic.id === topicId) {
-                topic = mainTopic;
-                break;
-              }
-              // Check if it's a subtopic
-              for (const subTopic of mainTopic.subTopics) {
-                if (subTopic.id === topicId) {
-                  topic = mainTopic;
-                  break;
-                }
-                // Check if it's a microtopic
-                if (subTopic.microTopics.some(mt => mt.id === topicId)) {
-                  topic = mainTopic;
-                  break;
-                }
-              }
-              if (topic) break;
-            }
-          }
-          
-          if (!topic) {
+          if (!selectedTopic) {
             throw new Error(`Topic ${topicId} not found`);
           }
           
+          // Determine if this is a main topic by checking if it exists in course.studyMap.topics
+          const isMainTopic = course!.studyMap.topics.some(t => t.id === topicId);
+          
+          // Find the parent main topic for microtopics list
+          let mainTopic = selectedTopic;
+          if (!isMainTopic) {
+            for (const topic of course!.studyMap.topics) {
+              for (const subTopic of topic.subTopics) {
+                if (subTopic.id === topicId || subTopic.microTopics.some(mt => mt.id === topicId)) {
+                  mainTopic = topic;
+                  break;
+                }
+              }
+              if (mainTopic !== selectedTopic) break;
+            }
+          }
+          
           return {
-            id: topic.id,
-            title: topic.title,
-            microTopics: topic.subTopics.flatMap((subTopic) =>
+            id: selectedTopic.id, // Use the actual selected ID, not parent
+            title: selectedTopic.title,
+            description: selectedTopic.description,
+            microTopics: mainTopic.subTopics.flatMap((subTopic) =>
               subTopic.microTopics.map((micro) => ({
                 id: micro.id,
                 title: micro.title,
@@ -407,146 +430,6 @@ const QuizCenterPage = () => {
         </div>
       )}
 
-      {course.quizHistory.length > 0 && (
-        <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-card">
-          <p className="mb-3 text-xs font-semibold uppercase text-slate-500">Quiz History</p>
-          <div className="grid gap-2">
-            {course.quizHistory.map((quiz, index) => {
-              const isActive = activeQuiz?.quizId === quiz.quizId;
-              const date = new Date(quiz.generatedAt);
-              const formattedDate = date.toLocaleDateString('en-US', { 
-                month: 'short', 
-                day: 'numeric', 
-                year: 'numeric',
-                hour: 'numeric',
-                minute: '2-digit'
-              });
-              
-              return (
-                <div
-                  key={quiz.quizId}
-                  className={`flex items-center justify-between rounded-2xl border px-4 py-3 transition-colors ${
-                    isActive
-                      ? "border-blue-500 bg-blue-50"
-                      : "border-slate-200 bg-white hover:border-slate-300"
-                  }`}
-                >
-                  <button
-                    onClick={() => setActiveQuiz(quiz)}
-                    className="flex-1 text-left"
-                  >
-                    <p className={`text-sm font-semibold ${isActive ? "text-blue-900" : "text-slate-800"}`}>
-                      Quiz {course.quizHistory.length - index}
-                    </p>
-                    <p className={`text-xs ${isActive ? "text-blue-600" : "text-slate-500"}`}>
-                      {quiz.questions.length} questions • {formattedDate}
-                    </p>
-                    {quiz.topics && quiz.topics.length > 0 && (
-                      <div className="mt-1.5 flex flex-wrap gap-1">
-                        {quiz.topics.slice(0, 3).map((topic) => (
-                          <span
-                            key={topic.id}
-                            className={`inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium ${
-                              isActive 
-                                ? "bg-blue-100 text-blue-700" 
-                                : "bg-slate-100 text-slate-600"
-                            }`}
-                          >
-                            {topic.title}
-                          </span>
-                        ))}
-                        {quiz.topics.length > 3 && (
-                          <span className={`text-xs ${isActive ? "text-blue-600" : "text-slate-500"}`}>
-                            +{quiz.topics.length - 3} more
-                          </span>
-                        )}
-                      </div>
-                    )}
-                  </button>
-                  <div className="flex items-center gap-2">
-                    {isActive && (
-                      <span className="rounded-full bg-blue-500 px-3 py-1 text-xs font-semibold text-white">
-                        Active
-                      </span>
-                    )}
-                    <button
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        setDeleteQuizConfirm(quiz.quizId);
-                      }}
-                      className="rounded-full p-2 text-slate-400 hover:bg-red-50 hover:text-red-600 transition-colors"
-                      title="Delete quiz"
-                    >
-                      <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                      </svg>
-                    </button>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      )}
-
-      {course.quizResults && course.quizResults.length > 0 && (
-        <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-card">
-          <p className="mb-3 text-xs font-semibold uppercase text-slate-500">Quiz Results History</p>
-          <div className="grid gap-2">
-            {course.quizResults.map((result) => {
-              const date = new Date(result.completedAt);
-              const formattedDate = date.toLocaleDateString('en-US', { 
-                month: 'short', 
-                day: 'numeric', 
-                year: 'numeric',
-                hour: 'numeric',
-                minute: '2-digit'
-              });
-              const percentage = Math.round((result.score / result.totalQuestions) * 100);
-              
-              return (
-                <div
-                  key={result.id}
-                  className="flex items-center justify-between rounded-2xl border border-slate-200 bg-white px-4 py-3"
-                >
-                  <div className="flex-1">
-                    <div className="flex items-center gap-2">
-                      <p className="text-sm font-semibold text-slate-800">
-                        {result.score}/{result.totalQuestions} ({percentage}%)
-                      </p>
-                      <span className={`rounded-full px-2 py-0.5 text-xs font-semibold ${
-                        percentage >= 80 
-                          ? "bg-emerald-50 text-emerald-700" 
-                          : percentage >= 60 
-                            ? "bg-yellow-50 text-yellow-700" 
-                            : "bg-rose-50 text-rose-700"
-                      }`}>
-                        {result.difficulty}
-                      </span>
-                      {result.weakTopicIds && result.weakTopicIds.length > 0 && (
-                        <span className="rounded-full bg-rose-100 px-2 py-0.5 text-xs font-semibold text-rose-700">
-                          🎯 {result.weakTopicIds.length} weak spot{result.weakTopicIds.length > 1 ? 's' : ''}
-                        </span>
-                      )}
-                    </div>
-                    <p className="text-xs text-slate-500 mt-1">
-                      {result.topicTitles.join(", ")} • {formattedDate}
-                    </p>
-                  </div>
-                  <button
-                    onClick={() => setDeleteConfirm(result.id)}
-                    className="rounded-full p-2 text-slate-400 hover:bg-slate-100 hover:text-rose-600"
-                    title="Delete result"
-                  >
-                    🗑️
-                  </button>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      )}
-
       <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-card">
         <div className="grid gap-4 lg:grid-cols-2">
           <div className="space-y-3">
@@ -659,7 +542,7 @@ const QuizCenterPage = () => {
                 );
               })}
             </div>
-            <p className="text-xs text-slate-500">{selectedTopics.length}/8 selected</p>
+            <p className="text-xs text-slate-500">{selectedTopics.length}/20 selected</p>
           </div>
 
           <div className="space-y-4 rounded-2xl border border-slate-100 bg-slate-50 p-4">
@@ -682,7 +565,28 @@ const QuizCenterPage = () => {
                 min={1}
                 max={20}
                 value={length}
-                onChange={(event) => setLength(Number(event.target.value))}
+                onChange={(event) => {
+                  const value = event.target.value;
+                  // Allow empty string for user to clear and type fresh
+                  if (value === '' || value === '0') {
+                    setLength(0);
+                    return;
+                  }
+                  const numValue = Number(value);
+                  if (numValue > 20) {
+                    setLength(20);
+                    toast.error("Maximum 20 questions per quiz");
+                  } else if (numValue < 1) {
+                    setLength(0);
+                  } else {
+                    setLength(numValue);
+                  }
+                }}
+                onBlur={(event) => {
+                  const value = Number(event.target.value);
+                  if (value > 20) setLength(20);
+                  else if (value < 1 || !value) setLength(5);
+                }}
                 className="rounded-2xl border border-slate-200 px-3 py-2"
               />
             </label>
@@ -709,9 +613,168 @@ const QuizCenterPage = () => {
         />
       )}
 
+      {/* Quiz History Section */}
+      {course.quizHistory.length > 0 && (
+        <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-card">
+          <p className="mb-3 text-xs font-semibold uppercase text-slate-500">Quiz History</p>
+          <div className="grid gap-2">
+            {course.quizHistory.map((quiz, index) => {
+              const isActive = activeQuiz?.quizId === quiz.quizId;
+              const date = new Date(quiz.generatedAt);
+              const formattedDate = date.toLocaleDateString('en-US', { 
+                month: 'short', 
+                day: 'numeric', 
+                year: 'numeric',
+                hour: 'numeric',
+                minute: '2-digit'
+              });
+              
+              // Check if this quiz's topics are expanded
+              const isExpanded = expandedQuizIds.has(quiz.quizId);
+              
+              return (
+                <div
+                  key={quiz.quizId}
+                  className={`flex items-center justify-between rounded-2xl border px-4 py-3 transition-colors ${
+                    isActive
+                      ? "border-blue-500 bg-blue-50"
+                      : "border-slate-200 bg-white hover:border-slate-300"
+                  }`}
+                >
+                  <button
+                    onClick={() => setActiveQuiz(quiz)}
+                    className="flex-1 text-left"
+                  >
+                    <p className={`text-sm font-semibold ${isActive ? "text-blue-900" : "text-slate-800"}`}>
+                      Quiz {course.quizHistory.length - index}
+                    </p>
+                    <p className={`text-xs ${isActive ? "text-blue-600" : "text-slate-500"}`}>
+                      {quiz.questions.length} questions • {formattedDate}
+                    </p>
+                    {quiz.topics && quiz.topics.length > 0 && (
+                      <div className="mt-1.5 flex flex-wrap gap-1">
+                        {(isExpanded ? quiz.topics : quiz.topics.slice(0, 3)).map((topic) => (
+                          <span
+                            key={topic.id}
+                            className={`inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium ${
+                              isActive 
+                                ? "bg-blue-100 text-blue-700" 
+                                : "bg-slate-100 text-slate-600"
+                            }`}
+                          >
+                            {topic.title}
+                          </span>
+                        ))}
+                        {quiz.topics.length > 3 && (
+                          <button
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              setExpandedQuizIds(prev => {
+                                const next = new Set(prev);
+                                if (next.has(quiz.quizId)) {
+                                  next.delete(quiz.quizId);
+                                } else {
+                                  next.add(quiz.quizId);
+                                }
+                                return next;
+                              });
+                            }}
+                            className={`text-xs font-medium hover:underline ${isActive ? "text-blue-600" : "text-slate-500"}`}
+                          >
+                            {isExpanded ? 'Show less' : `+${quiz.topics.length - 3} more`}
+                          </button>
+                        )}
+                      </div>
+                    )}
+                  </button>
+                  <div className="flex items-center gap-2">
+                    {isActive && (
+                      <span className="rounded-full bg-blue-500 px-3 py-1 text-xs font-semibold text-white">
+                        Active
+                      </span>
+                    )}
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setDeleteQuizConfirm(quiz.quizId);
+                      }}
+                      className="rounded-full p-2 text-slate-400 hover:bg-red-50 hover:text-red-600 transition-colors"
+                      title="Delete quiz"
+                    >
+                      <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      )}
+
+      {/* Quiz Results History Section */}
+      {course.quizResults && course.quizResults.length > 0 && (
+        <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-card">
+          <p className="mb-3 text-xs font-semibold uppercase text-slate-500">Quiz Results History</p>
+          <div className="grid gap-2">
+            {course.quizResults.map((result) => {
+              const date = new Date(result.completedAt);
+              const formattedDate = date.toLocaleDateString('en-US', { 
+                month: 'short', 
+                day: 'numeric', 
+                year: 'numeric',
+                hour: 'numeric',
+                minute: '2-digit'
+              });
+              const percentage = Math.round((result.score / result.totalQuestions) * 100);
+              
+              return (
+                <div
+                  key={result.id}
+                  className="flex items-center justify-between rounded-2xl border border-slate-200 bg-white px-4 py-3"
+                >
+                  <div className="flex-1">
+                    <div className="flex items-center gap-2">
+                      <p className="text-sm font-semibold text-slate-800">
+                        {result.score}/{result.totalQuestions} ({percentage}%)
+                      </p>
+                      <span className={`rounded-full px-2 py-0.5 text-xs font-semibold ${
+                        percentage >= 80 
+                          ? "bg-emerald-50 text-emerald-700" 
+                          : percentage >= 60 
+                            ? "bg-yellow-50 text-yellow-700" 
+                            : "bg-rose-50 text-rose-700"
+                      }`}>
+                        {result.difficulty}
+                      </span>
+                      {result.weakTopicIds && result.weakTopicIds.length > 0 && (
+                        <span className="rounded-full bg-rose-100 px-2 py-0.5 text-xs font-semibold text-rose-700">
+                          🎯 {result.weakTopicIds.length} weak spot{result.weakTopicIds.length > 1 ? 's' : ''}
+                        </span>
+                      )}
+                    </div>
+                    <p className="text-xs text-slate-500 mt-1">
+                      {result.topicTitles.join(", ")} • {formattedDate}
+                    </p>
+                  </div>
+                  <button
+                    onClick={() => setDeleteConfirm(result.id)}
+                    className="rounded-full p-2 text-slate-400 hover:bg-slate-100 hover:text-rose-600"
+                    title="Delete result"
+                  >
+                    🗑️
+                  </button>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      )}
+
       {/* Weak Spots List Modal */}
-      {showWeakSpotsList && activeQuiz && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4">
+      {showWeakSpotsList && activeQuiz && createPortal(
+        <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/50 p-4">
           <div className="w-full max-w-2xl rounded-3xl border border-slate-200 bg-white p-6 shadow-2xl">
             <div className="mb-6 flex items-start justify-between">
               <div>
@@ -750,23 +813,11 @@ const QuizCenterPage = () => {
                   );
                 }
 
-                // Count questions per topic
-                const topicQuestionCount: Record<string, { correct: number; total: number }> = {};
-                activeQuiz.questions.forEach((q) => {
-                  if (q.topicId) {
-                    if (!topicQuestionCount[q.topicId]) {
-                      topicQuestionCount[q.topicId] = { correct: 0, total: 0 };
-                    }
-                    topicQuestionCount[q.topicId].total++;
-                  }
-                });
-
+                // Since we don't store detailed per-question results,
+                // we just show all weak topics as "Needs Review"
                 return weakTopicIds.map((topicId) => {
                   const topic = fullTopicMap.get(topicId);
                   if (!topic) return null;
-
-                  const stats = topicQuestionCount[topicId] || { correct: 0, total: 0 };
-                  const percentage = stats.total > 0 ? Math.round((stats.correct / stats.total) * 100) : 0;
 
                   return (
                     <button
@@ -785,11 +836,9 @@ const QuizCenterPage = () => {
                       </div>
                       <div className="flex items-center gap-3">
                         <div className="text-right">
-                          <p className="text-xs text-slate-500">Performance</p>
-                          <p className={`text-lg font-bold ${
-                            percentage >= 70 ? "text-yellow-600" : "text-rose-600"
-                          }`}>
-                            {percentage}%
+                          <p className="text-xs text-slate-500">Status</p>
+                          <p className="text-sm font-bold text-rose-600">
+                            Needs Review
                           </p>
                         </div>
                         <span className="text-slate-400">→</span>
@@ -809,7 +858,8 @@ const QuizCenterPage = () => {
               </button>
             </div>
           </div>
-        </div>
+        </div>,
+        document.body
       )}
 
       {/* Weak Spot Detail Panel */}
@@ -829,6 +879,62 @@ const QuizCenterPage = () => {
             toast.success("Resource added!");
           }}
         />
+      )}
+
+      {/* Floating Chat Button */}
+      <button
+        onClick={() => setShowChatOverlay(true)}
+        className="fixed bottom-6 right-6 z-50 flex items-center justify-center w-14 h-14 bg-blue-600 text-white rounded-full shadow-lg hover:shadow-xl hover:bg-blue-700 hover:scale-110 transition-all duration-200"
+        title="Study Assistant Chat"
+      >
+        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+        </svg>
+      </button>
+
+      {/* Chat Overlay */}
+      {showChatOverlay && createPortal(
+        <div 
+          className="fixed inset-0 z-[9999] bg-black/50 flex items-center justify-center p-4"
+          onClick={() => setShowChatOverlay(false)}
+        >
+          <div 
+            className="relative w-full max-w-4xl h-[85vh] bg-white rounded-3xl shadow-2xl flex flex-col overflow-hidden"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Chat Header */}
+            <div className="border-b border-slate-200 bg-white px-6 py-4 flex items-center justify-between flex-shrink-0">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
+                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                  </svg>
+                </div>
+                <div>
+                  <h2 className="text-xl font-bold text-slate-900">Study Assistant</h2>
+                  <p className="text-sm text-slate-600">{course.studyMap.course.name}</p>
+                </div>
+              </div>
+              <button
+                onClick={() => setShowChatOverlay(false)}
+                className="rounded-full p-2 text-slate-400 hover:bg-slate-100 hover:text-slate-600 transition-colors"
+                title="Close chat"
+              >
+                ✕
+              </button>
+            </div>
+
+            {/* Chat Interface */}
+            <div className="flex-1 overflow-hidden">
+              <ChatInterface 
+                courseId={courseId} 
+                course={course}
+                onClose={() => setShowChatOverlay(false)}
+              />
+            </div>
+          </div>
+        </div>,
+        document.body
       )}
     </div>
   );

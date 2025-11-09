@@ -62,6 +62,9 @@ export const studyApi = {
   async saveCourse(studyMap: StudyMapPayload): Promise<void> {
     await client.post("/courses", { studyMap });
   },
+  async deleteCourse(courseId: string): Promise<void> {
+    await client.delete(`/courses/${courseId}`);
+  },
   async persistTopics(courseId: string, topics: Topic[]): Promise<void> {
     await client.patch(`/courses/${courseId}/topics`, { topics });
   },

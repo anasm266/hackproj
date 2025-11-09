@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { createPortal } from "react-dom";
 import toast from "react-hot-toast";
 import type { ResourceType, ResourceSearchResult, SearchQuality } from "@studymap/types";
 import { studyApi } from "../../lib/api";
@@ -18,7 +19,6 @@ const ResourceSearchModal = ({
   isOpen,
   onClose,
   courseTitle,
-  topicId,
   topicTitle: initialTopicTitle,
   topicDescription: initialTopicDescription,
   onResourceSelect
@@ -145,8 +145,10 @@ const ResourceSearchModal = ({
     onClose();
   };
 
-  return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4">
+  if (!isOpen) return null;
+
+  return createPortal(
+    <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/50 p-4">
       <div className="max-h-[90vh] w-full max-w-4xl overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-2xl">
         {/* Header */}
         <div className="border-b border-slate-200 px-6 py-4">
@@ -432,7 +434,8 @@ const ResourceSearchModal = ({
           )}
         </div>
       </div>
-    </div>
+    </div>,
+    document.body
   );
 };
 

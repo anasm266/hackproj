@@ -23,15 +23,12 @@ import {
   AlertTriangle,
   CheckCircle,
   Calendar,
-  Clock,
-  Target,
 } from "lucide-react";
 import { courseProgress } from "../lib/progress";
 import { useStudyPlanStore } from "../store/useStudyPlanStore";
 import {
   calculateCourseAnalytics,
   calculateOverallAnalytics,
-  calculateExamReadiness,
   calculateQuizAnalytics,
 } from "../lib/analytics";
 
@@ -39,26 +36,6 @@ const DashboardPage = () => {
   const navigate = useNavigate();
   const courses = useStudyPlanStore((state) => state.courses);
   const courseOrder = useStudyPlanStore((state) => state.courseOrder);
-
-  if (!courseOrder.length) {
-    return (
-      <div className="flex min-h-screen items-center justify-center p-8">
-        <div className="w-full max-w-md rounded-3xl border border-slate-200 bg-white p-10 text-center shadow-card">
-          <Award className="mx-auto h-16 w-16 text-slate-300" />
-          <h2 className="mt-4 text-2xl font-semibold text-slate-900">No Courses Yet</h2>
-          <p className="mt-2 text-slate-500">
-            Upload your first syllabus to get started with your personalized study dashboard!
-          </p>
-          <button
-            onClick={() => navigate("/")}
-            className="mt-6 rounded-full bg-blue-600 px-6 py-3 font-semibold text-white hover:bg-blue-700"
-          >
-            Create Your First Study Plan
-          </button>
-        </div>
-      </div>
-    );
-  }
 
   // Memoize with courseOrder length as dependency - simpler and more stable
   const overallAnalytics = useMemo(
@@ -70,16 +47,6 @@ const DashboardPage = () => {
     () => courseOrder.map((id) => calculateCourseAnalytics(id, courses[id])).filter(Boolean),
     [courseOrder.length]
   );
-
-  const allExamReadiness = useMemo(() => {
-    return courseOrder.flatMap((id) => {
-      const readiness = calculateExamReadiness(courses[id]);
-      return readiness.map((r) => ({
-        ...r,
-        courseName: courses[id].studyMap.course.name,
-      }));
-    });
-  }, [courseOrder.length]);
 
   // Prepare data for charts
   const courseProgressData = courseAnalytics.map((c) => ({
@@ -101,6 +68,27 @@ const DashboardPage = () => {
     completion: c.progressPercent,
     quizPerformance: c.quizAverage,
   }));
+
+  // Early return AFTER all hooks have been called
+  if (!courseOrder.length) {
+    return (
+      <div className="flex min-h-screen items-center justify-center p-8">
+        <div className="w-full max-w-md rounded-3xl border border-slate-200 bg-white p-10 text-center shadow-card">
+          <Award className="mx-auto h-16 w-16 text-slate-300" />
+          <h2 className="mt-4 text-2xl font-semibold text-slate-900">No Courses Yet</h2>
+          <p className="mt-2 text-slate-500">
+            Upload your first syllabus to get started with your personalized study dashboard!
+          </p>
+          <button
+            onClick={() => navigate("/")}
+            className="mt-6 rounded-full bg-blue-600 px-6 py-3 font-semibold text-white hover:bg-blue-700"
+          >
+            Create Your First Study Plan
+          </button>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="space-y-6">
@@ -183,21 +171,6 @@ const DashboardPage = () => {
             </div>
             <div className="rounded-full bg-orange-100 p-3">
               <Calendar className="h-6 w-6 text-orange-600" />
-            </div>
-          </div>
-        </div>
-
-        <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
-          <div className="flex items-center justify-between">
-            <div>
-              <p className="text-sm font-medium text-slate-600">Study Hours/Week</p>
-              <p className="mt-2 text-3xl font-bold text-slate-900">
-                {overallAnalytics.totalStudyHours}h
-              </p>
-              <p className="mt-1 text-xs text-slate-500">Recommended</p>
-            </div>
-            <div className="rounded-full bg-purple-100 p-3">
-              <Clock className="h-6 w-6 text-purple-600" />
             </div>
           </div>
         </div>
@@ -646,80 +619,6 @@ const DashboardPage = () => {
         </div>
       </div>
 
-      {/* Exam Readiness */}
-      {allExamReadiness.length > 0 && (
-        <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-card">
-          <div className="flex items-center gap-2">
-            <Target className="h-5 w-5 text-blue-600" />
-            <h2 className="text-xl font-semibold text-slate-900">Exam Readiness</h2>
-          </div>
-          <p className="mt-1 text-sm text-slate-500">How prepared you are for upcoming exams</p>
-          <div className="mt-4 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-            {allExamReadiness.map((exam, idx) => (
-              <div
-                key={idx}
-                className={`rounded-2xl border-2 p-4 ${
-                  exam.status === "excellent"
-                    ? "border-green-200 bg-green-50"
-                    : exam.status === "good"
-                    ? "border-blue-200 bg-blue-50"
-                    : exam.status === "needs-work"
-                    ? "border-orange-200 bg-orange-50"
-                    : "border-red-200 bg-red-50"
-                }`}
-              >
-                <div className="flex items-start justify-between">
-                  <div className="flex-1">
-                    <p className="text-xs font-medium text-slate-600">{exam.courseName}</p>
-                    <h3 className="mt-1 font-semibold text-slate-900">{exam.examTitle}</h3>
-                    {exam.daysUntilExam !== undefined && (
-                      <p className="mt-1 text-xs text-slate-500">
-                        {exam.daysUntilExam > 0
-                          ? `${exam.daysUntilExam} days away`
-                          : exam.daysUntilExam === 0
-                          ? "Today!"
-                          : "Past"}
-                      </p>
-                    )}
-                  </div>
-                  <div className="text-right">
-                    <p
-                      className={`text-2xl font-bold ${
-                        exam.status === "excellent"
-                          ? "text-green-600"
-                          : exam.status === "good"
-                          ? "text-blue-600"
-                          : exam.status === "needs-work"
-                          ? "text-orange-600"
-                          : "text-red-600"
-                      }`}
-                    >
-                      {exam.readinessPercent}%
-                    </p>
-                  </div>
-                </div>
-                <div className="mt-3">
-                  <div className="h-2 rounded-full bg-slate-200">
-                    <div
-                      className={`h-full rounded-full ${
-                        exam.status === "excellent"
-                          ? "bg-green-500"
-                          : exam.status === "good"
-                          ? "bg-blue-500"
-                          : exam.status === "needs-work"
-                          ? "bg-orange-500"
-                          : "bg-red-500"
-                      }`}
-                      style={{ width: `${exam.readinessPercent}%` }}
-                    />
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      )}
-
       {/* Individual Course Cards */}
       <div className="space-y-4">
         <h2 className="text-2xl font-semibold text-slate-900">Your Courses</h2>
@@ -729,8 +628,6 @@ const DashboardPage = () => {
             if (!course) return null;
             const progress = courseProgress(course.studyMap.topics);
             const analytics = courseAnalytics.find((c) => c.courseId === courseId);
-            const nextUpcoming = [...course.studyMap.assignments]
-              .sort((a, b) => new Date(a.dueDate).getTime() - new Date(b.dueDate).getTime())[0];
 
             return (
               <div key={courseId} className="rounded-3xl border border-slate-200 bg-white p-6 shadow-card">
@@ -765,25 +662,6 @@ const DashboardPage = () => {
                   </div>
                 </div>
 
-                {analytics && analytics.needsImprovement && (
-                  <div className="mt-3 flex items-center gap-2 rounded-xl border border-orange-200 bg-orange-50 px-3 py-2">
-                    <AlertTriangle className="h-4 w-4 text-orange-600" />
-                    <p className="text-xs font-medium text-orange-700">
-                      Needs {analytics.recommendedStudyHours}h/week study time
-                    </p>
-                  </div>
-                )}
-
-                {nextUpcoming && (
-                  <div className="mt-3 rounded-2xl border border-slate-100 bg-slate-50 p-3">
-                    <p className="text-xs font-semibold uppercase text-slate-500">Next Deadline</p>
-                    <p className="mt-1 text-sm font-semibold text-slate-800">{nextUpcoming.title}</p>
-                    <p className="text-xs text-slate-500">
-                      {new Date(nextUpcoming.dueDate).toLocaleDateString()} · {nextUpcoming.type}
-                    </p>
-                  </div>
-                )}
-
                 <div className="mt-4 flex flex-wrap gap-2">
                   <button
                     className="rounded-full bg-slate-900 px-4 py-2 text-sm font-semibold text-white"
@@ -796,12 +674,6 @@ const DashboardPage = () => {
                     onClick={() => navigate(`/courses/${courseId}/quiz`)}
                   >
                     Quiz
-                  </button>
-                  <button
-                    className="rounded-full border border-slate-200 px-4 py-2 text-sm text-slate-600"
-                    onClick={() => navigate("/")}
-                  >
-                    + Syllabus
                   </button>
                 </div>
               </div>

@@ -164,6 +164,16 @@ export const courseStore = {
     course.lastUpdated = timestamp();
     await writeDb(db);
     return course;
+  },
+  async deleteCourse(courseId: string): Promise<boolean> {
+    const db = await readDb();
+    if (!db.courses[courseId]) {
+      return false;
+    }
+    delete db.courses[courseId];
+    db.courseOrder = db.courseOrder.filter((id) => id !== courseId);
+    await writeDb(db);
+    return true;
   }
 };
 

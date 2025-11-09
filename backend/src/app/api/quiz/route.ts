@@ -9,6 +9,7 @@ const quizSchema = z.object({
       z.object({
         id: z.string(),
         title: z.string(),
+        description: z.string().optional(), // Added to support subtopic/microtopic descriptions
         microTopics: z.array(
           z.object({
             id: z.string(),
