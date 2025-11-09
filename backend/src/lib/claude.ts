@@ -295,7 +295,7 @@ ${deadlineHint}`;
     const response = await anthropicClient.messages.create(
       {
         model: "claude-haiku-4-5",
-        max_tokens: 8192, // Increased from 4096 to handle larger syllabi
+        max_tokens: 16384, // Increased to handle larger syllabi without truncation
         temperature: 0.2,
         system:
           "You convert university syllabi into structured study maps. " +
