@@ -41,6 +41,27 @@ const DashboardPage = () => {
   const courses = useStudyPlanStore((state) => state.courses);
   const courseOrder = useStudyPlanStore((state) => state.courseOrder);
 
+  // Show empty state if no courses exist
+  if (courseOrder.length === 0) {
+    return (
+      <div className="flex min-h-[60vh] flex-col items-center justify-center">
+        <div className="rounded-3xl border border-slate-200 bg-white p-12 text-center shadow-card">
+          <Award className="mx-auto h-16 w-16 text-slate-300" />
+          <h2 className="mt-4 text-2xl font-semibold text-slate-900">No Courses Yet</h2>
+          <p className="mt-2 text-slate-500">
+            Upload your first syllabus to get started with your personalized study dashboard!
+          </p>
+          <button
+            onClick={() => navigate("/")}
+            className="mt-6 rounded-full bg-blue-600 px-6 py-3 font-semibold text-white hover:bg-blue-700"
+          >
+            Create Your First Study Plan
+          </button>
+        </div>
+      </div>
+    );
+  }
+
   const overallAnalytics = useMemo(
     () => calculateOverallAnalytics(courses, courseOrder),
     [courses, courseOrder]
@@ -103,9 +124,9 @@ const DashboardPage = () => {
     <div className="space-y-6">
       <header>
         <p className="text-xs uppercase tracking-wide text-blue-500">Academic Dashboard</p>
-        <h1 className="text-3xl font-semibold text-slate-900">Your Progress & Analytics</h1>
+        <h1 className="text-3xl font-semibold text-slate-900">Your Study Analytics</h1>
         <p className="text-sm text-slate-500">
-          Comprehensive overview of all courses, performance metrics, and study recommendations
+          Track your progress across {courseOrder.length} {courseOrder.length === 1 ? 'course' : 'courses'} with real-time insights
         </p>
       </header>
 
