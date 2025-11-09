@@ -31,5 +31,5 @@ yarn-error.log*
 # Testing
 coverage/
 
-# Storage backups
+# Storage backups (keep main database)
 backend/storage/*.backup

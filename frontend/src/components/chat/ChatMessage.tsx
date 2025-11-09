@@ -1,6 +1,32 @@
-import type { ChatMessage as ChatMessageType, ChatAction } from "@studymap/types";
 import { UserIcon, SparklesIcon } from "@heroicons/react/24/outline";
 import MarkdownRenderer from "./MarkdownRenderer";
+
+// Inline types until shared types are rebuilt
+type ChatMessageType = {
+  id: string;
+  role: "user" | "assistant" | "system";
+  content: string;
+  timestamp: string;
+  topicContext?: {
+    topicId: string;
+    topicTitle: string;
+    level: "topic" | "subtopic" | "microtopic";
+  };
+  metadata?: {
+    suggestedActions?: any[];
+    [key: string]: any;
+  };
+};
+
+type ChatAction = {
+  type: string;
+  label: string;
+  payload: {
+    topicId?: string;
+    weakTopicIds?: string[];
+    [key: string]: any;
+  };
+};
 
 interface ChatMessageProps {
   message: ChatMessageType;

@@ -5,34 +5,92 @@ import { useStudyPlanStore } from "../store/useStudyPlanStore";
 import { studyApi } from "../lib/api";
 import ChatMessage from "../components/chat/ChatMessage";
 import ChatInput from "../components/chat/ChatInput";
-import type { ChatMessage as ChatMessageType, ChatAction, ChatContext } from "@studymap/types";
 import toast from "react-hot-toast";
+
+// Inline types until shared types are rebuilt
+type ChatMessageType = {
+  id: string;
+  role: "user" | "assistant" | "system";
+  content: string;
+  timestamp: string;
+  topicContext?: {
+    topicId: string;
+    topicTitle: string;
+    level: "topic" | "subtopic" | "microtopic";
+  };
+  metadata?: {
+    suggestedActions?: any[];
+    [key: string]: any;
+  };
+};
+
+type ChatAction = {
+  type: string;
+  label: string;
+  payload: {
+    topicId?: string;
+    weakTopicIds?: string[];
+    [key: string]: any;
+  };
+};
+
+type ChatContext = {
+  courseId: string;
+  courseName: string;
+  topics: any[];
+  completedMicroTopicIds: string[];
+  upcomingDeadlines: any[];
+  quizHistory?: {
+    weakTopicIds: string[];
+    recentScores: number[];
+  };
+};
 
 export default function ChatPage() {
   const { courseId } = useParams<{ courseId: string }>();
   const navigate = useNavigate();
 
-  const course = useStudyPlanStore((state) =>
-    courseId ? state.courses[courseId] : null
-  );
+  const courses = useStudyPlanStore((state) => state.courses);
+  const course = courseId ? courses[courseId] : null;
 
   const [messages, setMessages] = useState<ChatMessageType[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [conversationId, setConversationId] = useState<string>();
   const messagesEndRef = useRef<HTMLDivElement>(null);
+  const [isInitializing, setIsInitializing] = useState(true);
 
   // Scroll to bottom when new messages arrive
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
 
-  // Redirect if course not found
+  // Give time for courses to load before checking
   useEffect(() => {
-    if (!courseId || !course) {
+    const timer = setTimeout(() => {
+      setIsInitializing(false);
+    }, 1000);
+    return () => clearTimeout(timer);
+  }, []);
+
+  // Redirect if course not found after initialization
+  useEffect(() => {
+    if (!isInitializing && (!courseId || !course)) {
+      console.log("Course not found:", { courseId, course, allCourses: Object.keys(courses) });
       toast.error("Course not found");
       navigate("/dashboard");
     }
-  }, [courseId, course, navigate]);
+  }, [courseId, course, navigate, isInitializing, courses]);
+
+  if (isInitializing) {
+    return (
+      <div className="flex items-center justify-center h-screen">
+        <div className="text-center">
+          <div className="w-16 h-16 border-4 border-blue-600 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+          <p className="text-gray-600">Loading chat...</p>
+        </div>
+      </div>
+    );
+  }
 
   if (!courseId || !course) {
     return null;
@@ -59,12 +117,14 @@ export default function ChatPage() {
       course.quizResults.forEach((result) => {
         recentScores.push(result.score);
 
-        // Find topics where student got questions wrong
-        result.answers.forEach((answer) => {
-          if (!answer.correct && answer.topicId && !weakTopicIds.includes(answer.topicId)) {
-            weakTopicIds.push(answer.topicId);
-          }
-        });
+        // Add weak topics from quiz results (topics with lower scores)
+        if (result.weakTopicIds && result.weakTopicIds.length > 0) {
+          result.weakTopicIds.forEach((topicId) => {
+            if (!weakTopicIds.includes(topicId)) {
+              weakTopicIds.push(topicId);
+            }
+          });
+        }
       });
     }
 
@@ -146,33 +206,33 @@ export default function ChatPage() {
         toast.success("Topic marked as complete!");
         break;
       case "study_planner":
-        toast.info("Study planner feature - coming soon!");
+        toast("Study planner feature - coming soon!");
         // In a full implementation, this would open a modal or navigate to a study planner view
         break;
       case "weak_spot_coach":
         // Navigate to quiz with weak topics pre-selected
         const weakTopicIds = action.payload.weakTopicIds?.join(",") || "";
         navigate(`/courses/${courseId}/quiz?weakTopics=${weakTopicIds}`);
-        toast.info("Generating quiz for your weak topics...");
+        toast("Generating quiz for your weak topics...");
         break;
       case "exam_prep":
-        toast.info("Exam preparation mode activated!");
+        toast("Exam preparation mode activated!");
         navigate(`/courses/${courseId}/quiz?mode=exam`);
         break;
       case "view_deadlines":
         navigate(`/courses/${courseId}/upcoming`);
         break;
       case "concept_map":
-        toast.info("Concept map feature - explore topic relationships!");
+        toast("Concept map feature - explore topic relationships!");
         navigate(`/courses/${courseId}/map`);
         break;
       case "view_progress":
         navigate(`/courses/${courseId}/map`);
-        toast.info("View your progress on the study map!");
+        toast("View your progress on the study map!");
         break;
       default:
         console.log("Unknown action type:", action.type);
-        toast.info(`Action: ${action.label}`);
+        toast(`Action: ${action.label}`);
     }
   };
 

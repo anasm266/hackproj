@@ -34,7 +34,7 @@
                       "methodology"
                     ],
                     "examScopeIds": [],
-                    "completed": false,
+                    "completed": true,
                     "rationale": "Foundation for data analysis work"
                   },
                   {
@@ -204,7 +204,7 @@
                       "assessment"
                     ],
                     "examScopeIds": [],
-                    "completed": false,
+                    "completed": true,
                     "rationale": "Standard module assessment structure"
                   }
                 ]
@@ -403,7 +403,7 @@
         "exams": []
       },
       "quizHistory": [],
-      "lastUpdated": "2025-11-09T01:31:54.667Z"
+      "lastUpdated": "2025-11-09T12:36:16.595Z"
     },
     "course-b2536b57-8d31-4a16-9a9e-bb433115de15": {
       "studyMap": {
@@ -2814,451 +2814,8 @@
           }
         ]
       },
-      "quizHistory": [
-        {
-          "quizId": "msg_01Ta7KhXk8fhjw5qZpZNVaRD",
-          "generatedAt": "2025-11-09T02:16:46.781Z",
-          "questions": [
-            {
-              "id": "q1",
-              "prompt": "In challenge quizzes, what is the primary purpose of offering variable points per module?",
-              "type": "mcq",
-              "choices": [
-                {
-                  "id": "choice-a",
-                  "label": "To make the quiz easier for all students",
-                  "correct": false
-                },
-                {
-                  "id": "choice-b",
-                  "label": "To reward students for tackling more difficult or comprehensive modules with higher point values",
-                  "correct": true
-                },
-                {
-                  "id": "choice-c",
-                  "label": "To ensure every student receives the same score",
-                  "correct": false
-                },
-                {
-                  "id": "choice-d",
-                  "label": "To reduce the total number of questions on the exam",
-                  "correct": false
-                }
-              ],
-              "explanation": "Variable points per module in challenge quizzes incentivizes students to engage with more complex or comprehensive content by offering higher rewards for successfully completing those sections, thus promoting deeper learning.",
-              "relatedMicroTopicIds": [
-                "Challenge Quiz Questions: Bonus challenge quiz questions for extra points (variable points per module)"
-              ]
-            },
-            {
-              "id": "q2",
-              "prompt": "Describe how bonus challenge quiz questions can enhance student motivation and learning outcomes.",
-              "type": "short",
-              "answer": "Bonus challenge quiz questions enhance motivation by offering extra credit opportunities, allowing students to improve grades through additional effort. They promote deeper learning by requiring students to engage with more complex material, apply knowledge in novel ways, and develop critical thinking skills beyond standard requirements.",
-              "explanation": "This answer recognizes that challenge quizzes serve dual purposes: they provide extrinsic motivation through extra points while also fostering intrinsic motivation and higher-order thinking skills through rigorous, challenging content.",
-              "relatedMicroTopicIds": [
-                "Challenge Quiz Questions: Bonus challenge quiz questions for extra points (variable points per module)"
-              ]
-            },
-            {
-              "id": "q3",
-              "prompt": "Which of the following best represents a fair approach to designing challenge quiz questions?",
-              "type": "mcq",
-              "choices": [
-                {
-                  "id": "choice-a",
-                  "label": "Make questions so difficult that only the top 5% of students can answer them",
-                  "correct": false
-                },
-                {
-                  "id": "choice-b",
-                  "label": "Design questions that require students to synthesize material from multiple modules and apply concepts in new contexts",
-                  "correct": true
-                },
-                {
-                  "id": "choice-c",
-                  "label": "Copy questions directly from textbooks without modification",
-                  "correct": false
-                },
-                {
-                  "id": "choice-d",
-                  "label": "Create questions that are unrelated to course content to test general knowledge",
-                  "correct": false
-                }
-              ],
-              "explanation": "Fair and rigorous challenge questions should require higher-order thinking by asking students to synthesize, apply, and analyze course material in novel ways, rather than being arbitrarily difficult or disconnected from learning objectives.",
-              "relatedMicroTopicIds": [
-                "Challenge Quiz Questions: Bonus challenge quiz questions for extra points (variable points per module)"
-              ]
-            },
-            {
-              "id": "q4",
-              "prompt": "What considerations should instructors keep in mind when assigning point values to different challenge quiz modules?",
-              "type": "short",
-              "answer": "Instructors should consider the complexity and scope of each module, the time required to master the content, the difficulty level of questions, and the learning objectives being assessed. Point values should reflect the cognitive demands and comprehensiveness of each module, ensuring that more challenging or extensive modules receive proportionally higher point allocations.",
-              "explanation": "Equitable point distribution in challenge quizzes requires alignment between module difficulty, content breadth, and point values. This ensures students are fairly rewarded for their effort and that the grading system incentivizes engagement with genuinely more demanding material.",
-              "relatedMicroTopicIds": [
-                "Challenge Quiz Questions: Bonus challenge quiz questions for extra points (variable points per module)"
-              ]
-            },
-            {
-              "id": "q5",
-              "prompt": "How do challenge quizzes with variable points differ from standard assessment methods?",
-              "type": "mcq",
-              "choices": [
-                {
-                  "id": "choice-a",
-                  "label": "They eliminate the need for regular quizzes and exams",
-                  "correct": false
-                },
-                {
-                  "id": "choice-b",
-                  "label": "They provide optional opportunities for students to earn extra credit while encouraging engagement with advanced material at differentiated difficulty levels",
-                  "correct": true
-                },
-                {
-                  "id": "choice-c",
-                  "label": "They replace all other forms of assessment in a course",
-                  "correct": false
-                },
-                {
-                  "id": "choice-d",
-                  "label": "They are mandatory for all students and count as the only grade",
-                  "correct": false
-                }
-              ],
-              "explanation": "Challenge quizzes with variable points serve as supplementary assessment tools that offer optional pathways for extra credit, allowing students to demonstrate mastery of more advanced concepts while maintaining flexibility in course assessment structures.",
-              "relatedMicroTopicIds": [
-                "Challenge Quiz Questions: Bonus challenge quiz questions for extra points (variable points per module)"
-              ]
-            }
-          ]
-        },
-        {
-          "quizId": "msg_01PMaHoFvW1npBfWy6txL6Xd",
-          "generatedAt": "2025-11-09T02:11:59.107Z",
-          "questions": [
-            {
-              "id": "q1",
-              "prompt": "A meteorologist observes that atmospheric pressure has decreased by 5 mb over the past 6 hours, wind speeds have increased from 10 to 25 knots, and cloud cover has changed from scattered to overcast. Based on these qualitative observations, which hypothesis would be most testable?",
-              "type": "mcq",
-              "choices": [
-                {
-                  "id": "choice-a",
-                  "label": "The weather will eventually improve",
-                  "correct": false
-                },
-                {
-                  "id": "choice-b",
-                  "label": "A low-pressure system is approaching the observation site",
-                  "correct": true
-                },
-                {
-                  "id": "choice-c",
-                  "label": "Temperature will increase significantly",
-                  "correct": false
-                },
-                {
-                  "id": "choice-d",
-                  "label": "Humidity levels are unrelated to pressure changes",
-                  "correct": false
-                }
-              ],
-              "explanation": "Option B is the most testable hypothesis because it directly connects the observed meteorological data (decreasing pressure, increasing wind, cloud cover changes) to a specific physical phenomenon (low-pressure system approach). This hypothesis can be tested using quantitative pressure measurements and wind data. Options A and C are vague, and D contradicts established meteorological relationships.",
-              "relatedMicroTopicIds": [
-                "Hypothesis Construction",
-                "Qualitative Data Interpretation",
-                "Physical Process Understanding"
-              ]
-            },
-            {
-              "id": "q2",
-              "prompt": "A climate dataset shows mean annual temperatures increasing by 0.18Â°C per decade over the past 40 years, with RÂ² = 0.87. However, individual yearly measurements vary by Â±0.5Â°C. When communicating these findings to policymakers, which statement most accurately represents the data while acknowledging uncertainty?",
-              "type": "mcq",
-              "choices": [
-                {
-                  "id": "choice-a",
-                  "label": "Temperatures are definitely increasing every single year",
-                  "correct": false
-                },
-                {
-                  "id": "choice-b",
-                  "label": "There is a statistically significant warming trend with considerable year-to-year variability",
-                  "correct": true
-                },
-                {
-                  "id": "choice-c",
-                  "label": "The data proves climate change will cause catastrophic warming",
-                  "correct": false
-                },
-                {
-                  "id": "choice-d",
-                  "label": "Temperature measurements are too unreliable to draw any conclusions",
-                  "correct": true
-                }
-              ],
-              "explanation": "Option B accurately communicates the quantitative findings (0.18Â°C/decade trend, RÂ²=0.87 indicates strong relationship) while appropriately acknowledging the variability (Â±0.5Â°C fluctuations). This demonstrates proper evidence integration and claim validation. Options A and C overstate certainty; Option D dismisses valid statistical evidence.",
-              "relatedMicroTopicIds": [
-                "Quantitative Data Interpretation",
-                "Communicating Data Findings",
-                "Claim Validation",
-                "Evidence Evaluation"
-              ]
-            },
-            {
-              "id": "q3",
-              "prompt": "You develop a model predicting afternoon thunderstorm formation based on morning atmospheric instability (CAPE values) and wind shear. Your model correctly predicts 78% of storm events but misses 22%. What is the most appropriate next step in model development?",
-              "type": "mcq",
-              "choices": [
-                {
-                  "id": "choice-a",
-                  "label": "Declare the model complete and ready for operational forecasting",
-                  "correct": false
-                },
-                {
-                  "id": "choice-b",
-                  "label": "Analyze the missed cases to identify missing variables or processes",
-                  "correct": true
-                },
-                {
-                  "id": "choice-c",
-                  "label": "Increase the prediction threshold to achieve 100% accuracy",
-                  "correct": false
-                },
-                {
-                  "id": "choice-d",
-                  "label": "Assume the 22% represents inherent unpredictability in weather",
-                  "correct": true
-                }
-              ],
-              "explanation": "Option B represents rigorous scientific practice in model development. Analyzing missed predictions reveals which physical processes or variables are inadequately represented, leading to model improvement. Option A is premature; Option C would likely increase false alarms; Option D abandons systematic improvement. This approach demonstrates hypothesis testing and physical process understanding.",
-              "relatedMicroTopicIds": [
-                "Model Development",
-                "Hypothesis Testing",
-                "Physical Process Understanding",
-                "Evidence Evaluation"
-              ]
-            },
-            {
-              "id": "q4",
-              "prompt": "A claim states: 'Global sea surface temperatures have not increased because satellite measurements from 1998-2005 show no significant trend.' Evaluate this argument's structure and evidence.",
-              "type": "short",
-              "answer": "The argument has flawed structure because it uses a short, cherry-picked time period (7 years) to refute a long-term climate claim. Valid meteorological arguments require: (1) sufficient temporal scale (decades for climate trends), (2) comprehensive data coverage, (3) consideration of natural variability, and (4) peer-reviewed evidence. A more rigorous approach would examine multi-decadal satellite records (1979-present) and acknowledge the 1998 El NiÃ±o anomaly.",
-              "explanation": "This tests argument structure, evidence evaluation, and claim validation. The response should identify cherry-picking bias, insufficient time scale, and lack of context. Strong answers recognize that climate claims require decadal-scale evidence and must account for natural variability like ENSO events.",
-              "relatedMicroTopicIds": [
-                "Argument Structure",
-                "Evidence Evaluation",
-                "Claim Validation",
-                "Quantitative Data Interpretation"
-              ]
-            },
-            {
-              "id": "q5",
-              "prompt": "Challenge Question: A meteorologist observes that on days with high atmospheric pressure (>1020 mb), afternoon relative humidity is consistently lower than on low-pressure days (<1000 mb). Construct a multi-part scientific argument that: (1) proposes a testable hypothesis explaining this pattern, (2) identifies the physical processes involved, and (3) describes what quantitative evidence would validate or refute your hypothesis.",
-              "type": "short",
-              "answer": "Hypothesis: High-pressure systems are associated with descending air motion, which warms adiabatically and reduces relative humidity, while low-pressure systems involve ascending air that cools and increases relative humidity. Physical processes: (1) adiabatic warming/cooling during vertical motion, (2) saturation vapor pressure changes with temperature. Validation evidence: (1) vertical velocity profiles from radiosondes showing descent in high-pressure systems, (2) temperature and dewpoint measurements demonstrating the relationship between pressure, temperature, and relative humidity, (3) model simulations reproducing the observed humidity-pressure correlation, (4) statistical analysis showing correlation coefficient and significance testing.",
-              "explanation": "This bonus challenge question integrates multiple microtopics: hypothesis construction with testable predictions, physical process understanding (adiabatic processes), evidence integration combining qualitative observations with quantitative requirements, and argument structure. Excellent responses connect atmospheric dynamics to thermodynamic principles and specify measurable parameters for hypothesis testing.",
-              "relatedMicroTopicIds": [
-                "Challenge Quiz Questions",
-                "Hypothesis Construction",
-                "Hypothesis Testing",
-                "Physical Process Understanding",
-                "Quantitative Data Interpretation",
-                "Argument Structure",
-                "Evidence Integration",
-                "Model Development"
-              ]
-            }
-          ]
-        },
-        {
-          "quizId": "msg_01KuSjQPKqUizzfbNdd3Mis7",
-          "generatedAt": "2025-11-09T02:07:47.860Z",
-          "questions": [
-            {
-              "id": "q1_cq_001",
-              "prompt": "In a challenge quiz context, what is the primary pedagogical advantage of offering variable points per module rather than fixed points across all modules?",
-              "type": "mcq",
-              "choices": [
-                {
-                  "id": "choice-a",
-                  "label": "It allows students to focus effort on easier modules to maximize their score",
-                  "correct": false
-                },
-                {
-                  "id": "choice-b",
-                  "label": "It enables differentiated assessment that reflects the varying complexity and importance of different modules",
-                  "correct": false
-                },
-                {
-                  "id": "choice-c",
-                  "label": "It reduces the total number of questions required in the quiz",
-                  "correct": false
-                },
-                {
-                  "id": "choice-d",
-                  "label": "It eliminates the need for answer explanations",
-                  "correct": false
-                }
-              ],
-              "explanation": "Variable points per module allow instructors to weight assessment based on module difficulty and learning objectives. This approach incentivizes students to engage meaningfully with more challenging or critical content, rather than gaming the system by focusing on easier sections.",
-              "relatedMicroTopicIds": [
-                "Challenge Quiz Questions: Bonus challenge quiz questions for extra points (variable points per module)"
-              ]
-            },
-            {
-              "id": "q2_cq_002",
-              "prompt": "A student earns 8 out of 10 points on a module worth 15 points in a challenge quiz. What is their percentage score on that module?",
-              "type": "short",
-              "answer": "80%",
-              "explanation": "The student's percentage is calculated as (8/10) Ã— 100 = 80%. Note that this represents their performance on the questions attempted, not the module's total point value. Understanding this distinction is crucial for interpreting challenge quiz results.",
-              "relatedMicroTopicIds": [
-                "Challenge Quiz Questions: Bonus challenge quiz questions for extra points (variable points per module)"
-              ]
-            },
-            {
-              "id": "q3_cq_003",
-              "prompt": "Which of the following best describes the purpose of bonus challenge quiz questions in an educational setting?",
-              "type": "mcq",
-              "choices": [
-                {
-                  "id": "choice-a",
-                  "label": "To penalize students who don't attempt them",
-                  "correct": false
-                },
-                {
-                  "id": "choice-b",
-                  "label": "To provide opportunities for students to demonstrate mastery beyond baseline requirements and earn extra credit",
-                  "correct": false
-                },
-                {
-                  "id": "choice-c",
-                  "label": "To replace regular assessment methods entirely",
-                  "correct": false
-                },
-                {
-                  "id": "choice-d",
-                  "label": "To make the course significantly easier for motivated students",
-                  "correct": false
-                }
-              ],
-              "explanation": "Bonus challenge questions serve as optional enrichment that rewards deeper engagement and mastery. They maintain course rigor while offering motivated students pathways to higher achievement without making the course easier for others.",
-              "relatedMicroTopicIds": [
-                "Challenge Quiz Questions: Bonus challenge quiz questions for extra points (variable points per module)"
-              ]
-            },
-            {
-              "id": "q4_cq_004",
-              "prompt": "Design a scoring rubric for a challenge quiz module on data analysis that uses variable points. Explain why you would assign different point values to different questions.",
-              "type": "essay",
-              "answer": "Responses should include: (1) A tiered point structure (e.g., basic questions worth 5 pts, intermediate 10 pts, advanced 15 pts); (2) Justification based on cognitive complexity (higher-order thinking skills warrant more points); (3) Recognition that variable points incentivize deeper learning; (4) Consideration of module importance to overall course objectives.",
-              "explanation": "Effective variable-point systems reflect Bloom's taxonomy and course learning objectives. Basic recall questions require less cognitive effort than synthesis or evaluation questions, so point allocation should reflect this. This approach encourages students to tackle challenging material while acknowledging different levels of difficulty.",
-              "relatedMicroTopicIds": [
-                "Challenge Quiz Questions: Bonus challenge quiz questions for extra points (variable points per module)"
-              ]
-            },
-            {
-              "id": "q5_cq_005",
-              "prompt": "True or False: In a challenge quiz with variable points per module, a student who scores perfectly on low-point modules but skips high-point modules will necessarily achieve a higher overall course grade than a student who attempts all modules but scores lower overall.",
-              "type": "true_false",
-              "answer": "False",
-              "explanation": "This is false because total points earned depends on both performance and point values. A student scoring 100% on 20-point modules could earn more total points than one scoring 100% on 10-point modules. Additionally, course grades typically depend on overall point accumulation, not just selective high performance. Strategic avoidance of challenging content undermines learning objectives.",
-              "relatedMicroTopicIds": [
-                "Challenge Quiz Questions: Bonus challenge quiz questions for extra points (variable points per module)"
-              ]
-            }
-          ]
-        },
-        {
-          "quizId": "msg_016QWxVrBVtmVzA8qvf6RQbF",
-          "generatedAt": "2025-11-09T02:05:16.718Z",
-          "questions": [
-            {
-              "id": "q1",
-              "prompt": "A meteorologist observes that cloud cover has increased from 20% to 80% over a 6-hour period, and surface temperature has dropped 8Â°C during the same timeframe. Which hypothesis best explains these observations?",
-              "type": "multiple_choice",
-              "choices": [
-                "A) Increased cloud cover is causing the temperature drop through enhanced greenhouse effect",
-                "B) Increased cloud cover is reducing incoming solar radiation, thereby lowering surface temperature",
-                "C) The temperature drop is causing clouds to form, not the reverse",
-                "D) Cloud cover and temperature changes are unrelated coincidental events"
-              ],
-              "answer": "B",
-              "explanation": "While clouds can trap outgoing radiation (greenhouse effect), the primary mechanism in this scenario is the reduction of incoming solar radiation during daylight hours. The temporal sequence and magnitude of change support this explanation. Option C reverses causality, and Option D ignores the clear correlation.",
-              "relatedMicroTopicIds": [
-                "Hypothesis Construction",
-                "Quantitative Data Interpretation",
-                "Physical Process Understanding"
-              ]
-            },
-            {
-              "id": "q2",
-              "prompt": "A dataset shows atmospheric pressure readings with values: 1013.2, 1013.1, 1013.3, 1013.2, 1013.2, 1012.1 hPa. The sixth reading appears anomalous. What should a researcher do first when evaluating this evidence?",
-              "type": "multiple_choice",
-              "choices": [
-                "A) Immediately remove the anomalous value to improve data consistency",
-                "B) Check instrument calibration, sensor malfunction, or data entry errors",
-                "C) Assume it represents a genuine rapid pressure drop and investigate meteorological causes",
-                "D) Average all values together to eliminate the outlier effect"
-              ],
-              "answer": "B",
-              "explanation": "Evidence evaluation requires first assessing data quality and potential instrumental/procedural errors before making meteorological interpretations. This prevents false conclusions based on faulty measurements. Only after confirming data validity should one investigate whether the anomaly represents a real phenomenon.",
-              "relatedMicroTopicIds": [
-                "Evidence Evaluation",
-                "Quantitative Data Interpretation",
-                "Module 1 Quiz"
-              ]
-            },
-            {
-              "id": "q3",
-              "prompt": "Describe how you would structure an argument claiming that increased atmospheric COâ‚‚ concentrations are causing regional temperature increases. Your argument should include specific types of evidence.",
-              "type": "short_answer",
-              "answer": "A well-structured argument should include: (1) Quantitative evidence of rising COâ‚‚ levels and temperature trends with temporal correlation; (2) Qualitative observations of climate impacts (glacial retreat, phenological shifts); (3) Physical process explanation (COâ‚‚ absorption of infrared radiation); (4) Discussion of alternative hypotheses and why COâ‚‚ is the primary driver; (5) Model projections supporting the mechanism; (6) Acknowledgment of data limitations and uncertainties.",
-              "explanation": "Effective meteorological arguments require integration of multiple evidence types, clear logical structure, understanding of underlying physical processes, and honest treatment of limitations. This demonstrates mastery of evidence integration, argument structure, and claim validation.",
-              "relatedMicroTopicIds": [
-                "Argument Structure",
-                "Evidence Integration",
-                "Claim Validation",
-                "Model Development",
-                "Physical Process Understanding"
-              ]
-            },
-            {
-              "id": "q4",
-              "prompt": "True or False: A qualitative observation that 'the sky appears darker than usual' can serve as reliable primary evidence for testing a hypothesis about cloud optical depth without supporting quantitative measurements.",
-              "type": "true_false",
-              "answer": "False",
-              "explanation": "Qualitative observations are valuable for hypothesis generation and initial investigation, but they lack the precision and objectivity needed for rigorous hypothesis testing. Cloud optical depth requires quantitative measurements (satellite data, radiometers, etc.). Qualitative data should complement, not replace, quantitative evidence in hypothesis testing.",
-              "relatedMicroTopicIds": [
-                "Hypothesis Testing",
-                "Qualitative Data Interpretation",
-                "Quantitative Data Interpretation",
-                "Evidence Evaluation"
-              ]
-            },
-            {
-              "id": "q5",
-              "prompt": "A climate model predicts that global temperatures will rise 2.5Â°C by 2100. What critical questions should you ask when evaluating the validity of this claim?",
-              "type": "multiple_choice",
-              "choices": [
-                "A) Only: Is the model based on peer-reviewed research?",
-                "B) Only: Does the model's historical performance match observed data?",
-                "C) What assumptions underlie the model? How sensitive is the prediction to input parameters? What is the model's track record? What uncertainties are acknowledged?",
-                "D) Only: Does the prediction align with other published models?"
-              ],
-              "answer": "C",
-              "explanation": "Rigorous claim validation requires multiple critical perspectives: understanding model assumptions and limitations, assessing parameter sensitivity, evaluating historical accuracy, and examining uncertainty quantification. Single-criterion evaluation (A, B, or D alone) is insufficient for complex meteorological claims. Comprehensive evaluation demonstrates evidence evaluation and claim validation skills.",
-              "relatedMicroTopicIds": [
-                "Claim Validation",
-                "Model Development",
-                "Evidence Evaluation",
-                "Communicating Data Findings"
-              ]
-            }
-          ]
-        }
-      ],
-      "lastUpdated": "2025-11-09T02:16:47.348Z"
+      "quizHistory": [],
+      "lastUpdated": "2025-11-09T07:32:15.827Z"
     },
     "course-1762655433489": {
       "studyMap": {
@@ -3372,7 +2929,7 @@
                     "examScopeIds": [
                       "exam-1"
                     ],
-                    "completed": false,
+                    "completed": true,
                     "rationale": "Key concept for combining events"
                   },
                   {
@@ -3409,7 +2966,7 @@
                     "examScopeIds": [
                       "exam-1"
                     ],
-                    "completed": false,
+                    "completed": true,
                     "rationale": "Foundation for Bayes' Theorem and advanced probability"
                   },
                   {
@@ -3460,7 +3017,7 @@
                     "examScopeIds": [
                       "exam-1"
                     ],
-                    "completed": false,
+                    "completed": true,
                     "rationale": "Foundational concept for discrete distributions"
                   },
                   {
@@ -3624,7 +3181,7 @@
                     "examScopeIds": [
                       "exam-1"
                     ],
-                    "completed": false,
+                    "completed": true,
                     "rationale": "Foundational concept for continuous distributions"
                   },
                   {
@@ -4175,7 +3732,7 @@
                     "examScopeIds": [
                       "exam-3"
                     ],
-                    "completed": false,
+                    "completed": true,
                     "rationale": "Foundation for regression analysis"
                   },
                   {
@@ -4617,175 +4174,3138 @@
       },
       "quizHistory": [
         {
-          "quizId": "msg_015nFcwkRpRtfSFTa8iKb7CN",
-          "generatedAt": "2025-11-09T05:13:20.541Z",
+          "quizId": "msg_01SkKm5geNP2m3zUSevFLBrM",
+          "generatedAt": "2025-11-09T07:32:39.111Z",
           "questions": [
             {
-              "id": "q1-hist-001",
-              "prompt": "When creating a histogram, what does the height of each bar represent?",
+              "id": "q1-crv-001",
+              "prompt": "Which of the following is a key defining characteristic of a continuous random variable?",
               "type": "mcq",
               "choices": [
                 {
                   "id": "choice-a",
-                  "label": "The cumulative frequency of all previous classes",
-                  "correct": false
-                },
-                {
-                  "id": "choice-b",
-                  "label": "The frequency or relative frequency of data within that class interval",
+                  "label": "It can only take on a finite number of distinct values",
                   "correct": true
                 },
                 {
+                  "id": "choice-b",
+                  "label": "It can take on any value within a given interval or range",
+                  "correct": false
+                },
+                {
                   "id": "choice-c",
-                  "label": "The midpoint value of the class interval",
+                  "label": "Its probability at any single point is always equal to 1",
                   "correct": false
                 },
                 {
                   "id": "choice-d",
-                  "label": "The range of values in the dataset",
+                  "label": "It must follow a normal distribution",
                   "correct": false
                 }
               ],
-              "explanation": "In a histogram, the height of each bar represents the frequency (or relative frequency) of observations that fall within that particular class interval. This allows for easy visual comparison of how data is distributed across different ranges.",
+              "explanation": "A continuous random variable is defined as a variable that can take on any value within a specified interval or range. Unlike discrete random variables which take on distinct, countable values, continuous random variables can assume infinitely many values within their domain.",
               "relatedMicroTopicIds": [
-                "micro-histograms"
+                "micro-continuous-rv-definition"
               ],
-              "topicId": "topic-descriptive-statistics"
+              "topicId": "topic-continuous-random-variables"
             },
             {
-              "id": "q2-pareto-001",
-              "prompt": "What is the primary purpose of a Pareto chart in data analysis?",
+              "id": "q2-crv-002",
+              "prompt": "For a continuous random variable X with probability density function f(x), what does the integral ∫f(x)dx over the entire domain equal?",
               "type": "mcq",
               "choices": [
                 {
                   "id": "choice-a",
-                  "label": "To show the distribution of continuous data over time",
-                  "correct": true
+                  "label": "0",
+                  "correct": false
                 },
                 {
                   "id": "choice-b",
-                  "label": "To identify and prioritize the most significant factors or categories contributing to a problem",
+                  "label": "0.5",
                   "correct": false
                 },
                 {
                   "id": "choice-c",
-                  "label": "To display the relationship between two continuous variables",
-                  "correct": false
+                  "label": "1",
+                  "correct": true
                 },
                 {
                   "id": "choice-d",
-                  "label": "To compare the mean values across multiple independent groups",
+                  "label": "Infinity",
                   "correct": false
                 }
               ],
-              "explanation": "A Pareto chart combines a bar chart and a line graph to identify and prioritize the most significant factors or categories. It follows the Pareto principle (80/20 rule), helping analysts focus on the vital few factors that have the greatest impact.",
+              "explanation": "The integral of a probability density function over its entire domain must equal 1. This is a fundamental property of probability density functions, ensuring that the total probability across all possible values is 1.",
               "relatedMicroTopicIds": [
-                "micro-pareto-charts"
+                "micro-pdf"
               ],
-              "topicId": "topic-descriptive-statistics"
+              "topicId": "topic-continuous-random-variables"
             },
             {
-              "id": "q3-hist-002",
-              "prompt": "A histogram shows student test scores with class intervals of 10 points each (0-10, 10-20, 20-30, etc.). If the bar for the 70-80 interval has a height of 15, what does this indicate?",
+              "id": "q3-crv-003",
+              "prompt": "If X follows a continuous uniform distribution on the interval [2, 8], what is the expected value of X?",
               "type": "mcq",
               "choices": [
                 {
                   "id": "choice-a",
-                  "label": "15 students scored exactly between 70 and 80",
-                  "correct": true
+                  "label": "2",
+                  "correct": false
                 },
                 {
                   "id": "choice-b",
-                  "label": "15 students scored in the 70-80 range",
+                  "label": "4",
                   "correct": false
                 },
                 {
                   "id": "choice-c",
-                  "label": "The average score in that interval is 15 points",
-                  "correct": false
+                  "label": "5",
+                  "correct": true
                 },
                 {
                   "id": "choice-d",
-                  "label": "15% of all students scored above 80",
+                  "label": "8",
                   "correct": false
                 }
               ],
-              "explanation": "The height of 15 on the bar for the 70-80 interval indicates that 15 students scored within that range. The height of each bar in a histogram directly represents the frequency (count) of observations in that class interval.",
+              "explanation": "For a continuous uniform distribution on [a, b], the expected value is (a + b)/2. In this case, E(X) = (2 + 8)/2 = 10/2 = 5. The expected value of a uniform distribution is simply the midpoint of the interval.",
               "relatedMicroTopicIds": [
-                "micro-histograms"
+                "micro-continuous-uniform",
+                "micro-expected-value-continuous"
               ],
-              "topicId": "topic-descriptive-statistics"
+              "topicId": "topic-continuous-random-variables"
             },
             {
-              "id": "q4-pareto-002",
-              "prompt": "In a Pareto chart, what does the cumulative line (often shown in red or blue) represent?",
+              "id": "q4-crv-004",
+              "prompt": "A standard normal distribution has a mean of 0 and a standard deviation of 1. What is the Z-score for a value that is 2 standard deviations above the mean?",
               "type": "mcq",
               "choices": [
                 {
                   "id": "choice-a",
-                  "label": "The total number of observations in the dataset",
-                  "correct": true
+                  "label": "0",
+                  "correct": false
                 },
                 {
                   "id": "choice-b",
-                  "label": "The running total of frequencies or percentages from left to right",
+                  "label": "1",
                   "correct": false
                 },
                 {
                   "id": "choice-c",
-                  "label": "The standard deviation of each category",
-                  "correct": false
+                  "label": "2",
+                  "correct": true
                 },
                 {
                   "id": "choice-d",
-                  "label": "The average value across all categories",
+                  "label": "-2",
                   "correct": false
                 }
               ],
-              "explanation": "The cumulative line in a Pareto chart shows the running total of frequencies or percentages as you move from left to right across the categories. This helps identify at what point you've captured a significant portion (typically 80%) of the total effect.",
+              "explanation": "The Z-score represents the number of standard deviations a value is from the mean. If a value is 2 standard deviations above the mean, its Z-score is (value - mean)/standard deviation = 2/1 = 2.",
               "relatedMicroTopicIds": [
-                "micro-pareto-charts"
+                "micro-standard-normal"
               ],
-              "topicId": "topic-descriptive-statistics"
+              "topicId": "topic-continuous-random-variables"
             },
             {
-              "id": "q5-hist-pareto-001",
-              "prompt": "Which statement best distinguishes a histogram from a Pareto chart?",
+              "id": "q5-crv-005",
+              "prompt": "The cumulative distribution function (CDF) F(x) for a continuous random variable represents what probability?",
               "type": "mcq",
               "choices": [
                 {
                   "id": "choice-a",
-                  "label": "Histograms show categorical data while Pareto charts show numerical data",
+                  "label": "P(X = x)",
                   "correct": false
                 },
                 {
                   "id": "choice-b",
-                  "label": "Histograms display continuous data in intervals with no required order, while Pareto charts order categories by frequency and include a cumulative line",
-                  "correct": true
+                  "label": "P(X > x)",
+                  "correct": false
                 },
                 {
                   "id": "choice-c",
-                  "label": "Histograms can only be used for normally distributed data",
-                  "correct": false
+                  "label": "P(X ≤ x)",
+                  "correct": true
                 },
                 {
                   "id": "choice-d",
-                  "label": "Pareto charts cannot display frequency information",
+                  "label": "P(X ≥ x)",
                   "correct": false
                 }
               ],
-              "explanation": "A key distinction is that histograms display the distribution of continuous data across class intervals without requiring a specific order, while Pareto charts arrange categories in descending order by frequency and include a cumulative percentage line to highlight the most significant contributors.",
+              "explanation": "The cumulative distribution function F(x) = P(X ≤ x) represents the probability that the random variable X takes on a value less than or equal to x. It is the integral of the probability density function from negative infinity to x.",
               "relatedMicroTopicIds": [
-                "micro-histograms",
-                "micro-pareto-charts"
+                "micro-cdf-continuous"
               ],
-              "topicId": "topic-descriptive-statistics"
+              "topicId": "topic-continuous-random-variables"
             }
           ]
         }
       ],
-      "lastUpdated": "2025-11-09T05:13:58.492Z",
-      "quizResults": []
+      "lastUpdated": "2025-11-09T10:05:46.053Z",
+      "quizResults": [
+        {
+          "id": "result-1762673561430",
+          "quizId": "msg_01SkKm5geNP2m3zUSevFLBrM",
+          "completedAt": "2025-11-09T07:32:41.430Z",
+          "score": 0,
+          "totalQuestions": 5,
+          "difficulty": "auto",
+          "topicIds": [
+            "subtopic-continuous-rv-basics",
+            "micro-continuous-rv-definition",
+            "micro-pdf",
+            "micro-cdf-continuous",
+            "micro-expected-value-continuous",
+            "micro-variance-continuous"
+          ],
+          "topicTitles": [
+            "Continuous Random Variables → Continuous Random Variables Fundamentals",
+            "Continuous Random Variables → Continuous Random Variables Fundamentals → Definition of Continuous Random Variables",
+            "Continuous Random Variables → Continuous Random Variables Fundamentals → Probability Density Function (PDF)",
+            "Continuous Random Variables → Continuous Random Variables Fundamentals → Cumulative Distribution Function (CDF) for Continuous Variables",
+            "Continuous Random Variables → Continuous Random Variables Fundamentals → Expected Value for Continuous Variables",
+            "Continuous Random Variables → Continuous Random Variables Fundamentals → Variance for Continuous Variables"
+          ],
+          "weakTopicIds": [
+            "topic-continuous-random-variables"
+          ]
+        }
+      ]
+    },
+    "course-1762672761789": {
+      "studyMap": {
+        "course": {
+          "id": "course-1762672761789",
+          "name": "12",
+          "createdAt": "2025-11-09T07:19:21.789Z"
+        },
+        "topics": [
+          {
+            "id": "topic-meteorological-data-analysis",
+            "title": "Meteorological and Climatological Data Analysis",
+            "description": "Introduction to basic meteorological and climatological data collection, interpretation, and analysis techniques",
+            "tags": [
+              "data-analysis",
+              "meteorology",
+              "climatology",
+              "scientific-thinking"
+            ],
+            "rationale": "Core course content covering fundamental meteorological concepts and data analysis methods",
+            "subTopics": [
+              {
+                "id": "subtopic-data-interpretation",
+                "title": "Data Interpretation and Communication",
+                "description": "Obtaining and interpreting qualitative or quantitative meteorological data and communicating findings",
+                "rationale": "Essential skill for scientific communication in meteorology",
+                "microTopics": [
+                  {
+                    "id": "micro-qualitative-data",
+                    "title": "Qualitative Data Interpretation",
+                    "description": "Interpreting qualitative meteorological observations and phenomena",
+                    "tags": [
+                      "data-analysis",
+                      "interpretation"
+                    ],
+                    "examScopeIds": [
+                      "exam-module-quizzes"
+                    ],
+                    "completed": false,
+                    "rationale": "Foundational skill for meteorological analysis"
+                  },
+                  {
+                    "id": "micro-quantitative-data",
+                    "title": "Quantitative Data Interpretation",
+                    "description": "Analyzing numerical meteorological measurements and datasets",
+                    "tags": [
+                      "data-analysis",
+                      "quantitative"
+                    ],
+                    "examScopeIds": [
+                      "exam-module-quizzes"
+                    ],
+                    "completed": false,
+                    "rationale": "Critical for weather and climate data analysis"
+                  },
+                  {
+                    "id": "micro-data-communication",
+                    "title": "Scientific Communication of Findings",
+                    "description": "Effectively communicating meteorological data findings through written and visual formats",
+                    "tags": [
+                      "communication",
+                      "scientific-writing"
+                    ],
+                    "examScopeIds": [
+                      "exam-module-quizzes"
+                    ],
+                    "completed": false,
+                    "rationale": "Essential for presenting meteorological research and analysis"
+                  }
+                ]
+              },
+              {
+                "id": "subtopic-scientific-hypothesis",
+                "title": "Scientific Hypothesis Construction and Testing",
+                "description": "Employing evidence to construct and test scientific hypotheses in meteorological contexts",
+                "rationale": "Core scientific thinking skill required for lab work",
+                "microTopics": [
+                  {
+                    "id": "micro-hypothesis-construction",
+                    "title": "Hypothesis Construction",
+                    "description": "Developing testable hypotheses based on meteorological observations and evidence",
+                    "tags": [
+                      "hypothesis",
+                      "scientific-method"
+                    ],
+                    "examScopeIds": [
+                      "exam-module-quizzes"
+                    ],
+                    "completed": false,
+                    "rationale": "Foundation for experimental design in meteorology"
+                  },
+                  {
+                    "id": "micro-hypothesis-testing",
+                    "title": "Hypothesis Testing",
+                    "description": "Testing meteorological hypotheses using empirical evidence and data",
+                    "tags": [
+                      "hypothesis",
+                      "testing",
+                      "evidence"
+                    ],
+                    "examScopeIds": [
+                      "exam-module-quizzes"
+                    ],
+                    "completed": false,
+                    "rationale": "Validates scientific claims through evidence-based methods"
+                  }
+                ]
+              },
+              {
+                "id": "subtopic-scientific-claims",
+                "title": "Assessment of Scientific Claims",
+                "description": "Assessing the validity of scientific claims using evidence from physical science",
+                "rationale": "Critical thinking skill for evaluating meteorological information",
+                "microTopics": [
+                  {
+                    "id": "micro-claim-validity",
+                    "title": "Claim Validity Assessment",
+                    "description": "Evaluating the validity of meteorological and climatological claims using scientific evidence",
+                    "tags": [
+                      "critical-thinking",
+                      "evidence-evaluation"
+                    ],
+                    "examScopeIds": [
+                      "exam-module-quizzes"
+                    ],
+                    "completed": false,
+                    "rationale": "Develops ability to distinguish valid from invalid scientific claims"
+                  },
+                  {
+                    "id": "micro-evidence-evaluation",
+                    "title": "Evidence Evaluation",
+                    "description": "Analyzing and evaluating the quality and relevance of evidence supporting meteorological claims",
+                    "tags": [
+                      "evidence",
+                      "analysis"
+                    ],
+                    "examScopeIds": [
+                      "exam-module-quizzes"
+                    ],
+                    "completed": false,
+                    "rationale": "Essential for scientific literacy in meteorology"
+                  }
+                ]
+              },
+              {
+                "id": "subtopic-modeling",
+                "title": "Model Creation and Explanation",
+                "description": "Creating models to explain observable meteorological phenomena and understand physical processes",
+                "rationale": "Develops conceptual understanding of weather and climate systems",
+                "microTopics": [
+                  {
+                    "id": "micro-model-creation",
+                    "title": "Model Development",
+                    "description": "Creating conceptual and mathematical models of meteorological phenomena",
+                    "tags": [
+                      "modeling",
+                      "systems-thinking"
+                    ],
+                    "examScopeIds": [
+                      "exam-module-quizzes"
+                    ],
+                    "completed": false,
+                    "rationale": "Helps visualize and understand complex atmospheric processes"
+                  },
+                  {
+                    "id": "micro-phenomenon-explanation",
+                    "title": "Phenomenon Explanation",
+                    "description": "Using models to explain observable weather and climate phenomena",
+                    "tags": [
+                      "explanation",
+                      "modeling"
+                    ],
+                    "examScopeIds": [
+                      "exam-module-quizzes"
+                    ],
+                    "completed": false,
+                    "rationale": "Connects theory to real-world meteorological observations"
+                  },
+                  {
+                    "id": "micro-process-understanding",
+                    "title": "Physical Process Understanding",
+                    "description": "Understanding biological and physical processes in the natural world through meteorological models",
+                    "tags": [
+                      "processes",
+                      "physical-science"
+                    ],
+                    "examScopeIds": [
+                      "exam-module-quizzes"
+                    ],
+                    "completed": false,
+                    "rationale": "Develops comprehensive understanding of Earth systems"
+                  }
+                ]
+              },
+              {
+                "id": "subtopic-argumentation",
+                "title": "Evidence-Based Argumentation",
+                "description": "Communicating coherent arguments using evidence drawn from qualitative or quantitative sources",
+                "rationale": "Develops scientific reasoning and communication skills",
+                "microTopics": [
+                  {
+                    "id": "micro-argument-structure",
+                    "title": "Argument Structure",
+                    "description": "Constructing logically coherent scientific arguments in meteorology",
+                    "tags": [
+                      "argumentation",
+                      "logic"
+                    ],
+                    "examScopeIds": [
+                      "exam-module-quizzes"
+                    ],
+                    "completed": false,
+                    "rationale": "Foundation for scientific writing and presentation"
+                  },
+                  {
+                    "id": "micro-evidence-integration",
+                    "title": "Evidence Integration",
+                    "description": "Integrating qualitative and quantitative evidence into scientific arguments",
+                    "tags": [
+                      "evidence",
+                      "argumentation"
+                    ],
+                    "examScopeIds": [
+                      "exam-module-quizzes"
+                    ],
+                    "completed": false,
+                    "rationale": "Strengthens ability to support claims with data"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "topic-lab-modules",
+            "title": "Laboratory Modules",
+            "description": "Eight sequential laboratory modules covering meteorological concepts and data analysis",
+            "tags": [
+              "lab-work",
+              "hands-on",
+              "sequential"
+            ],
+            "rationale": "Practical application of meteorological concepts through structured lab exercises",
+            "subTopics": [
+              {
+                "id": "subtopic-module-1",
+                "title": "Module 1",
+                "description": "First laboratory module in the sequence",
+                "rationale": "Foundation module for subsequent lab work",
+                "microTopics": [
+                  {
+                    "id": "micro-module-1-quiz",
+                    "title": "Module 1 Quiz",
+                    "description": "Assessment quiz for Module 1 content (15 points)",
+                    "tags": [
+                      "quiz",
+                      "assessment"
+                    ],
+                    "examScopeIds": [
+                      "exam-module-quizzes"
+                    ],
+                    "completed": false,
+                    "rationale": "Evaluates understanding of Module 1 concepts"
+                  }
+                ]
+              },
+              {
+                "id": "subtopic-module-2",
+                "title": "Module 2",
+                "description": "Second laboratory module in the sequence",
+                "rationale": "Builds on Module 1 concepts",
+                "microTopics": [
+                  {
+                    "id": "micro-module-2-quiz",
+                    "title": "Module 2 Quiz",
+                    "description": "Assessment quiz for Module 2 content (15 points)",
+                    "tags": [
+                      "quiz",
+                      "assessment"
+                    ],
+                    "examScopeIds": [
+                      "exam-module-quizzes"
+                    ],
+                    "completed": false,
+                    "rationale": "Evaluates understanding of Module 2 concepts"
+                  }
+                ]
+              },
+              {
+                "id": "subtopic-module-3",
+                "title": "Module 3",
+                "description": "Third laboratory module in the sequence",
+                "rationale": "Continues progression through lab content",
+                "microTopics": [
+                  {
+                    "id": "micro-module-3-quiz",
+                    "title": "Module 3 Quiz",
+                    "description": "Assessment quiz for Module 3 content (15 points)",
+                    "tags": [
+                      "quiz",
+                      "assessment"
+                    ],
+                    "examScopeIds": [
+                      "exam-module-quizzes"
+                    ],
+                    "completed": false,
+                    "rationale": "Evaluates understanding of Module 3 concepts"
+                  }
+                ]
+              },
+              {
+                "id": "subtopic-module-4",
+                "title": "Module 4",
+                "description": "Fourth laboratory module in the sequence",
+                "rationale": "Midpoint of lab sequence",
+                "microTopics": [
+                  {
+                    "id": "micro-module-4-quiz",
+                    "title": "Module 4 Quiz",
+                    "description": "Assessment quiz for Module 4 content (15 points)",
+                    "tags": [
+                      "quiz",
+                      "assessment"
+                    ],
+                    "examScopeIds": [
+                      "exam-module-quizzes"
+                    ],
+                    "completed": false,
+                    "rationale": "Evaluates understanding of Module 4 concepts"
+                  }
+                ]
+              },
+              {
+                "id": "subtopic-module-5",
+                "title": "Module 5",
+                "description": "Fifth laboratory module in the sequence",
+                "rationale": "Second half of lab sequence",
+                "microTopics": [
+                  {
+                    "id": "micro-module-5-quiz",
+                    "title": "Module 5 Quiz",
+                    "description": "Assessment quiz for Module 5 content (15 points)",
+                    "tags": [
+                      "quiz",
+                      "assessment"
+                    ],
+                    "examScopeIds": [
+                      "exam-module-quizzes"
+                    ],
+                    "completed": false,
+                    "rationale": "Evaluates understanding of Module 5 concepts"
+                  }
+                ]
+              },
+              {
+                "id": "subtopic-module-6",
+                "title": "Module 6",
+                "description": "Sixth laboratory module in the sequence",
+                "rationale": "Continues second half of lab sequence",
+                "microTopics": [
+                  {
+                    "id": "micro-module-6-quiz",
+                    "title": "Module 6 Quiz",
+                    "description": "Assessment quiz for Module 6 content (15 points)",
+                    "tags": [
+                      "quiz",
+                      "assessment"
+                    ],
+                    "examScopeIds": [
+                      "exam-module-quizzes"
+                    ],
+                    "completed": false,
+                    "rationale": "Evaluates understanding of Module 6 concepts"
+                  }
+                ]
+              },
+              {
+                "id": "subtopic-module-7",
+                "title": "Module 7",
+                "description": "Seventh laboratory module in the sequence",
+                "rationale": "Near completion of lab sequence",
+                "microTopics": [
+                  {
+                    "id": "micro-module-7-quiz",
+                    "title": "Module 7 Quiz",
+                    "description": "Assessment quiz for Module 7 content (15 points)",
+                    "tags": [
+                      "quiz",
+                      "assessment"
+                    ],
+                    "examScopeIds": [
+                      "exam-module-quizzes"
+                    ],
+                    "completed": false,
+                    "rationale": "Evaluates understanding of Module 7 concepts"
+                  }
+                ]
+              },
+              {
+                "id": "subtopic-module-8",
+                "title": "Module 8",
+                "description": "Eighth and final laboratory module in the sequence",
+                "rationale": "Capstone module completing lab sequence",
+                "microTopics": [
+                  {
+                    "id": "micro-module-8-quiz",
+                    "title": "Module 8 Quiz",
+                    "description": "Assessment quiz for Module 8 content (15 points)",
+                    "tags": [
+                      "quiz",
+                      "assessment"
+                    ],
+                    "examScopeIds": [
+                      "exam-module-quizzes"
+                    ],
+                    "completed": false,
+                    "rationale": "Evaluates understanding of Module 8 concepts"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "topic-challenge-quizzes",
+            "title": "Challenge Quizzes",
+            "description": "Bonus challenge quizzes available in select modules for extra credit points",
+            "tags": [
+              "bonus",
+              "extra-credit",
+              "challenge"
+            ],
+            "rationale": "Provides opportunity for students to earn additional points and demonstrate mastery",
+            "subTopics": [
+              {
+                "id": "subtopic-bonus-content",
+                "title": "Bonus Challenge Content",
+                "description": "Extra credit opportunities through challenge quizzes",
+                "rationale": "Allows advanced students to earn higher grades",
+                "microTopics": [
+                  {
+                    "id": "micro-challenge-quiz",
+                    "title": "Challenge Quiz Completion",
+                    "description": "Completing bonus challenge quizzes for extra points beyond base 120 points",
+                    "tags": [
+                      "bonus",
+                      "challenge",
+                      "extra-credit"
+                    ],
+                    "examScopeIds": [
+                      "exam-module-quizzes"
+                    ],
+                    "completed": false,
+                    "rationale": "Provides path to A+ grade (115+ points)"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "assignments": [
+          {
+            "id": "assignment-module-1-quiz",
+            "title": "Module 1 Quiz",
+            "description": "Quiz assessment for Module 1 content worth 15 points",
+            "dueDate": "2025-10-10T23:59:00.000Z",
+            "type": "exam",
+            "relatedTopicIds": [
+              "topic-lab-modules"
+            ],
+            "scopeText": "Module 1 content; untimed quiz, can be returned to at any time but only one submission allowed"
+          },
+          {
+            "id": "assignment-module-2-quiz",
+            "title": "Module 2 Quiz",
+            "description": "Quiz assessment for Module 2 content worth 15 points",
+            "dueDate": "2025-10-10T23:59:00.000Z",
+            "type": "exam",
+            "relatedTopicIds": [
+              "topic-lab-modules"
+            ],
+            "scopeText": "Module 2 content; untimed quiz, can be returned to at any time but only one submission allowed"
+          },
+          {
+            "id": "assignment-module-3-quiz",
+            "title": "Module 3 Quiz",
+            "description": "Quiz assessment for Module 3 content worth 15 points",
+            "dueDate": "2025-10-10T23:59:00.000Z",
+            "type": "exam",
+            "relatedTopicIds": [
+              "topic-lab-modules"
+            ],
+            "scopeText": "Module 3 content; untimed quiz, can be returned to at any time but only one submission allowed"
+          },
+          {
+            "id": "assignment-module-4-quiz",
+            "title": "Module 4 Quiz",
+            "description": "Quiz assessment for Module 4 content worth 15 points",
+            "dueDate": "2025-10-10T23:59:00.000Z",
+            "type": "exam",
+            "relatedTopicIds": [
+              "topic-lab-modules"
+            ],
+            "scopeText": "Module 4 content; untimed quiz, can be returned to at any time but only one submission allowed"
+          },
+          {
+            "id": "assignment-module-5-quiz",
+            "title": "Module 5 Quiz",
+            "description": "Quiz assessment for Module 5 content worth 15 points",
+            "dueDate": "2025-10-10T23:59:00.000Z",
+            "type": "exam",
+            "relatedTopicIds": [
+              "topic-lab-modules"
+            ],
+            "scopeText": "Module 5 content; untimed quiz, can be returned to at any time but only one submission allowed"
+          },
+          {
+            "id": "assignment-module-6-quiz",
+            "title": "Module 6 Quiz",
+            "description": "Quiz assessment for Module 6 content worth 15 points",
+            "dueDate": "2025-10-10T23:59:00.000Z",
+            "type": "exam",
+            "relatedTopicIds": [
+              "topic-lab-modules"
+            ],
+            "scopeText": "Module 6 content; untimed quiz, can be returned to at any time but only one submission allowed"
+          },
+          {
+            "id": "assignment-module-7-quiz",
+            "title": "Module 7 Quiz",
+            "description": "Quiz assessment for Module 7 content worth 15 points",
+            "dueDate": "2025-10-10T23:59:00.000Z",
+            "type": "exam",
+            "relatedTopicIds": [
+              "topic-lab-modules"
+            ],
+            "scopeText": "Module 7 content; untimed quiz, can be returned to at any time but only one submission allowed"
+          },
+          {
+            "id": "assignment-module-8-quiz",
+            "title": "Module 8 Quiz",
+            "description": "Quiz assessment for Module 8 content worth 15 points",
+            "dueDate": "2025-10-10T23:59:00.000Z",
+            "type": "exam",
+            "relatedTopicIds": [
+              "topic-lab-modules"
+            ],
+            "scopeText": "Module 8 content; untimed quiz, can be returned to at any time but only one submission allowed"
+          },
+          {
+            "id": "assignment-all-coursework",
+            "title": "All Coursework Submission",
+            "description": "Final deadline for all course assignments and quizzes",
+            "dueDate": "2025-10-10T23:59:00.000Z",
+            "type": "misc",
+            "relatedTopicIds": [
+              "topic-lab-modules",
+              "topic-meteorological-data-analysis"
+            ],
+            "scopeText": "All coursework must be completed and submitted by October 10, 11:59 PM Arizona Time"
+          }
+        ],
+        "resources": {
+          "topic-meteorological-data-analysis": [
+            {
+              "id": "resource-noaa-jetstream",
+              "title": "NOAA's JetStream - An Online School for Weather",
+              "url": "https://www.noaa.gov/jetstream",
+              "summary": "Official NOAA online resource for weather and meteorology education, serving as the primary textbook for the course",
+              "type": "interactive",
+              "duration": "self-paced"
+            }
+          ],
+          "topic-lab-modules": [
+            {
+              "id": "resource-noaa-jetstream-labs",
+              "title": "NOAA's JetStream - An Online School for Weather",
+              "url": "https://www.noaa.gov/jetstream",
+              "summary": "Primary resource for all laboratory module content and meteorological concepts",
+              "type": "interactive",
+              "duration": "self-paced"
+            }
+          ]
+        },
+        "exams": [
+          {
+            "id": "exam-module-quizzes",
+            "title": "Module Quizzes (1-8)",
+            "description": "Eight module quizzes worth 15 points each (120 points total), with potential bonus challenge quizzes for extra points. Quizzes are untimed and can be returned to at any time, but only one submission is allowed per quiz.",
+            "date": "2025-10-10",
+            "relatedTopicIds": [
+              "topic-lab-modules",
+              "topic-meteorological-data-analysis"
+            ],
+            "uncertainty": "Exact dates for individual module quizzes not specified; suggested schedule is one module per week, but all must be completed by October 10, 2025"
+          }
+        ]
+      },
+      "quizHistory": [],
+      "quizResults": [],
+      "lastUpdated": "2025-11-09T07:20:19.035Z"
+    },
+    "course-1762680292447": {
+      "studyMap": {
+        "course": {
+          "id": "course-1762680292447",
+          "name": "asd",
+          "createdAt": "2025-11-09T09:24:52.447Z"
+        },
+        "topics": [],
+        "assignments": [],
+        "resources": {},
+        "exams": []
+      },
+      "quizHistory": [],
+      "quizResults": [],
+      "lastUpdated": "2025-11-09T09:24:58.416Z"
+    },
+    "course-1762680425771": {
+      "studyMap": {
+        "course": {
+          "id": "course-1762680425771",
+          "name": "aa",
+          "createdAt": "2025-11-09T09:27:05.771Z"
+        },
+        "topics": [
+          {
+            "id": "topic-meteorological-data-analysis",
+            "title": "Meteorological and Climatological Data Analysis",
+            "description": "Introduction to basic meteorological and climatological data collection, interpretation, and analysis techniques",
+            "tags": [
+              "data-analysis",
+              "meteorology",
+              "climatology",
+              "scientific-thinking"
+            ],
+            "rationale": "Core course content covering fundamental meteorological concepts and data analysis methods",
+            "subTopics": [
+              {
+                "id": "subtopic-data-interpretation",
+                "title": "Data Interpretation and Communication",
+                "description": "Obtaining and interpreting qualitative or quantitative meteorological data and communicating findings",
+                "rationale": "Essential skill for scientific communication in meteorology",
+                "microTopics": [
+                  {
+                    "id": "micro-qualitative-data",
+                    "title": "Qualitative Data Interpretation",
+                    "description": "Interpreting qualitative meteorological observations and observations",
+                    "tags": [
+                      "data-analysis",
+                      "communication"
+                    ],
+                    "examScopeIds": [
+                      "exam-module-quizzes"
+                    ],
+                    "completed": true,
+                    "rationale": "Foundation for understanding non-numerical weather data"
+                  },
+                  {
+                    "id": "micro-quantitative-data",
+                    "title": "Quantitative Data Interpretation",
+                    "description": "Interpreting numerical meteorological measurements and datasets",
+                    "tags": [
+                      "data-analysis",
+                      "mathematics"
+                    ],
+                    "examScopeIds": [
+                      "exam-module-quizzes"
+                    ],
+                    "completed": true,
+                    "rationale": "Critical for analyzing weather measurements and statistics"
+                  },
+                  {
+                    "id": "micro-data-communication",
+                    "title": "Communicating Data Findings",
+                    "description": "Presenting meteorological data analysis results effectively",
+                    "tags": [
+                      "communication",
+                      "presentation"
+                    ],
+                    "examScopeIds": [
+                      "exam-module-quizzes"
+                    ],
+                    "completed": true,
+                    "rationale": "Essential for scientific reporting and documentation"
+                  }
+                ]
+              },
+              {
+                "id": "subtopic-scientific-hypotheses",
+                "title": "Scientific Hypotheses and Evidence",
+                "description": "Employing evidence to construct and test scientific hypotheses in meteorology",
+                "rationale": "Core scientific method application in meteorological studies",
+                "microTopics": [
+                  {
+                    "id": "micro-hypothesis-construction",
+                    "title": "Hypothesis Construction",
+                    "description": "Developing testable hypotheses based on meteorological observations",
+                    "tags": [
+                      "scientific-method",
+                      "hypothesis"
+                    ],
+                    "examScopeIds": [
+                      "exam-module-quizzes"
+                    ],
+                    "completed": true,
+                    "rationale": "Foundation of scientific inquiry in meteorology"
+                  },
+                  {
+                    "id": "micro-hypothesis-testing",
+                    "title": "Hypothesis Testing",
+                    "description": "Testing meteorological hypotheses using empirical evidence",
+                    "tags": [
+                      "scientific-method",
+                      "testing"
+                    ],
+                    "examScopeIds": [
+                      "exam-module-quizzes"
+                    ],
+                    "completed": false,
+                    "rationale": "Validates scientific claims through evidence"
+                  }
+                ]
+              },
+              {
+                "id": "subtopic-scientific-claims-validity",
+                "title": "Assessing Scientific Claims Validity",
+                "description": "Assessing the validity of scientific claims using evidence from physical science",
+                "rationale": "Critical thinking skill for evaluating meteorological research",
+                "microTopics": [
+                  {
+                    "id": "micro-evidence-evaluation",
+                    "title": "Evidence Evaluation",
+                    "description": "Evaluating the quality and relevance of meteorological evidence",
+                    "tags": [
+                      "critical-thinking",
+                      "evidence"
+                    ],
+                    "examScopeIds": [
+                      "exam-module-quizzes"
+                    ],
+                    "completed": true,
+                    "rationale": "Ensures scientific rigor in meteorological analysis"
+                  },
+                  {
+                    "id": "micro-claim-assessment",
+                    "title": "Claim Assessment",
+                    "description": "Determining validity of meteorological and climatological claims",
+                    "tags": [
+                      "critical-thinking",
+                      "analysis"
+                    ],
+                    "examScopeIds": [
+                      "exam-module-quizzes"
+                    ],
+                    "completed": true,
+                    "rationale": "Develops ability to distinguish valid from invalid scientific claims"
+                  }
+                ]
+              },
+              {
+                "id": "subtopic-modeling-phenomena",
+                "title": "Modeling Observable Phenomena",
+                "description": "Creating models to explain observable meteorological phenomena and understand physical processes",
+                "rationale": "Develops conceptual understanding of weather and climate systems",
+                "microTopics": [
+                  {
+                    "id": "micro-model-creation",
+                    "title": "Model Creation",
+                    "description": "Developing models to represent meteorological processes",
+                    "tags": [
+                      "modeling",
+                      "systems-thinking"
+                    ],
+                    "examScopeIds": [
+                      "exam-module-quizzes"
+                    ],
+                    "completed": true,
+                    "rationale": "Translates observations into conceptual frameworks"
+                  },
+                  {
+                    "id": "micro-process-understanding",
+                    "title": "Physical Process Understanding",
+                    "description": "Understanding biological and physical processes in weather and climate systems",
+                    "tags": [
+                      "systems-thinking",
+                      "meteorology"
+                    ],
+                    "examScopeIds": [
+                      "exam-module-quizzes"
+                    ],
+                    "completed": true,
+                    "rationale": "Comprehends mechanisms driving meteorological phenomena"
+                  }
+                ]
+              },
+              {
+                "id": "subtopic-coherent-arguments",
+                "title": "Communicating Coherent Arguments",
+                "description": "Communicating coherent arguments using evidence drawn from qualitative or quantitative sources",
+                "rationale": "Develops scientific communication and argumentation skills",
+                "microTopics": [
+                  {
+                    "id": "micro-argument-structure",
+                    "title": "Argument Structure",
+                    "description": "Organizing meteorological arguments logically and coherently",
+                    "tags": [
+                      "communication",
+                      "argumentation"
+                    ],
+                    "examScopeIds": [
+                      "exam-module-quizzes"
+                    ],
+                    "completed": false,
+                    "rationale": "Ensures clear presentation of scientific reasoning"
+                  },
+                  {
+                    "id": "micro-evidence-integration",
+                    "title": "Evidence Integration",
+                    "description": "Integrating qualitative and quantitative evidence into scientific arguments",
+                    "tags": [
+                      "communication",
+                      "evidence"
+                    ],
+                    "examScopeIds": [
+                      "exam-module-quizzes"
+                    ],
+                    "completed": false,
+                    "rationale": "Strengthens scientific arguments with supporting data"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "topic-module-1",
+            "title": "Module 1 - Meteorology Fundamentals",
+            "description": "First module covering basic meteorological concepts and foundational knowledge",
+            "tags": [
+              "module-1",
+              "fundamentals"
+            ],
+            "rationale": "Introductory module establishing baseline meteorological knowledge",
+            "subTopics": [
+              {
+                "id": "subtopic-module-1-quizzes",
+                "title": "Module 1 Quizzes",
+                "description": "Assessment quizzes for Module 1 content",
+                "rationale": "Evaluates understanding of fundamental meteorological concepts",
+                "microTopics": [
+                  {
+                    "id": "micro-module-1-quiz",
+                    "title": "Module 1 Quiz Assessment",
+                    "description": "Untimed quiz covering Module 1 meteorological fundamentals",
+                    "tags": [
+                      "quiz",
+                      "assessment"
+                    ],
+                    "examScopeIds": [
+                      "exam-module-quizzes"
+                    ],
+                    "completed": false,
+                    "rationale": "Tests comprehension of introductory meteorology content"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "topic-module-2",
+            "title": "Module 2 - Meteorological Concepts",
+            "description": "Second module covering intermediate meteorological concepts",
+            "tags": [
+              "module-2"
+            ],
+            "rationale": "Builds on foundational knowledge with more complex meteorological topics",
+            "subTopics": [
+              {
+                "id": "subtopic-module-2-quizzes",
+                "title": "Module 2 Quizzes",
+                "description": "Assessment quizzes for Module 2 content",
+                "rationale": "Evaluates understanding of intermediate meteorological concepts",
+                "microTopics": [
+                  {
+                    "id": "micro-module-2-quiz",
+                    "title": "Module 2 Quiz Assessment",
+                    "description": "Untimed quiz covering Module 2 meteorological concepts",
+                    "tags": [
+                      "quiz",
+                      "assessment"
+                    ],
+                    "examScopeIds": [
+                      "exam-module-quizzes"
+                    ],
+                    "completed": false,
+                    "rationale": "Tests comprehension of intermediate meteorology content"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "topic-module-3",
+            "title": "Module 3 - Advanced Meteorology",
+            "description": "Third module covering advanced meteorological analysis and applications",
+            "tags": [
+              "module-3"
+            ],
+            "rationale": "Develops deeper understanding of meteorological principles and applications",
+            "subTopics": [
+              {
+                "id": "subtopic-module-3-quizzes",
+                "title": "Module 3 Quizzes",
+                "description": "Assessment quizzes for Module 3 content",
+                "rationale": "Evaluates understanding of advanced meteorological concepts",
+                "microTopics": [
+                  {
+                    "id": "micro-module-3-quiz",
+                    "title": "Module 3 Quiz Assessment",
+                    "description": "Untimed quiz covering Module 3 advanced meteorology",
+                    "tags": [
+                      "quiz",
+                      "assessment"
+                    ],
+                    "examScopeIds": [
+                      "exam-module-quizzes"
+                    ],
+                    "completed": false,
+                    "rationale": "Tests comprehension of advanced meteorology content"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "topic-module-4",
+            "title": "Module 4 - Meteorological Applications",
+            "description": "Fourth module covering practical applications of meteorological knowledge",
+            "tags": [
+              "module-4"
+            ],
+            "rationale": "Applies meteorological concepts to real-world scenarios",
+            "subTopics": [
+              {
+                "id": "subtopic-module-4-quizzes",
+                "title": "Module 4 Quizzes",
+                "description": "Assessment quizzes for Module 4 content",
+                "rationale": "Evaluates understanding of meteorological applications",
+                "microTopics": [
+                  {
+                    "id": "micro-module-4-quiz",
+                    "title": "Module 4 Quiz Assessment",
+                    "description": "Untimed quiz covering Module 4 meteorological applications",
+                    "tags": [
+                      "quiz",
+                      "assessment"
+                    ],
+                    "examScopeIds": [
+                      "exam-module-quizzes"
+                    ],
+                    "completed": false,
+                    "rationale": "Tests comprehension of applied meteorology content"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "topic-module-5",
+            "title": "Module 5 - Climatological Analysis",
+            "description": "Fifth module covering climatological data and analysis techniques",
+            "tags": [
+              "module-5",
+              "climatology"
+            ],
+            "rationale": "Focuses on climate-scale meteorological analysis",
+            "subTopics": [
+              {
+                "id": "subtopic-module-5-quizzes",
+                "title": "Module 5 Quizzes",
+                "description": "Assessment quizzes for Module 5 content",
+                "rationale": "Evaluates understanding of climatological concepts",
+                "microTopics": [
+                  {
+                    "id": "micro-module-5-quiz",
+                    "title": "Module 5 Quiz Assessment",
+                    "description": "Untimed quiz covering Module 5 climatological analysis",
+                    "tags": [
+                      "quiz",
+                      "assessment"
+                    ],
+                    "examScopeIds": [
+                      "exam-module-quizzes"
+                    ],
+                    "completed": true,
+                    "rationale": "Tests comprehension of climatology content"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "topic-module-6",
+            "title": "Module 6 - Advanced Climate Systems",
+            "description": "Sixth module covering advanced climate system concepts",
+            "tags": [
+              "module-6",
+              "climate-systems"
+            ],
+            "rationale": "Develops understanding of complex climate interactions",
+            "subTopics": [
+              {
+                "id": "subtopic-module-6-quizzes",
+                "title": "Module 6 Quizzes",
+                "description": "Assessment quizzes for Module 6 content",
+                "rationale": "Evaluates understanding of advanced climate systems",
+                "microTopics": [
+                  {
+                    "id": "micro-module-6-quiz",
+                    "title": "Module 6 Quiz Assessment",
+                    "description": "Untimed quiz covering Module 6 advanced climate systems",
+                    "tags": [
+                      "quiz",
+                      "assessment"
+                    ],
+                    "examScopeIds": [
+                      "exam-module-quizzes"
+                    ],
+                    "completed": false,
+                    "rationale": "Tests comprehension of advanced climate content"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "topic-module-7",
+            "title": "Module 7 - Meteorological Instrumentation",
+            "description": "Seventh module covering meteorological instruments and measurement techniques",
+            "tags": [
+              "module-7",
+              "instrumentation"
+            ],
+            "rationale": "Develops understanding of weather measurement tools and methods",
+            "subTopics": [
+              {
+                "id": "subtopic-module-7-quizzes",
+                "title": "Module 7 Quizzes",
+                "description": "Assessment quizzes for Module 7 content",
+                "rationale": "Evaluates understanding of meteorological instrumentation",
+                "microTopics": [
+                  {
+                    "id": "micro-module-7-quiz",
+                    "title": "Module 7 Quiz Assessment",
+                    "description": "Untimed quiz covering Module 7 meteorological instrumentation",
+                    "tags": [
+                      "quiz",
+                      "assessment"
+                    ],
+                    "examScopeIds": [
+                      "exam-module-quizzes"
+                    ],
+                    "completed": false,
+                    "rationale": "Tests comprehension of instrumentation content"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "topic-module-8",
+            "title": "Module 8 - Capstone and Integration",
+            "description": "Eighth module integrating all meteorological and climatological concepts",
+            "tags": [
+              "module-8",
+              "capstone"
+            ],
+            "rationale": "Synthesizes all course content and may include bonus challenge quizzes",
+            "subTopics": [
+              {
+                "id": "subtopic-module-8-quizzes",
+                "title": "Module 8 Quizzes and Challenge Questions",
+                "description": "Assessment quizzes and bonus challenge questions for Module 8 content",
+                "rationale": "Evaluates comprehensive understanding and offers bonus point opportunities",
+                "microTopics": [
+                  {
+                    "id": "micro-module-8-quiz",
+                    "title": "Module 8 Quiz Assessment",
+                    "description": "Untimed quiz covering Module 8 capstone meteorology content",
+                    "tags": [
+                      "quiz",
+                      "assessment"
+                    ],
+                    "examScopeIds": [
+                      "exam-module-quizzes"
+                    ],
+                    "completed": true,
+                    "rationale": "Tests comprehensive meteorology knowledge"
+                  },
+                  {
+                    "id": "micro-module-8-challenge",
+                    "title": "Module 8 Challenge Quiz",
+                    "description": "Bonus challenge quiz for Module 8 offering extra points",
+                    "tags": [
+                      "quiz",
+                      "bonus",
+                      "challenge"
+                    ],
+                    "examScopeIds": [
+                      "exam-module-quizzes"
+                    ],
+                    "completed": true,
+                    "rationale": "Provides opportunity for bonus points through advanced questions"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "assignments": [
+          {
+            "id": "assignment-module-1-quizzes",
+            "title": "Module 1 Quizzes",
+            "description": "Untimed quizzes for Module 1 covering meteorological fundamentals. Can be returned to at any time but answers can only be submitted once. Worth 15 points total.",
+            "dueDate": "2025-10-10T23:59:00.000Z",
+            "type": "exam",
+            "relatedTopicIds": [
+              "topic-module-1"
+            ],
+            "scopeText": "Module 1 meteorological fundamentals"
+          },
+          {
+            "id": "assignment-module-2-quizzes",
+            "title": "Module 2 Quizzes",
+            "description": "Untimed quizzes for Module 2 covering intermediate meteorological concepts. Can be returned to at any time but answers can only be submitted once. Worth 15 points total.",
+            "dueDate": "2025-10-10T23:59:00.000Z",
+            "type": "exam",
+            "relatedTopicIds": [
+              "topic-module-2"
+            ],
+            "scopeText": "Module 2 intermediate meteorological concepts"
+          },
+          {
+            "id": "assignment-module-3-quizzes",
+            "title": "Module 3 Quizzes",
+            "description": "Untimed quizzes for Module 3 covering advanced meteorological analysis. Can be returned to at any time but answers can only be submitted once. Worth 15 points total.",
+            "dueDate": "2025-10-10T23:59:00.000Z",
+            "type": "exam",
+            "relatedTopicIds": [
+              "topic-module-3"
+            ],
+            "scopeText": "Module 3 advanced meteorology"
+          },
+          {
+            "id": "assignment-module-4-quizzes",
+            "title": "Module 4 Quizzes",
+            "description": "Untimed quizzes for Module 4 covering practical meteorological applications. Can be returned to at any time but answers can only be submitted once. Worth 15 points total.",
+            "dueDate": "2025-10-10T23:59:00.000Z",
+            "type": "exam",
+            "relatedTopicIds": [
+              "topic-module-4"
+            ],
+            "scopeText": "Module 4 meteorological applications"
+          },
+          {
+            "id": "assignment-module-5-quizzes",
+            "title": "Module 5 Quizzes",
+            "description": "Untimed quizzes for Module 5 covering climatological data and analysis. Can be returned to at any time but answers can only be submitted once. Worth 15 points total.",
+            "dueDate": "2025-10-10T23:59:00.000Z",
+            "type": "exam",
+            "relatedTopicIds": [
+              "topic-module-5"
+            ],
+            "scopeText": "Module 5 climatological analysis"
+          },
+          {
+            "id": "assignment-module-6-quizzes",
+            "title": "Module 6 Quizzes",
+            "description": "Untimed quizzes for Module 6 covering advanced climate systems. Can be returned to at any time but answers can only be submitted once. Worth 15 points total.",
+            "dueDate": "2025-10-10T23:59:00.000Z",
+            "type": "exam",
+            "relatedTopicIds": [
+              "topic-module-6"
+            ],
+            "scopeText": "Module 6 advanced climate systems"
+          },
+          {
+            "id": "assignment-module-7-quizzes",
+            "title": "Module 7 Quizzes",
+            "description": "Untimed quizzes for Module 7 covering meteorological instrumentation and measurement. Can be returned to at any time but answers can only be submitted once. Worth 15 points total.",
+            "dueDate": "2025-10-10T23:59:00.000Z",
+            "type": "exam",
+            "relatedTopicIds": [
+              "topic-module-7"
+            ],
+            "scopeText": "Module 7 meteorological instrumentation"
+          },
+          {
+            "id": "assignment-module-8-quizzes",
+            "title": "Module 8 Quizzes and Challenge Questions",
+            "description": "Untimed quizzes for Module 8 covering capstone meteorology content. Includes bonus challenge quizzes for extra points. Can be returned to at any time but answers can only be submitted once. Worth 15 points plus bonus points.",
+            "dueDate": "2025-10-10T23:59:00.000Z",
+            "type": "exam",
+            "relatedTopicIds": [
+              "topic-module-8"
+            ],
+            "scopeText": "Module 8 capstone meteorology and bonus challenges"
+          }
+        ],
+        "resources": {
+          "topic-meteorological-data-analysis": [
+            {
+              "id": "resource-noaa-jetstream",
+              "title": "NOAA's JetStream - An Online School for Weather",
+              "url": "https://www.noaa.gov/jetstream",
+              "summary": "Official NOAA online resource for weather and meteorology education covering fundamental meteorological concepts, data analysis, and weather phenomena",
+              "type": "interactive",
+              "duration": "self-paced"
+            }
+          ]
+        },
+        "exams": [
+          {
+            "id": "exam-module-quizzes",
+            "title": "Module Quizzes (All 8 Modules)",
+            "description": "Eight modules of untimed quizzes worth 15 points each (120 points total). Some modules include bonus challenge quizzes for extra points. Quizzes can be returned to at any time but answers can only be submitted once. Labs are designed to be completed in sequential order. Suggested pace is one module per week.",
+            "date": "2025-10-10",
+            "relatedTopicIds": [
+              "topic-module-1",
+              "topic-module-2",
+              "topic-module-3",
+              "topic-module-4",
+              "topic-module-5",
+              "topic-module-6",
+              "topic-module-7",
+              "topic-module-8"
+            ],
+            "uncertainty": "All coursework due October 10, 11:59 PM Arizona Time. Modules suggested to be completed weekly but can be completed at any time before deadline."
+          }
+        ]
+      },
+      "quizHistory": [],
+      "quizResults": [],
+      "lastUpdated": "2025-11-09T09:29:47.520Z"
+    },
+    "course-1762688003809": {
+      "studyMap": {
+        "course": {
+          "id": "course-1762688003809",
+          "name": "IEENEW",
+          "createdAt": "2025-11-09T11:33:23.809Z"
+        },
+        "topics": [
+          {
+            "id": "topic-statistics-role",
+            "title": "The Role of Statistics in Engineering",
+            "description": "Introduction to statistics and its applications in engineering problem solving",
+            "tags": [
+              "chapter-1",
+              "exam-1",
+              "foundational"
+            ],
+            "rationale": "Chapter 1 introduces the fundamental concepts and role of statistics in engineering",
+            "subTopics": [
+              {
+                "id": "subtopic-statistics-fundamentals",
+                "title": "Statistics Fundamentals",
+                "description": "Basic concepts and definitions of statistics in engineering context",
+                "rationale": "Foundation for understanding statistical methods",
+                "microTopics": [
+                  {
+                    "id": "micro-statistics-definition",
+                    "title": "Definition and Role of Statistics",
+                    "description": "Understanding what statistics is and its importance in engineering",
+                    "tags": [
+                      "foundational",
+                      "definition"
+                    ],
+                    "examScopeIds": [
+                      "exam-1",
+                      "exam-final"
+                    ],
+                    "completed": true,
+                    "rationale": "Core concept for the course"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "topic-probability",
+            "title": "Probability",
+            "description": "Probability theory including independence, addition rule, intersection, union, complement, and Bayes' Theorem",
+            "tags": [
+              "chapter-2",
+              "exam-1",
+              "foundational"
+            ],
+            "rationale": "Chapter 2 covers fundamental probability concepts essential for statistical inference",
+            "subTopics": [
+              {
+                "id": "subtopic-probability-basics",
+                "title": "Probability Basics",
+                "description": "Fundamental probability concepts and rules",
+                "rationale": "Foundation for all probability-based topics",
+                "microTopics": [
+                  {
+                    "id": "micro-independence",
+                    "title": "Independence",
+                    "description": "Understanding independent events and their properties",
+                    "tags": [
+                      "probability",
+                      "rules"
+                    ],
+                    "examScopeIds": [
+                      "exam-1",
+                      "exam-final"
+                    ],
+                    "completed": true,
+                    "rationale": "Key probability concept"
+                  },
+                  {
+                    "id": "micro-addition-rule",
+                    "title": "Addition Rule",
+                    "description": "Probability of union of events using addition rule",
+                    "tags": [
+                      "probability",
+                      "rules"
+                    ],
+                    "examScopeIds": [
+                      "exam-1",
+                      "exam-final"
+                    ],
+                    "completed": true,
+                    "rationale": "Fundamental probability rule"
+                  },
+                  {
+                    "id": "micro-intersection",
+                    "title": "Intersection",
+                    "description": "Probability of intersection of events",
+                    "tags": [
+                      "probability",
+                      "rules"
+                    ],
+                    "examScopeIds": [
+                      "exam-1",
+                      "exam-final"
+                    ],
+                    "completed": false,
+                    "rationale": "Fundamental probability concept"
+                  },
+                  {
+                    "id": "micro-union",
+                    "title": "Union",
+                    "description": "Probability of union of events",
+                    "tags": [
+                      "probability",
+                      "rules"
+                    ],
+                    "examScopeIds": [
+                      "exam-1",
+                      "exam-final"
+                    ],
+                    "completed": false,
+                    "rationale": "Fundamental probability concept"
+                  },
+                  {
+                    "id": "micro-complement",
+                    "title": "Complement",
+                    "description": "Probability of complement of an event",
+                    "tags": [
+                      "probability",
+                      "rules"
+                    ],
+                    "examScopeIds": [
+                      "exam-1",
+                      "exam-final"
+                    ],
+                    "completed": false,
+                    "rationale": "Fundamental probability concept"
+                  }
+                ]
+              },
+              {
+                "id": "subtopic-conditional-probability",
+                "title": "Conditional Probability and Bayes' Theorem",
+                "description": "Conditional probability and Bayes' Theorem for solving complex probability problems",
+                "rationale": "Advanced probability concepts for engineering applications",
+                "microTopics": [
+                  {
+                    "id": "micro-conditional-probability",
+                    "title": "Conditional Probability",
+                    "description": "Probability of event given another event has occurred",
+                    "tags": [
+                      "probability",
+                      "conditional"
+                    ],
+                    "examScopeIds": [
+                      "exam-1",
+                      "exam-final"
+                    ],
+                    "completed": false,
+                    "rationale": "Essential for Bayes' Theorem"
+                  },
+                  {
+                    "id": "micro-bayes-theorem",
+                    "title": "Bayes' Theorem",
+                    "description": "Using Bayes' Theorem to solve conditional probability problems",
+                    "tags": [
+                      "probability",
+                      "bayes"
+                    ],
+                    "examScopeIds": [
+                      "exam-1",
+                      "exam-final"
+                    ],
+                    "completed": false,
+                    "rationale": "Key learning outcome of the course"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "topic-discrete-random-variables",
+            "title": "Discrete Random Variables",
+            "description": "Discrete random variables including Discrete Uniform, Poisson, Bernoulli, Binomial distributions with expected value, variance, pmf, and CDF",
+            "tags": [
+              "chapter-3",
+              "exam-1",
+              "distributions"
+            ],
+            "rationale": "Chapter 3 covers discrete probability distributions used in engineering applications",
+            "subTopics": [
+              {
+                "id": "subtopic-discrete-rv-fundamentals",
+                "title": "Discrete Random Variables Fundamentals",
+                "description": "General concepts of discrete random variables, pmf, and CDF",
+                "rationale": "Foundation for understanding specific discrete distributions",
+                "microTopics": [
+                  {
+                    "id": "micro-discrete-rv-definition",
+                    "title": "Definition of Discrete Random Variables",
+                    "description": "Understanding discrete random variables and their properties",
+                    "tags": [
+                      "discrete",
+                      "fundamentals"
+                    ],
+                    "examScopeIds": [
+                      "exam-1",
+                      "exam-final"
+                    ],
+                    "completed": false,
+                    "rationale": "Core concept"
+                  },
+                  {
+                    "id": "micro-pmf",
+                    "title": "Probability Mass Function (pmf)",
+                    "description": "Understanding and using probability mass functions",
+                    "tags": [
+                      "discrete",
+                      "pmf"
+                    ],
+                    "examScopeIds": [
+                      "exam-1",
+                      "exam-final"
+                    ],
+                    "completed": false,
+                    "rationale": "Key concept for discrete distributions"
+                  },
+                  {
+                    "id": "micro-cdf-discrete",
+                    "title": "Cumulative Distribution Function (CDF) for Discrete",
+                    "description": "Understanding and using cumulative distribution functions for discrete variables",
+                    "tags": [
+                      "discrete",
+                      "cdf"
+                    ],
+                    "examScopeIds": [
+                      "exam-1",
+                      "exam-final"
+                    ],
+                    "completed": false,
+                    "rationale": "Key concept for discrete distributions"
+                  },
+                  {
+                    "id": "micro-expected-value-discrete",
+                    "title": "Expected Value for Discrete Variables",
+                    "description": "Calculating expected value (mean) of discrete random variables",
+                    "tags": [
+                      "discrete",
+                      "expected-value"
+                    ],
+                    "examScopeIds": [
+                      "exam-1",
+                      "exam-final"
+                    ],
+                    "completed": false,
+                    "rationale": "Important parameter of distributions"
+                  },
+                  {
+                    "id": "micro-variance-discrete",
+                    "title": "Variance for Discrete Variables",
+                    "description": "Calculating variance of discrete random variables",
+                    "tags": [
+                      "discrete",
+                      "variance"
+                    ],
+                    "examScopeIds": [
+                      "exam-1",
+                      "exam-final"
+                    ],
+                    "completed": false,
+                    "rationale": "Important parameter of distributions"
+                  }
+                ]
+              },
+              {
+                "id": "subtopic-discrete-distributions",
+                "title": "Discrete Probability Distributions",
+                "description": "Specific discrete distributions: Discrete Uniform, Poisson, Bernoulli, and Binomial",
+                "rationale": "Common distributions used in engineering applications",
+                "microTopics": [
+                  {
+                    "id": "micro-discrete-uniform",
+                    "title": "Discrete Uniform Distribution",
+                    "description": "Properties and applications of discrete uniform distribution",
+                    "tags": [
+                      "discrete",
+                      "distribution"
+                    ],
+                    "examScopeIds": [
+                      "exam-1",
+                      "exam-final"
+                    ],
+                    "completed": false,
+                    "rationale": "Common discrete distribution"
+                  },
+                  {
+                    "id": "micro-bernoulli",
+                    "title": "Bernoulli Distribution",
+                    "description": "Properties and applications of Bernoulli distribution",
+                    "tags": [
+                      "discrete",
+                      "distribution"
+                    ],
+                    "examScopeIds": [
+                      "exam-1",
+                      "exam-final"
+                    ],
+                    "completed": false,
+                    "rationale": "Foundation for binomial distribution"
+                  },
+                  {
+                    "id": "micro-binomial",
+                    "title": "Binomial Distribution",
+                    "description": "Properties and applications of binomial distribution",
+                    "tags": [
+                      "discrete",
+                      "distribution"
+                    ],
+                    "examScopeIds": [
+                      "exam-1",
+                      "exam-final"
+                    ],
+                    "completed": false,
+                    "rationale": "Common discrete distribution in engineering"
+                  },
+                  {
+                    "id": "micro-poisson",
+                    "title": "Poisson Distribution",
+                    "description": "Properties and applications of Poisson distribution",
+                    "tags": [
+                      "discrete",
+                      "distribution"
+                    ],
+                    "examScopeIds": [
+                      "exam-1",
+                      "exam-final"
+                    ],
+                    "completed": false,
+                    "rationale": "Common discrete distribution for rare events"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "topic-continuous-random-variables",
+            "title": "Continuous Random Variables",
+            "description": "Continuous random variables including Continuous Uniform, Normal, Standard Normal, and Exponential distributions with expected value, variance, pdf, and CDF",
+            "tags": [
+              "chapter-4",
+              "exam-1",
+              "distributions"
+            ],
+            "rationale": "Chapter 4 covers continuous probability distributions essential for statistical inference",
+            "subTopics": [
+              {
+                "id": "subtopic-continuous-rv-fundamentals",
+                "title": "Continuous Random Variables Fundamentals",
+                "description": "General concepts of continuous random variables, pdf, and CDF",
+                "rationale": "Foundation for understanding specific continuous distributions",
+                "microTopics": [
+                  {
+                    "id": "micro-continuous-rv-definition",
+                    "title": "Definition of Continuous Random Variables",
+                    "description": "Understanding continuous random variables and their properties",
+                    "tags": [
+                      "continuous",
+                      "fundamentals"
+                    ],
+                    "examScopeIds": [
+                      "exam-1",
+                      "exam-final"
+                    ],
+                    "completed": false,
+                    "rationale": "Core concept"
+                  },
+                  {
+                    "id": "micro-pdf",
+                    "title": "Probability Density Function (pdf)",
+                    "description": "Understanding and using probability density functions",
+                    "tags": [
+                      "continuous",
+                      "pdf"
+                    ],
+                    "examScopeIds": [
+                      "exam-1",
+                      "exam-final"
+                    ],
+                    "completed": false,
+                    "rationale": "Key concept for continuous distributions"
+                  },
+                  {
+                    "id": "micro-cdf-continuous",
+                    "title": "Cumulative Distribution Function (CDF) for Continuous",
+                    "description": "Understanding and using cumulative distribution functions for continuous variables",
+                    "tags": [
+                      "continuous",
+                      "cdf"
+                    ],
+                    "examScopeIds": [
+                      "exam-1",
+                      "exam-final"
+                    ],
+                    "completed": false,
+                    "rationale": "Key concept for continuous distributions"
+                  },
+                  {
+                    "id": "micro-expected-value-continuous",
+                    "title": "Expected Value for Continuous Variables",
+                    "description": "Calculating expected value (mean) of continuous random variables",
+                    "tags": [
+                      "continuous",
+                      "expected-value"
+                    ],
+                    "examScopeIds": [
+                      "exam-1",
+                      "exam-final"
+                    ],
+                    "completed": false,
+                    "rationale": "Important parameter of distributions"
+                  },
+                  {
+                    "id": "micro-variance-continuous",
+                    "title": "Variance for Continuous Variables",
+                    "description": "Calculating variance of continuous random variables",
+                    "tags": [
+                      "continuous",
+                      "variance"
+                    ],
+                    "examScopeIds": [
+                      "exam-1",
+                      "exam-final"
+                    ],
+                    "completed": false,
+                    "rationale": "Important parameter of distributions"
+                  }
+                ]
+              },
+              {
+                "id": "subtopic-continuous-distributions",
+                "title": "Continuous Probability Distributions",
+                "description": "Specific continuous distributions: Continuous Uniform, Normal, Standard Normal, and Exponential",
+                "rationale": "Common distributions used in engineering applications",
+                "microTopics": [
+                  {
+                    "id": "micro-continuous-uniform",
+                    "title": "Continuous Uniform Distribution",
+                    "description": "Properties and applications of continuous uniform distribution",
+                    "tags": [
+                      "continuous",
+                      "distribution"
+                    ],
+                    "examScopeIds": [
+                      "exam-1",
+                      "exam-final"
+                    ],
+                    "completed": false,
+                    "rationale": "Common continuous distribution"
+                  },
+                  {
+                    "id": "micro-normal-distribution",
+                    "title": "Normal Distribution",
+                    "description": "Properties and applications of normal distribution",
+                    "tags": [
+                      "continuous",
+                      "distribution"
+                    ],
+                    "examScopeIds": [
+                      "exam-1",
+                      "exam-final"
+                    ],
+                    "completed": false,
+                    "rationale": "Most important distribution in statistics"
+                  },
+                  {
+                    "id": "micro-standard-normal",
+                    "title": "Standard Normal Distribution",
+                    "description": "Properties and applications of standard normal distribution (Z-distribution)",
+                    "tags": [
+                      "continuous",
+                      "distribution",
+                      "standardization"
+                    ],
+                    "examScopeIds": [
+                      "exam-1",
+                      "exam-final"
+                    ],
+                    "completed": false,
+                    "rationale": "Essential for statistical inference"
+                  },
+                  {
+                    "id": "micro-exponential",
+                    "title": "Exponential Distribution",
+                    "description": "Properties and applications of exponential distribution",
+                    "tags": [
+                      "continuous",
+                      "distribution"
+                    ],
+                    "examScopeIds": [
+                      "exam-1",
+                      "exam-final"
+                    ],
+                    "completed": false,
+                    "rationale": "Common distribution for time-to-event data"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "topic-descriptive-statistics",
+            "title": "Descriptive Statistics",
+            "description": "Descriptive statistics including histograms and Pareto charts for data visualization and summary",
+            "tags": [
+              "chapter-6",
+              "exam-1",
+              "data-visualization"
+            ],
+            "rationale": "Chapter 6 covers methods for summarizing and visualizing data",
+            "subTopics": [
+              {
+                "id": "subtopic-data-visualization",
+                "title": "Data Visualization",
+                "description": "Methods for visualizing data distributions and patterns",
+                "rationale": "Essential for exploratory data analysis",
+                "microTopics": [
+                  {
+                    "id": "micro-histograms",
+                    "title": "Histograms",
+                    "description": "Creating and interpreting histograms for data visualization",
+                    "tags": [
+                      "visualization",
+                      "histogram"
+                    ],
+                    "examScopeIds": [
+                      "exam-1",
+                      "exam-final"
+                    ],
+                    "completed": false,
+                    "rationale": "Common data visualization tool"
+                  },
+                  {
+                    "id": "micro-pareto-charts",
+                    "title": "Pareto Charts",
+                    "description": "Creating and interpreting Pareto charts for quality control and process improvement",
+                    "tags": [
+                      "visualization",
+                      "pareto"
+                    ],
+                    "examScopeIds": [
+                      "exam-1",
+                      "exam-final"
+                    ],
+                    "completed": false,
+                    "rationale": "Important tool for identifying key factors"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "topic-point-estimation",
+            "title": "Point Estimation and Sampling Distributions",
+            "description": "Point estimation, sample mean, sample variance, and Central Limit Theorem",
+            "tags": [
+              "chapter-7",
+              "exam-2",
+              "inference"
+            ],
+            "rationale": "Chapter 7 covers fundamental concepts for statistical inference",
+            "subTopics": [
+              {
+                "id": "subtopic-sampling-distributions",
+                "title": "Sampling Distributions",
+                "description": "Understanding distributions of sample statistics",
+                "rationale": "Foundation for statistical inference",
+                "microTopics": [
+                  {
+                    "id": "micro-sample-mean",
+                    "title": "Sample Mean",
+                    "description": "Properties and distribution of sample mean",
+                    "tags": [
+                      "sampling",
+                      "mean"
+                    ],
+                    "examScopeIds": [
+                      "exam-2",
+                      "exam-final"
+                    ],
+                    "completed": false,
+                    "rationale": "Fundamental sample statistic"
+                  },
+                  {
+                    "id": "micro-sample-variance",
+                    "title": "Sample Variance",
+                    "description": "Properties and distribution of sample variance",
+                    "tags": [
+                      "sampling",
+                      "variance"
+                    ],
+                    "examScopeIds": [
+                      "exam-2",
+                      "exam-final"
+                    ],
+                    "completed": false,
+                    "rationale": "Fundamental sample statistic"
+                  },
+                  {
+                    "id": "micro-central-limit-theorem",
+                    "title": "Central Limit Theorem",
+                    "description": "Understanding and applying the Central Limit Theorem",
+                    "tags": [
+                      "sampling",
+                      "clt"
+                    ],
+                    "examScopeIds": [
+                      "exam-2",
+                      "exam-final"
+                    ],
+                    "completed": false,
+                    "rationale": "Key theorem for statistical inference"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "topic-statistical-intervals",
+            "title": "Statistical Intervals for a Single Sample",
+            "description": "Confidence intervals for mean, variance, and proportion",
+            "tags": [
+              "chapter-8",
+              "exam-2",
+              "inference"
+            ],
+            "rationale": "Chapter 8 covers methods for constructing confidence intervals",
+            "subTopics": [
+              {
+                "id": "subtopic-confidence-intervals",
+                "title": "Confidence Intervals",
+                "description": "Constructing and interpreting confidence intervals for population parameters",
+                "rationale": "Essential for statistical inference",
+                "microTopics": [
+                  {
+                    "id": "micro-ci-mean",
+                    "title": "Confidence Interval for Mean",
+                    "description": "Constructing confidence intervals for population mean",
+                    "tags": [
+                      "confidence-interval",
+                      "mean"
+                    ],
+                    "examScopeIds": [
+                      "exam-2",
+                      "exam-final"
+                    ],
+                    "completed": false,
+                    "rationale": "Common inference task"
+                  },
+                  {
+                    "id": "micro-ci-variance",
+                    "title": "Confidence Interval for Variance",
+                    "description": "Constructing confidence intervals for population variance",
+                    "tags": [
+                      "confidence-interval",
+                      "variance"
+                    ],
+                    "examScopeIds": [
+                      "exam-2",
+                      "exam-final"
+                    ],
+                    "completed": false,
+                    "rationale": "Common inference task"
+                  },
+                  {
+                    "id": "micro-ci-proportion",
+                    "title": "Confidence Interval for Proportion",
+                    "description": "Constructing confidence intervals for population proportion",
+                    "tags": [
+                      "confidence-interval",
+                      "proportion"
+                    ],
+                    "examScopeIds": [
+                      "exam-2",
+                      "exam-final"
+                    ],
+                    "completed": false,
+                    "rationale": "Common inference task"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "topic-hypothesis-testing",
+            "title": "Tests of Hypothesis for a Single Sample",
+            "description": "Hypothesis testing for mean, variance, and proportion",
+            "tags": [
+              "chapter-9",
+              "exam-2",
+              "inference"
+            ],
+            "rationale": "Chapter 9 covers hypothesis testing methodology",
+            "subTopics": [
+              {
+                "id": "subtopic-hypothesis-test-fundamentals",
+                "title": "Hypothesis Testing Fundamentals",
+                "description": "Basic concepts and procedures for hypothesis testing",
+                "rationale": "Foundation for all hypothesis tests",
+                "microTopics": [
+                  {
+                    "id": "micro-hypothesis-test-concepts",
+                    "title": "Hypothesis Test Concepts",
+                    "description": "Understanding null hypothesis, alternative hypothesis, test statistics, p-values, and significance levels",
+                    "tags": [
+                      "hypothesis-test",
+                      "concepts"
+                    ],
+                    "examScopeIds": [
+                      "exam-2",
+                      "exam-final"
+                    ],
+                    "completed": false,
+                    "rationale": "Core concepts for hypothesis testing"
+                  }
+                ]
+              },
+              {
+                "id": "subtopic-hypothesis-tests-single-sample",
+                "title": "Hypothesis Tests for Single Sample",
+                "description": "Hypothesis tests for mean, variance, and proportion",
+                "rationale": "Common hypothesis testing applications",
+                "microTopics": [
+                  {
+                    "id": "micro-ht-mean",
+                    "title": "Hypothesis Test for Mean",
+                    "description": "Conducting hypothesis tests for population mean",
+                    "tags": [
+                      "hypothesis-test",
+                      "mean"
+                    ],
+                    "examScopeIds": [
+                      "exam-2",
+                      "exam-final"
+                    ],
+                    "completed": false,
+                    "rationale": "Common inference task"
+                  },
+                  {
+                    "id": "micro-ht-variance",
+                    "title": "Hypothesis Test for Variance",
+                    "description": "Conducting hypothesis tests for population variance",
+                    "tags": [
+                      "hypothesis-test",
+                      "variance"
+                    ],
+                    "examScopeIds": [
+                      "exam-2",
+                      "exam-final"
+                    ],
+                    "completed": false,
+                    "rationale": "Common inference task"
+                  },
+                  {
+                    "id": "micro-ht-proportion",
+                    "title": "Hypothesis Test for Proportion",
+                    "description": "Conducting hypothesis tests for population proportion",
+                    "tags": [
+                      "hypothesis-test",
+                      "proportion"
+                    ],
+                    "examScopeIds": [
+                      "exam-2",
+                      "exam-final"
+                    ],
+                    "completed": false,
+                    "rationale": "Common inference task"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "topic-two-sample-inference",
+            "title": "Statistical Inference for Two Samples",
+            "description": "Confidence intervals and hypothesis tests for difference between means, equality of variances, paired T-test, and difference between proportions",
+            "tags": [
+              "chapter-10",
+              "exam-2",
+              "inference"
+            ],
+            "rationale": "Chapter 10 covers inference methods comparing two populations",
+            "subTopics": [
+              {
+                "id": "subtopic-two-sample-means",
+                "title": "Inference for Two Sample Means",
+                "description": "Confidence intervals and hypothesis tests for difference between means",
+                "rationale": "Common comparison task",
+                "microTopics": [
+                  {
+                    "id": "micro-ci-diff-means",
+                    "title": "Confidence Interval for Difference of Means",
+                    "description": "Constructing confidence intervals for difference between two population means",
+                    "tags": [
+                      "two-sample",
+                      "mean"
+                    ],
+                    "examScopeIds": [
+                      "exam-2",
+                      "exam-final"
+                    ],
+                    "completed": false,
+                    "rationale": "Common comparison task"
+                  },
+                  {
+                    "id": "micro-ht-diff-means",
+                    "title": "Hypothesis Test for Difference of Means",
+                    "description": "Conducting hypothesis tests for difference between two population means",
+                    "tags": [
+                      "two-sample",
+                      "mean"
+                    ],
+                    "examScopeIds": [
+                      "exam-2",
+                      "exam-final"
+                    ],
+                    "completed": false,
+                    "rationale": "Common comparison task"
+                  }
+                ]
+              },
+              {
+                "id": "subtopic-two-sample-variances",
+                "title": "Inference for Two Sample Variances",
+                "description": "Testing equality of variances between two populations",
+                "rationale": "Important for comparing variability",
+                "microTopics": [
+                  {
+                    "id": "micro-equality-variances",
+                    "title": "Equality of Variances Test",
+                    "description": "Testing equality of variances between two populations",
+                    "tags": [
+                      "two-sample",
+                      "variance"
+                    ],
+                    "examScopeIds": [
+                      "exam-2",
+                      "exam-final"
+                    ],
+                    "completed": false,
+                    "rationale": "Important for comparing variability"
+                  }
+                ]
+              },
+              {
+                "id": "subtopic-paired-tests",
+                "title": "Paired Sample Tests",
+                "description": "Paired T-test for dependent samples",
+                "rationale": "Important for before-after and matched pair studies",
+                "microTopics": [
+                  {
+                    "id": "micro-paired-t-test",
+                    "title": "Paired T-Test",
+                    "description": "Conducting paired T-tests for dependent samples",
+                    "tags": [
+                      "two-sample",
+                      "paired"
+                    ],
+                    "examScopeIds": [
+                      "exam-2",
+                      "exam-final"
+                    ],
+                    "completed": false,
+                    "rationale": "Common design in experiments"
+                  }
+                ]
+              },
+              {
+                "id": "subtopic-two-sample-proportions",
+                "title": "Inference for Two Sample Proportions",
+                "description": "Confidence intervals and hypothesis tests for difference between proportions",
+                "rationale": "Common comparison task for categorical data",
+                "microTopics": [
+                  {
+                    "id": "micro-ci-diff-proportions",
+                    "title": "Confidence Interval for Difference of Proportions",
+                    "description": "Constructing confidence intervals for difference between two population proportions",
+                    "tags": [
+                      "two-sample",
+                      "proportion"
+                    ],
+                    "examScopeIds": [
+                      "exam-2",
+                      "exam-final"
+                    ],
+                    "completed": false,
+                    "rationale": "Common comparison task"
+                  },
+                  {
+                    "id": "micro-ht-diff-proportions",
+                    "title": "Hypothesis Test for Difference of Proportions",
+                    "description": "Conducting hypothesis tests for difference between two population proportions",
+                    "tags": [
+                      "two-sample",
+                      "proportion"
+                    ],
+                    "examScopeIds": [
+                      "exam-2",
+                      "exam-final"
+                    ],
+                    "completed": false,
+                    "rationale": "Common comparison task"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "topic-simple-linear-regression",
+            "title": "Simple Linear Regression and Correlation",
+            "description": "Building simple linear regression empirical models from data and understanding correlation",
+            "tags": [
+              "chapter-11",
+              "exam-3",
+              "regression"
+            ],
+            "rationale": "Chapter 11 covers simple linear regression for modeling relationships",
+            "subTopics": [
+              {
+                "id": "subtopic-regression-fundamentals",
+                "title": "Regression Fundamentals",
+                "description": "Basic concepts of linear regression and correlation",
+                "rationale": "Foundation for regression analysis",
+                "microTopics": [
+                  {
+                    "id": "micro-correlation",
+                    "title": "Correlation",
+                    "description": "Understanding and calculating correlation between variables",
+                    "tags": [
+                      "regression",
+                      "correlation"
+                    ],
+                    "examScopeIds": [
+                      "exam-3",
+                      "exam-final"
+                    ],
+                    "completed": false,
+                    "rationale": "Measures relationship strength"
+                  },
+                  {
+                    "id": "micro-regression-model",
+                    "title": "Linear Regression Model",
+                    "description": "Understanding the simple linear regression model and its components",
+                    "tags": [
+                      "regression",
+                      "model"
+                    ],
+                    "examScopeIds": [
+                      "exam-3",
+                      "exam-final"
+                    ],
+                    "completed": false,
+                    "rationale": "Foundation for regression analysis"
+                  }
+                ]
+              },
+              {
+                "id": "subtopic-regression-estimation",
+                "title": "Regression Estimation and Inference",
+                "description": "Estimating regression parameters and conducting inference on regression models",
+                "rationale": "Essential for practical regression analysis",
+                "microTopics": [
+                  {
+                    "id": "micro-least-squares",
+                    "title": "Least Squares Estimation",
+                    "description": "Estimating regression coefficients using least squares method",
+                    "tags": [
+                      "regression",
+                      "estimation"
+                    ],
+                    "examScopeIds": [
+                      "exam-3",
+                      "exam-final"
+                    ],
+                    "completed": false,
+                    "rationale": "Standard estimation method"
+                  },
+                  {
+                    "id": "micro-regression-inference",
+                    "title": "Regression Inference",
+                    "description": "Conducting hypothesis tests and constructing confidence intervals for regression parameters",
+                    "tags": [
+                      "regression",
+                      "inference"
+                    ],
+                    "examScopeIds": [
+                      "exam-3",
+                      "exam-final"
+                    ],
+                    "completed": false,
+                    "rationale": "Important for model validation"
+                  },
+                  {
+                    "id": "micro-model-adequacy",
+                    "title": "Model Adequacy Checking",
+                    "description": "Assessing whether the regression model is appropriate for the data",
+                    "tags": [
+                      "regression",
+                      "diagnostics"
+                    ],
+                    "examScopeIds": [
+                      "exam-3",
+                      "exam-final"
+                    ],
+                    "completed": false,
+                    "rationale": "Important for model validation"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "topic-multiple-linear-regression",
+            "title": "Multiple Linear Regression",
+            "description": "Building multiple linear regression empirical models from data with multiple predictors",
+            "tags": [
+              "chapter-12",
+              "exam-3",
+              "regression"
+            ],
+            "rationale": "Chapter 12 extends regression to multiple predictors",
+            "subTopics": [
+              {
+                "id": "subtopic-multiple-regression-fundamentals",
+                "title": "Multiple Regression Fundamentals",
+                "description": "Basic concepts of multiple linear regression",
+                "rationale": "Extension of simple regression",
+                "microTopics": [
+                  {
+                    "id": "micro-multiple-regression-model",
+                    "title": "Multiple Regression Model",
+                    "description": "Understanding the multiple linear regression model with multiple predictors",
+                    "tags": [
+                      "regression",
+                      "model"
+                    ],
+                    "examScopeIds": [
+                      "exam-3",
+                      "exam-final"
+                    ],
+                    "completed": false,
+                    "rationale": "Foundation for multiple regression"
+                  },
+                  {
+                    "id": "micro-matrix-notation",
+                    "title": "Matrix Notation for Regression",
+                    "description": "Using matrix notation to represent regression models",
+                    "tags": [
+                      "regression",
+                      "matrix"
+                    ],
+                    "examScopeIds": [
+                      "exam-3",
+                      "exam-final"
+                    ],
+                    "completed": false,
+                    "rationale": "Efficient representation of multiple regression"
+                  }
+                ]
+              },
+              {
+                "id": "subtopic-multiple-regression-estimation",
+                "title": "Multiple Regression Estimation and Inference",
+                "description": "Estimating and conducting inference on multiple regression models",
+                "rationale": "Essential for practical multiple regression analysis",
+                "microTopics": [
+                  {
+                    "id": "micro-multiple-least-squares",
+                    "title": "Multiple Least Squares Estimation",
+                    "description": "Estimating multiple regression coefficients using least squares method",
+                    "tags": [
+                      "regression",
+                      "estimation"
+                    ],
+                    "examScopeIds": [
+                      "exam-3",
+                      "exam-final"
+                    ],
+                    "completed": false,
+                    "rationale": "Standard estimation method"
+                  },
+                  {
+                    "id": "micro-multiple-regression-inference",
+                    "title": "Multiple Regression Inference",
+                    "description": "Conducting hypothesis tests and constructing confidence intervals for multiple regression parameters",
+                    "tags": [
+                      "regression",
+                      "inference"
+                    ],
+                    "examScopeIds": [
+                      "exam-3",
+                      "exam-final"
+                    ],
+                    "completed": false,
+                    "rationale": "Important for model validation"
+                  },
+                  {
+                    "id": "micro-model-selection",
+                    "title": "Model Selection",
+                    "description": "Selecting appropriate variables and comparing multiple regression models",
+                    "tags": [
+                      "regression",
+                      "model-selection"
+                    ],
+                    "examScopeIds": [
+                      "exam-3",
+                      "exam-final"
+                    ],
+                    "completed": false,
+                    "rationale": "Important for building effective models"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "topic-statistical-process-control",
+            "title": "Statistical Process Control",
+            "description": "X-bar and R charts for monitoring and controlling processes",
+            "tags": [
+              "chapter-15",
+              "exam-3",
+              "process-control"
+            ],
+            "rationale": "Chapter 15 covers statistical process control methods",
+            "subTopics": [
+              {
+                "id": "subtopic-control-charts",
+                "title": "Control Charts",
+                "description": "Understanding and constructing control charts for process monitoring",
+                "rationale": "Essential for quality control",
+                "microTopics": [
+                  {
+                    "id": "micro-x-bar-chart",
+                    "title": "X-bar Chart",
+                    "description": "Constructing and interpreting X-bar (mean) control charts",
+                    "tags": [
+                      "control-chart",
+                      "mean"
+                    ],
+                    "examScopeIds": [
+                      "exam-3",
+                      "exam-final"
+                    ],
+                    "completed": false,
+                    "rationale": "Common process control tool"
+                  },
+                  {
+                    "id": "micro-r-chart",
+                    "title": "R Chart",
+                    "description": "Constructing and interpreting R (range) control charts",
+                    "tags": [
+                      "control-chart",
+                      "range"
+                    ],
+                    "examScopeIds": [
+                      "exam-3",
+                      "exam-final"
+                    ],
+                    "completed": false,
+                    "rationale": "Common process control tool"
+                  },
+                  {
+                    "id": "micro-control-limits",
+                    "title": "Control Limits",
+                    "description": "Calculating and interpreting control limits for process control charts",
+                    "tags": [
+                      "control-chart",
+                      "limits"
+                    ],
+                    "examScopeIds": [
+                      "exam-3",
+                      "exam-final"
+                    ],
+                    "completed": false,
+                    "rationale": "Essential for chart interpretation"
+                  },
+                  {
+                    "id": "micro-process-capability",
+                    "title": "Process Capability",
+                    "description": "Assessing process capability and performance",
+                    "tags": [
+                      "control-chart",
+                      "capability"
+                    ],
+                    "examScopeIds": [
+                      "exam-3",
+                      "exam-final"
+                    ],
+                    "completed": false,
+                    "rationale": "Important for process improvement"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "assignments": [
+          {
+            "id": "assignment-homework-ch1",
+            "title": "Chapter 1 Homework",
+            "description": "Homework problems from Chapter 1: The Role of Statistics in Engineering",
+            "dueDate": "",
+            "type": "assignment",
+            "relatedTopicIds": [
+              "topic-statistics-role"
+            ],
+            "scopeText": "Chapter 1"
+          },
+          {
+            "id": "assignment-homework-ch2",
+            "title": "Chapter 2 Homework",
+            "description": "Homework problems from Chapter 2: Probability. Includes review problems from Chapter 1.",
+            "dueDate": "",
+            "type": "assignment",
+            "relatedTopicIds": [
+              "topic-probability"
+            ],
+            "scopeText": "Chapter 2 with review from Chapter 1"
+          },
+          {
+            "id": "assignment-homework-ch3",
+            "title": "Chapter 3 Homework",
+            "description": "Homework problems from Chapter 3: Discrete Random Variables. Includes review problems from previous chapters.",
+            "dueDate": "",
+            "type": "assignment",
+            "relatedTopicIds": [
+              "topic-discrete-random-variables"
+            ],
+            "scopeText": "Chapter 3 with review problems"
+          },
+          {
+            "id": "assignment-homework-ch4",
+            "title": "Chapter 4 Homework",
+            "description": "Homework problems from Chapter 4: Continuous Random Variables. Includes review problems from previous chapters.",
+            "dueDate": "",
+            "type": "assignment",
+            "relatedTopicIds": [
+              "topic-continuous-random-variables"
+            ],
+            "scopeText": "Chapter 4 with review problems"
+          },
+          {
+            "id": "assignment-homework-ch6",
+            "title": "Chapter 6 Homework",
+            "description": "Homework problems from Chapter 6: Descriptive Statistics. Includes review problems from Chapters 3 and 4.",
+            "dueDate": "",
+            "type": "assignment",
+            "relatedTopicIds": [
+              "topic-descriptive-statistics"
+            ],
+            "scopeText": "Chapter 6 with review from Chapters 3 and 4"
+          },
+          {
+            "id": "assignment-homework-ch7",
+            "title": "Chapter 7 Homework",
+            "description": "Homework problems from Chapter 7: Point Estimation and Sampling Distributions. Includes review problems from previous chapters.",
+            "dueDate": "",
+            "type": "assignment",
+            "relatedTopicIds": [
+              "topic-point-estimation"
+            ],
+            "scopeText": "Chapter 7 with review problems"
+          },
+          {
+            "id": "assignment-homework-ch8",
+            "title": "Chapter 8 Homework",
+            "description": "Homework problems from Chapter 8: Statistical Intervals for a Single Sample. Includes review problems from previous chapters.",
+            "dueDate": "",
+            "type": "assignment",
+            "relatedTopicIds": [
+              "topic-statistical-intervals"
+            ],
+            "scopeText": "Chapter 8 with review problems"
+          },
+          {
+            "id": "assignment-homework-ch9",
+            "title": "Chapter 9 Homework",
+            "description": "Homework problems from Chapter 9: Tests of Hypothesis for a Single Sample. Includes review problems from previous chapters.",
+            "dueDate": "",
+            "type": "assignment",
+            "relatedTopicIds": [
+              "topic-hypothesis-testing"
+            ],
+            "scopeText": "Chapter 9 with review problems"
+          },
+          {
+            "id": "assignment-homework-ch10",
+            "title": "Chapter 10 Homework",
+            "description": "Homework problems from Chapter 10: Statistical Inference for Two Samples. Includes review problems from previous chapters.",
+            "dueDate": "",
+            "type": "assignment",
+            "relatedTopicIds": [
+              "topic-two-sample-inference"
+            ],
+            "scopeText": "Chapter 10 with review problems"
+          },
+          {
+            "id": "assignment-homework-ch11",
+            "title": "Chapter 11 Homework",
+            "description": "Homework problems from Chapter 11: Simple Linear Regression and Correlation. Includes review problems from previous chapters.",
+            "dueDate": "",
+            "type": "assignment",
+            "relatedTopicIds": [
+              "topic-simple-linear-regression"
+            ],
+            "scopeText": "Chapter 11 with review problems"
+          },
+          {
+            "id": "assignment-homework-ch12",
+            "title": "Chapter 12 Homework",
+            "description": "Homework problems from Chapter 12: Multiple Linear Regression. Includes review problems from previous chapters.",
+            "dueDate": "",
+            "type": "assignment",
+            "relatedTopicIds": [
+              "topic-multiple-linear-regression"
+            ],
+            "scopeText": "Chapter 12 with review problems"
+          },
+          {
+            "id": "assignment-homework-ch15",
+            "title": "Chapter 15 Homework",
+            "description": "Homework problems from Chapter 15: Statistical Process Control. Includes review problems from previous chapters.",
+            "dueDate": "",
+            "type": "assignment",
+            "relatedTopicIds": [
+              "topic-statistical-process-control"
+            ],
+            "scopeText": "Chapter 15 with review problems"
+          },
+          {
+            "id": "assignment-exam-1",
+            "title": "Exam 1",
+            "description": "First midterm exam covering Chapters 1-6. In-class during regular class time. 10% of exam covers information only given in class.",
+            "dueDate": "",
+            "type": "exam",
+            "relatedTopicIds": [
+              "topic-statistics-role",
+              "topic-probability",
+              "topic-discrete-random-variables",
+              "topic-continuous-random-variables",
+              "topic-descriptive-statistics"
+            ],
+            "scopeText": "Chapters 1-6"
+          },
+          {
+            "id": "assignment-exam-2",
+            "title": "Exam 2",
+            "description": "Second midterm exam covering Chapters 7-10. In-class during regular class time. 10% of exam covers information only given in class.",
+            "dueDate": "",
+            "type": "exam",
+            "relatedTopicIds": [
+              "topic-point-estimation",
+              "topic-statistical-intervals",
+              "topic-hypothesis-testing",
+              "topic-two-sample-inference"
+            ],
+            "scopeText": "Chapters 7-10"
+          },
+          {
+            "id": "assignment-exam-3",
+            "title": "Exam 3",
+            "description": "Third midterm exam covering Chapters 11-12 and 15. In-class during regular class time. Lowest of three midterm scores is dropped. 10% of exam covers information only given in class.",
+            "dueDate": "",
+            "type": "exam",
+            "relatedTopicIds": [
+              "topic-simple-linear-regression",
+              "topic-multiple-linear-regression",
+              "topic-statistical-process-control"
+            ],
+            "scopeText": "Chapters 11-12 and 15"
+          },
+          {
+            "id": "assignment-final-exam",
+            "title": "Final Exam",
+            "description": "Cumulative final exam covering all course material from Chapters 1-15. Held at a different time than regular class meetings. Comprehensive assessment of all learning outcomes.",
+            "dueDate": "",
+            "type": "exam",
+            "relatedTopicIds": [
+              "topic-statistics-role",
+              "topic-probability",
+              "topic-discrete-random-variables",
+              "topic-continuous-random-variables",
+              "topic-descriptive-statistics",
+              "topic-point-estimation",
+              "topic-statistical-intervals",
+              "topic-hypothesis-testing",
+              "topic-two-sample-inference",
+              "topic-simple-linear-regression",
+              "topic-multiple-linear-regression",
+              "topic-statistical-process-control"
+            ],
+            "scopeText": "All Chapters 1-15"
+          },
+          {
+            "id": "assignment-mini-project",
+            "title": "Mini-Project",
+            "description": "Mini-project assignment worth 5% of final grade. Details available on Canvas.",
+            "dueDate": "",
+            "type": "project",
+            "relatedTopicIds": [
+              "topic-simple-linear-regression",
+              "topic-multiple-linear-regression"
+            ],
+            "scopeText": "Applied statistics project"
+          }
+        ],
+        "resources": {
+          "topic-statistics-role": [
+            {
+              "id": "resource-textbook-ch1",
+              "title": "Applied Statistics and Probability for Engineers - Chapter 1",
+              "url": "https://www.wileyplus.com",
+              "summary": "Required textbook Chapter 1 covering the role of statistics in engineering",
+              "type": "doc",
+              "duration": ""
+            }
+          ],
+          "topic-probability": [
+            {
+              "id": "resource-textbook-ch2",
+              "title": "Applied Statistics and Probability for Engineers - Chapter 2",
+              "url": "https://www.wileyplus.com",
+              "summary": "Required textbook Chapter 2 covering probability theory, Bayes' Theorem, and conditional probability",
+              "type": "doc",
+              "duration": ""
+            }
+          ]
+        },
+        "exams": [
+          {
+            "id": "exam-1",
+            "title": "Exam 1",
+            "description": "First midterm exam covering Chapters 1-6: The Role of Statistics in Engineering, Probability (independence, addition rule, intersection, union, complement, Bayes' Theorem), Discrete Random Variables (Discrete Uniform, Poisson, Bernoulli, Binomial, expected value, variance, pmf, CDF), Continuous Random Variables (Continuous Uniform, Normal, Standard Normal, Exponential, expected value, variance, pdf, CDF), and Descriptive Statistics (histograms, Pareto charts). 10% of exam covers information only given in class.",
+            "relatedTopicIds": [
+              "topic-statistics-role",
+              "topic-probability",
+              "topic-discrete-random-variables",
+              "topic-continuous-random-variables",
+              "topic-descriptive-statistics"
+            ]
+          },
+          {
+            "id": "exam-2",
+            "title": "Exam 2",
+            "description": "Second midterm exam covering Chapters 7-10: Point Estimation and Sampling Distributions (sample mean, sample variance, Central Limit Theorem), Statistical Intervals for a Single Sample (mean, variance, proportion), Tests of Hypothesis for a Single Sample (mean, variance, proportion), and Statistical Inference for Two Samples (confidence intervals and hypothesis tests for difference between means, equality of variances, paired T-test, difference between proportions). 10% of exam covers information only given in class.",
+            "relatedTopicIds": [
+              "topic-point-estimation",
+              "topic-statistical-intervals",
+              "topic-hypothesis-testing",
+              "topic-two-sample-inference"
+            ]
+          },
+          {
+            "id": "exam-3",
+            "title": "Exam 3",
+            "description": "Third midterm exam covering Chapters 11-12 and 15: Simple Linear Regression and Correlation, Multiple Linear Regression, and Statistical Process Control (X-bar and R charts). 10% of exam covers information only given in class. Lowest of three midterm scores is dropped.",
+            "relatedTopicIds": [
+              "topic-simple-linear-regression",
+              "topic-multiple-linear-regression",
+              "topic-statistical-process-control"
+            ]
+          },
+          {
+            "id": "exam-final",
+            "title": "Final Exam",
+            "description": "Cumulative final exam covering all course material from Chapters 1-15. Comprehensive assessment of all learning outcomes. Held at a different time than regular class meetings.",
+            "relatedTopicIds": [
+              "topic-statistics-role",
+              "topic-probability",
+              "topic-discrete-random-variables",
+              "topic-continuous-random-variables",
+              "topic-descriptive-statistics",
+              "topic-point-estimation",
+              "topic-statistical-intervals",
+              "topic-hypothesis-testing",
+              "topic-two-sample-inference",
+              "topic-simple-linear-regression",
+              "topic-multiple-linear-regression",
+              "topic-statistical-process-control"
+            ]
+          }
+        ]
+      },
+      "quizHistory": [
+        {
+          "quizId": "msg_01SXsvycE3rPAmM9hmtDykE2",
+          "generatedAt": "2025-11-09T11:35:32.522Z",
+          "questions": [
+            {
+              "id": "q1-prob-complement",
+              "prompt": "If the probability of event A occurring is 0.35, what is the probability that event A does NOT occur?",
+              "type": "mcq",
+              "choices": [
+                {
+                  "id": "choice-a",
+                  "label": "0.35",
+                  "correct": false
+                },
+                {
+                  "id": "choice-b",
+                  "label": "0.65",
+                  "correct": true
+                },
+                {
+                  "id": "choice-c",
+                  "label": "0.70",
+                  "correct": false
+                },
+                {
+                  "id": "choice-d",
+                  "label": "1.00",
+                  "correct": false
+                }
+              ],
+              "explanation": "The complement of an event A is the event that A does not occur. By the complement rule, P(A') = 1 - P(A) = 1 - 0.35 = 0.65.",
+              "relatedMicroTopicIds": [
+                "micro-complement"
+              ],
+              "topicId": "topic-probability"
+            },
+            {
+              "id": "q2-prob-independence",
+              "prompt": "Two events A and B are independent. If P(A) = 0.4 and P(B) = 0.5, what is P(A ∩ B)?",
+              "type": "mcq",
+              "choices": [
+                {
+                  "id": "choice-a",
+                  "label": "0.9",
+                  "correct": false
+                },
+                {
+                  "id": "choice-b",
+                  "label": "0.2",
+                  "correct": true
+                },
+                {
+                  "id": "choice-c",
+                  "label": "0.1",
+                  "correct": false
+                },
+                {
+                  "id": "choice-d",
+                  "label": "0.45",
+                  "correct": false
+                }
+              ],
+              "explanation": "For independent events, P(A ∩ B) = P(A) × P(B) = 0.4 × 0.5 = 0.2. Independence means the occurrence of one event does not affect the probability of the other.",
+              "relatedMicroTopicIds": [
+                "micro-independence",
+                "micro-intersection"
+              ],
+              "topicId": "topic-probability"
+            },
+            {
+              "id": "q3-prob-addition-rule",
+              "prompt": "Events A and B are mutually exclusive with P(A) = 0.3 and P(B) = 0.2. What is P(A ∪ B)?",
+              "type": "mcq",
+              "choices": [
+                {
+                  "id": "choice-a",
+                  "label": "0.06",
+                  "correct": false
+                },
+                {
+                  "id": "choice-b",
+                  "label": "0.5",
+                  "correct": true
+                },
+                {
+                  "id": "choice-c",
+                  "label": "0.44",
+                  "correct": false
+                },
+                {
+                  "id": "choice-d",
+                  "label": "0.38",
+                  "correct": false
+                }
+              ],
+              "explanation": "For mutually exclusive events, P(A ∪ B) = P(A) + P(B) since P(A ∩ B) = 0. Therefore, P(A ∪ B) = 0.3 + 0.2 = 0.5.",
+              "relatedMicroTopicIds": [
+                "micro-addition-rule",
+                "micro-union"
+              ],
+              "topicId": "topic-probability"
+            },
+            {
+              "id": "q4-prob-conditional",
+              "prompt": "In a group of students, 60% play soccer and 40% play basketball. Among those who play soccer, 25% also play basketball. What is P(Basketball | Soccer)?",
+              "type": "mcq",
+              "choices": [
+                {
+                  "id": "choice-a",
+                  "label": "0.25",
+                  "correct": true
+                },
+                {
+                  "id": "choice-b",
+                  "label": "0.40",
+                  "correct": false
+                },
+                {
+                  "id": "choice-c",
+                  "label": "0.15",
+                  "correct": false
+                },
+                {
+                  "id": "choice-d",
+                  "label": "0.67",
+                  "correct": false
+                }
+              ],
+              "explanation": "Conditional probability P(Basketball | Soccer) is the probability of playing basketball given that the student plays soccer. This is directly stated as 25% or 0.25 in the problem.",
+              "relatedMicroTopicIds": [
+                "micro-conditional-probability"
+              ],
+              "topicId": "topic-probability"
+            },
+            {
+              "id": "q5-prob-bayes",
+              "prompt": "A disease test has a 95% accuracy rate (both sensitivity and specificity). The disease affects 1% of the population. If a person tests positive, what is approximately the probability they actually have the disease?",
+              "type": "mcq",
+              "choices": [
+                {
+                  "id": "choice-a",
+                  "label": "95%",
+                  "correct": false
+                },
+                {
+                  "id": "choice-b",
+                  "label": "16%",
+                  "correct": true
+                },
+                {
+                  "id": "choice-c",
+                  "label": "50%",
+                  "correct": false
+                },
+                {
+                  "id": "choice-d",
+                  "label": "1%",
+                  "correct": false
+                }
+              ],
+              "explanation": "Using Bayes' Theorem: P(Disease|Positive) = P(Positive|Disease) × P(Disease) / P(Positive). With 95% sensitivity, 95% specificity, and 1% disease prevalence, P(Disease|Positive) ≈ 0.95 × 0.01 / (0.95 × 0.01 + 0.05 × 0.99) ≈ 0.16 or 16%. This demonstrates why positive tests in low-prevalence populations can have low predictive value.",
+              "relatedMicroTopicIds": [
+                "micro-bayes-theorem",
+                "micro-conditional-probability"
+              ],
+              "topicId": "topic-probability"
+            }
+          ]
+        }
+      ],
+      "quizResults": [
+        {
+          "id": "result-1762688137429",
+          "quizId": "msg_01SXsvycE3rPAmM9hmtDykE2",
+          "completedAt": "2025-11-09T11:35:37.429Z",
+          "score": 1,
+          "totalQuestions": 5,
+          "difficulty": "auto",
+          "topicIds": [
+            "subtopic-probability-basics",
+            "micro-independence",
+            "micro-addition-rule",
+            "micro-intersection",
+            "micro-union",
+            "micro-complement"
+          ],
+          "topicTitles": [
+            "Probability → Probability Basics",
+            "Probability → Probability Basics → Independence",
+            "Probability → Probability Basics → Addition Rule",
+            "Probability → Probability Basics → Intersection",
+            "Probability → Probability Basics → Union",
+            "Probability → Probability Basics → Complement"
+          ],
+          "weakTopicIds": [
+            "topic-probability"
+          ]
+        }
+      ],
+      "lastUpdated": "2025-11-09T11:37:04.488Z"
     }
   },
   "courseOrder": [
@@ -4794,6 +7314,10 @@
     "course-1762652558338",
     "course-1762652682167",
     "course-1762652802085",
-    "course-1762655433489"
+    "course-1762655433489",
+    "course-1762672761789",
+    "course-1762680292447",
+    "course-1762680425771",
+    "course-1762688003809"
   ]
 }

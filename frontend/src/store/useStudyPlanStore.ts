@@ -1,12 +1,10 @@
 import { create } from "zustand";
-import { persist } from "zustand/middleware";
 import type {
   QuizResponsePayload,
   StudyMapPayload,
   Topic,
   ResourceItem,
-  ResourceSearchResult,
-  ChatMessage
+  ResourceSearchResult
 } from "@studymap/types";
 import type { AddNodeInput, ReorderNodeInput } from "../types/studyActions";
 
@@ -22,20 +20,11 @@ export type QuizResult = {
   weakTopicIds?: string[]; // Topic IDs where student performed poorly
 };
 
-export type ChatConversation = {
-  id: string;
-  messages: ChatMessage[];
-  createdAt: string;
-  lastUpdated: string;
-};
-
 export type CourseRecord = {
   studyMap: StudyMapPayload;
   lastUpdated: string;
   quizHistory: QuizResponsePayload[];
   quizResults: QuizResult[];
-  chatConversations: ChatConversation[];
-  activeChatId?: string;
 };
 
 interface StudyPlanState {
@@ -49,16 +38,12 @@ interface StudyPlanState {
   updateNodeTitle: (courseId: string, nodeId: string, title: string) => void;
   reorderNode: (courseId: string, payload: ReorderNodeInput) => void;
   addNode: (courseId: string, payload: AddNodeInput) => void;
+  deleteNode: (courseId: string, payload: { level: "topic" | "subtopic" | "micro"; nodeId: string; parentTopicId?: string; parentSubTopicId?: string }) => void;
   addResource: (courseId: string, topicId: string, resource: ResourceSearchResult) => void;
   upsertQuiz: (courseId: string, quiz: QuizResponsePayload) => void;
   deleteQuiz: (courseId: string, quizId: string) => void;
   saveQuizResult: (courseId: string, result: QuizResult) => void;
   deleteQuizResult: (courseId: string, resultId: string) => void;
-  // Chat conversation management
-  createNewConversation: (courseId: string) => string;
-  saveConversation: (courseId: string, conversationId: string, messages: ChatMessage[]) => void;
-  getActiveConversation: (courseId: string) => ChatConversation | undefined;
-  deleteConversation: (courseId: string, conversationId: string) => void;
 }
 
 const updateTopicNode = (
@@ -139,15 +124,13 @@ export const useStudyPlanStore = create<StudyPlanState>((set) => ({
         state.activeCourseId && courses[state.activeCourseId]
           ? state.activeCourseId
           : courseOrder[0];
-      // Ensure all courses have quizResults and chatConversations arrays
+      // Ensure all courses have quizResults array
       const coursesWithResults = Object.fromEntries(
         Object.entries(courses).map(([id, course]) => [
           id,
           {
             ...course,
-            quizResults: course.quizResults ?? [],
-            chatConversations: course.chatConversations ?? [],
-            activeChatId: course.activeChatId
+            quizResults: course.quizResults ?? []
           }
         ])
       );
@@ -167,9 +150,7 @@ export const useStudyPlanStore = create<StudyPlanState>((set) => ({
             studyMap: payload,
             lastUpdated: new Date().toISOString(),
             quizHistory: state.courses[payload.course.id]?.quizHistory ?? [],
-            quizResults: state.courses[payload.course.id]?.quizResults ?? [],
-            chatConversations: state.courses[payload.course.id]?.chatConversations ?? [],
-            activeChatId: state.courses[payload.course.id]?.activeChatId
+            quizResults: state.courses[payload.course.id]?.quizResults ?? []
           }
         },
         activeCourseId: payload.course.id,
@@ -383,6 +364,70 @@ export const useStudyPlanStore = create<StudyPlanState>((set) => ({
         return null;
       })
     ),
+  deleteNode: (courseId, payload) =>
+    set((state) =>
+      withUpdatedCourse(state, courseId, (course) => {
+        if (payload.level === "topic") {
+          return {
+            ...course,
+            studyMap: {
+              ...course.studyMap,
+              topics: course.studyMap.topics.filter(
+                (topic) => topic.id !== payload.nodeId
+              )
+            }
+          };
+        }
+
+        if (payload.level === "subtopic" && payload.parentTopicId) {
+          return {
+            ...course,
+            studyMap: {
+              ...course.studyMap,
+              topics: course.studyMap.topics.map((topic) => {
+                if (topic.id !== payload.parentTopicId) return topic;
+                return {
+                  ...topic,
+                  subTopics: topic.subTopics.filter(
+                    (subTopic) => subTopic.id !== payload.nodeId
+                  )
+                };
+              })
+            }
+          };
+        }
+
+        if (
+          payload.level === "micro" &&
+          payload.parentTopicId &&
+          payload.parentSubTopicId
+        ) {
+          return {
+            ...course,
+            studyMap: {
+              ...course.studyMap,
+              topics: course.studyMap.topics.map((topic) => {
+                if (topic.id !== payload.parentTopicId) return topic;
+                return {
+                  ...topic,
+                  subTopics: topic.subTopics.map((subTopic) => {
+                    if (subTopic.id !== payload.parentSubTopicId) return subTopic;
+                    return {
+                      ...subTopic,
+                      microTopics: subTopic.microTopics.filter(
+                        (micro) => micro.id !== payload.nodeId
+                      )
+                    };
+                  })
+                };
+              })
+            }
+          };
+        }
+
+        return null;
+      })
+    ),
   addResource: (courseId, topicId, resource) =>
     set((state) => {
       const course = state.courses[courseId];
@@ -488,111 +533,6 @@ export const useStudyPlanStore = create<StudyPlanState>((set) => ({
           [courseId]: {
             ...course,
             quizResults: course.quizResults.filter((r) => r.id !== resultId),
-            lastUpdated: new Date().toISOString()
-          }
-        }
-      };
-    }),
-  // Chat conversation methods
-  createNewConversation: (courseId) => {
-    const conversationId = createId("chat");
-    set((state) => {
-      const course = state.courses[courseId];
-      if (!course) return state;
-
-      const newConversation: ChatConversation = {
-        id: conversationId,
-        messages: [],
-        createdAt: new Date().toISOString(),
-        lastUpdated: new Date().toISOString()
-      };
-
-      return {
-        courses: {
-          ...state.courses,
-          [courseId]: {
-            ...course,
-            chatConversations: [newConversation, ...course.chatConversations],
-            activeChatId: conversationId,
-            lastUpdated: new Date().toISOString()
-          }
-        }
-      };
-    });
-    return conversationId;
-  },
-  saveConversation: (courseId, conversationId, messages) =>
-    set((state) => {
-      const course = state.courses[courseId];
-      if (!course) return state;
-
-      const existingIndex = course.chatConversations.findIndex(
-        (c) => c.id === conversationId
-      );
-
-      let updatedConversations: ChatConversation[];
-      if (existingIndex >= 0) {
-        // Update existing conversation
-        updatedConversations = course.chatConversations.map((conv) =>
-          conv.id === conversationId
-            ? {
-                ...conv,
-                messages,
-                lastUpdated: new Date().toISOString()
-              }
-            : conv
-        );
-      } else {
-        // Create new conversation
-        const newConversation: ChatConversation = {
-          id: conversationId,
-          messages,
-          createdAt: new Date().toISOString(),
-          lastUpdated: new Date().toISOString()
-        };
-        updatedConversations = [newConversation, ...course.chatConversations];
-      }
-
-      return {
-        courses: {
-          ...state.courses,
-          [courseId]: {
-            ...course,
-            chatConversations: updatedConversations,
-            activeChatId: conversationId,
-            lastUpdated: new Date().toISOString()
-          }
-        }
-      };
-    }),
-  getActiveConversation: (courseId) => {
-    const state = useStudyPlanStore.getState();
-    const course = state.courses[courseId];
-    if (!course || !course.activeChatId) return undefined;
-    return course.chatConversations.find((c) => c.id === course.activeChatId);
-  },
-  deleteConversation: (courseId, conversationId) =>
-    set((state) => {
-      const course = state.courses[courseId];
-      if (!course) return state;
-
-      const updatedConversations = course.chatConversations.filter(
-        (c) => c.id !== conversationId
-      );
-
-      // If we deleted the active conversation, set active to the most recent one
-      const newActiveChatId =
-        course.activeChatId === conversationId
-          ? updatedConversations[0]?.id
-          : course.activeChatId;
-
-      return {
-        courses: {
-          ...state.courses,
-          [courseId]: {
-            ...course,
-            chatConversations: updatedConversations,
-            activeChatId: newActiveChatId,
             lastUpdated: new Date().toISOString()
           }
         }

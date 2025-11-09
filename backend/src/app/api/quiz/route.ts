@@ -22,17 +22,7 @@ const quizSchema = z.object({
     .min(1),
   difficulty: z.enum(["auto", "intro", "exam"]),
   length: z.number().min(1).max(20),
-  questionType: z.enum(["mcq", "short", "mix"]),
-  resources: z
-    .array(
-      z.object({
-        topicId: z.string(),
-        url: z.string(),
-        title: z.string(),
-        summary: z.string()
-      })
-    )
-    .optional()
+  questionType: z.enum(["mcq", "short", "mix"])
 });
 
 export async function POST(request: Request) {
