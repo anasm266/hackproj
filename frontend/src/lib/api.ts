@@ -1,5 +1,9 @@
 import axios from "axios";
 import type {
+  ChatContext,
+  ChatMessage,
+  ChatRequest,
+  ChatResponse,
   ParseSyllabusResponse,
   QuizRequestPayload,
   QuizResponsePayload,
@@ -100,5 +104,49 @@ export const studyApi = {
   async deleteQuizResult(courseId: string, resultId: string): Promise<{ success: boolean; course?: CourseRecord }> {
     const { data } = await client.delete(`/courses/${courseId}/quiz-results/${resultId}`);
     return data;
+  },
+
+  async sendChatMessage(payload: {
+    courseId: string;
+    conversationId?: string;
+    message: string;
+    conversationHistory: ChatMessage[];
+    context: ChatContext;
+    topicContext?: ChatMessage["topicContext"];
+  }): Promise<ChatResponse> {
+    const { data } = await client.post<ChatResponse>("/chat", payload, {
+      timeout: 60000 // 60 seconds for chat responses
+    });
+    return data;
+  },
+
+  async streamChatMessage(payload: {
+    courseId: string;
+    conversationId?: string;
+    message: string;
+    conversationHistory: ChatMessage[];
+    context: ChatContext;
+    topicContext?: ChatMessage["topicContext"];
+  }): Promise<ReadableStream<Uint8Array>> {
+    const response = await fetch(`${API_BASE_URL}/chat`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        ...payload,
+        stream: true
+      })
+    });
+
+    if (!response.ok) {
+      throw new Error(`Chat stream failed: ${response.statusText}`);
+    }
+
+    if (!response.body) {
+      throw new Error("No response body for chat stream");
+    }
+
+    return response.body;
   }
 };

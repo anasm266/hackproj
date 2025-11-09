@@ -116,6 +116,11 @@ const AppLayout = () => {
       label: "Quiz Center",
       path: activeCourseId ? `/courses/${activeCourseId}/quiz` : "#",
       disabled: !activeCourse
+    },
+    {
+      label: "Chat",
+      path: activeCourseId ? `/courses/${activeCourseId}/chat` : "#",
+      disabled: !activeCourse
     }
   ];
 

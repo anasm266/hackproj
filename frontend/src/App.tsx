@@ -8,6 +8,7 @@ import CourseMapPage from "./pages/CourseMapPage";
 import UpcomingPage from "./pages/UpcomingPage";
 import ResourcesPage from "./pages/ResourcesPage";
 import QuizCenterPage from "./pages/QuizCenterPage";
+import ChatPage from "./pages/ChatPage";
 import AppLayout from "./components/layout/AppLayout";
 import { studyApi } from "./lib/api";
 import { useStudyPlanStore } from "./store/useStudyPlanStore";
@@ -40,6 +41,7 @@ function App() {
             <Route path="/courses/:courseId/upcoming" element={<UpcomingPage />} />
             <Route path="/courses/:courseId/resources" element={<ResourcesPage />} />
             <Route path="/courses/:courseId/quiz" element={<QuizCenterPage />} />
+            <Route path="/courses/:courseId/chat" element={<ChatPage />} />
           </Route>
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>

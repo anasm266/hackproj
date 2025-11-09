@@ -1,5 +1,7 @@
 import Anthropic from "@anthropic-ai/sdk";
 import {
+  ChatContext,
+  ChatMessage,
   ExamScope,
   QuizQuestion,
   QuizQuestionChoice,
@@ -1040,6 +1042,576 @@ ONLY include resources where students can immediately learn or practice the topi
         `Failed to find resources: ${error instanceof Error ? error.message : "Unknown error"}`
       );
     }
+  }
+
+  async chat(payload: {
+    conversationHistory: ChatMessage[];
+    context: ChatContext;
+    topicContext?: ChatMessage["topicContext"];
+  }): Promise<{
+    content: string;
+    suggestedActions?: Array<{
+      type: string;
+      label: string;
+      payload: Record<string, any>;
+    }>;
+  }> {
+    console.log("=== chat called ===");
+    console.log("Conversation history length:", payload.conversationHistory.length);
+    console.log("Topic context:", payload.topicContext);
+
+    if (!anthropicClient) {
+      return {
+        content: "I'm currently unavailable. Please configure the ANTHROPIC_API_KEY to enable the chatbot.",
+        suggestedActions: []
+      };
+    }
+
+    // Build context summary for the system prompt
+    const completedCount = payload.context.completedMicroTopicIds.length;
+    const totalMicroTopics = payload.context.topics.reduce(
+      (sum, topic) =>
+        sum +
+        topic.subTopics.reduce((subSum, sub) => subSum + sub.microTopics.length, 0),
+      0
+    );
+    const progressPercent =
+      totalMicroTopics > 0 ? Math.round((completedCount / totalMicroTopics) * 100) : 0;
+
+    const upcomingDeadlines = payload.context.upcomingDeadlines
+      .slice(0, 5)
+      .map((d) => `- ${d.title} (${d.type}) - Due: ${d.dueDate}`)
+      .join("\n");
+
+    const weakTopics = payload.context.quizHistory?.weakTopicIds || [];
+    const weakTopicTitles = payload.context.topics
+      .filter((t) => weakTopics.includes(t.id))
+      .map((t) => t.title)
+      .join(", ");
+
+    const topicsList = payload.context.topics
+      .map(
+        (topic) =>
+          `- ${topic.title} (ID: ${topic.id}): ${topic.description}\n  Subtopics: ${topic.subTopics.map((s) => s.title).join(", ")}`
+      )
+      .join("\n");
+
+    const recentScores = payload.context.quizHistory?.recentScores || [];
+    const avgScore = recentScores.length > 0
+      ? Math.round(recentScores.reduce((a, b) => a + b, 0) / recentScores.length)
+      : null;
+
+    const systemPrompt = `You are an **advanced AI study assistant** for the course "${payload.context.courseName}". You have extensive capabilities to help students succeed.
+
+## 📚 COURSE STRUCTURE
+${topicsList}
+
+## 📊 STUDENT ANALYTICS
+- **Overall Progress**: ${progressPercent}% (${completedCount}/${totalMicroTopics} microtopics completed)
+- **Weak Topics** (from quiz failures): ${weakTopicTitles || "None identified yet"}
+- **Recent Quiz Performance**: ${avgScore !== null ? `${avgScore}% average` : "No quizzes taken yet"}
+- **Total Quizzes**: ${recentScores.length}
+
+## 📅 UPCOMING DEADLINES
+${upcomingDeadlines || "No upcoming deadlines"}
+
+## 🎯 YOUR CORE CAPABILITIES
+
+### **1. Intelligent Question Answering**
+- Provide clear, educational explanations with examples
+- Break down complex concepts into digestible parts
+- Reference specific topics, subtopics, and microtopics from the study map
+- Use **markdown formatting** for better readability (bold, italic, lists, code blocks)
+- Add strategic emojis (📚 for learning, 💡 for insights, ⚠️ for warnings, ✅ for success)
+
+### **2. Weak Spot Coaching** 📈
+When students struggle with topics (failed quiz questions):
+- Identify their weak topics automatically
+- Offer targeted explanations for those specific concepts
+- Create personalized practice questions
+- Suggest additional resources
+- Track improvement over time
+
+### **3. Study Planning & Time Management** 🗓️
+- Create customized study schedules (e.g., "Create a study plan for next week")
+- Prioritize topics based on deadlines, difficulty, and progress
+- Break large topics into daily/weekly goals
+- Suggest optimal study session lengths
+- Account for exam preparation time
+
+### **4. Progress Insights & Motivation** 💪
+- Analyze "Why am I stuck?" situations
+- Identify learning patterns and blockers
+- Celebrate milestones and achievements
+- Provide encouragement during difficult topics
+- Suggest when to take breaks or change strategies
+
+### **5. Deadline Management** ⏰
+- Answer questions like "What's due next week?" or "When is the midterm?"
+- Remind students of upcoming exams and assignments
+- Help prioritize based on deadline urgency
+- Suggest study timelines for major assessments
+
+### **6. Concept Connections** 🔗
+- Explain relationships between topics (e.g., "How does X relate to Y?")
+- Show prerequisite knowledge chains
+- Connect theory to practical applications
+- Highlight common themes across subtopics
+
+### **7. Exam Preparation Mode** 🎓
+When exams are approaching:
+- Create comprehensive review plans
+- Generate practice questions covering all exam topics
+- Identify critical high-priority concepts
+- Suggest study strategies (active recall, spaced repetition)
+- Provide exam-taking tips
+
+### **8. Interactive Practice** ✏️
+- Generate quiz questions on demand
+- Create problems with step-by-step solutions
+- Offer hints without giving away answers
+- Adapt difficulty based on performance
+
+### **9. Resource Recommendations** 📖
+- Suggest learning materials for specific topics
+- Recommend videos, articles, interactive demos
+- Point to relevant textbook sections
+- Curate practice problem sources
+
+## 🎨 RESPONSE FORMATTING GUIDELINES
+
+**Use markdown for beautiful, readable responses:**
+
+1. **Bold** for emphasis and key terms
+2. *Italic* for subtle emphasis or definitions
+3. Use headings (##, ###) for section organization
+4. Create numbered lists for steps or sequences
+5. Create bullet points for related ideas
+6. Use \`code\` for formulas, syntax, or technical terms
+7. Use code blocks for longer code examples
+8. Add strategic emojis to enhance understanding (not excessive)
+
+**Example of good formatting:**
+## Understanding Algorithms
+
+**Algorithms** are *step-by-step procedures* for solving problems. Think of them as recipes! 📚
+
+**Key characteristics:**
+- **Deterministic**: Same input → same output
+- **Finite**: Must terminate eventually ✅
+- **Well-defined**: Clear, unambiguous steps
+
+Let's analyze **binary search** as an example:
+\`\`\`python
+def binary_search(arr, target):
+    left, right = 0, len(arr) - 1
+    while left <= right:
+        mid = (left + right) // 2
+        if arr[mid] == target:
+            return mid
+    return -1
+\`\`\`
+
+💡 **Pro tip**: Binary search requires a *sorted array* - this is crucial!
+
+## 🎯 ACTION CAPABILITIES
+
+You can suggest these actions to students:
+- **Navigate to topics**: Reference topic IDs like "${payload.context.topics[0]?.id || "topic-id"}"
+- **Generate quizzes**: Suggest when practice would help
+- **Mark complete**: Recommend marking mastered topics as done
+- **Add resources**: Suggest finding external materials
+- **Create subtopics**: Break down complex topics further
+
+## 🧠 CONVERSATION CONTEXT
+${payload.topicContext ? `The student is currently viewing **"${payload.topicContext.topicTitle}"** (${payload.topicContext.level})` : "General course discussion"}
+
+## 💬 YOUR PERSONALITY
+- Encouraging and supportive 💪
+- Clear and concise (avoid overwhelming explanations)
+- Patient and understanding
+- Proactive (suggest next steps, anticipate needs)
+- Adaptable (match the student's knowledge level)
+
+Remember: You're not just answering questions - you're **coaching students toward mastery**!`;
+
+    // Convert conversation history to Claude message format
+    const messages: Array<{ role: "user" | "assistant"; content: string }> = payload.conversationHistory.map(
+      (msg) => ({
+        role: msg.role === "user" ? "user" : "assistant",
+        content: msg.content
+      })
+    );
+
+    console.log("Calling Claude API for chat...");
+    const response = await anthropicClient.messages.create({
+      model: "claude-haiku-4-5",
+      max_tokens: 2048,
+      temperature: 0.7,
+      system: systemPrompt,
+      messages: messages
+    });
+
+    console.log("Chat response received");
+    console.log("Stop reason:", response.stop_reason);
+
+    const textBlock = response.content.find(
+      (item) => item.type === "text"
+    ) as { text: string } | undefined;
+
+    if (!textBlock?.text) {
+      throw new Error("Claude response missing text content.");
+    }
+
+    const content = textBlock.text.trim();
+    const lowerContent = content.toLowerCase();
+    const userMessage = payload.conversationHistory[payload.conversationHistory.length - 1]?.content.toLowerCase() || "";
+
+    // Analyze response for suggested actions (advanced keyword detection)
+    const suggestedActions: Array<{
+      type: string;
+      label: string;
+      payload: Record<string, any>;
+    }> = [];
+
+    // 1. Quiz/Practice Detection
+    if (lowerContent.includes("quiz") || lowerContent.includes("test yourself") ||
+        lowerContent.includes("practice questions") || userMessage.includes("quiz me")) {
+      suggestedActions.push({
+        type: "generate_quiz",
+        label: "📝 Generate Quiz",
+        payload: {}
+      });
+    }
+
+    // 2. Study Planning Detection
+    if (userMessage.includes("study plan") || userMessage.includes("schedule") ||
+        userMessage.includes("study schedule") || userMessage.includes("plan for") ||
+        lowerContent.includes("create a plan") || lowerContent.includes("study schedule") ||
+        lowerContent.includes("weekly plan")) {
+      suggestedActions.push({
+        type: "study_planner",
+        label: "🗓️ View Study Plan",
+        payload: { context: "generated_plan" }
+      });
+    }
+
+    // 3. Weak Spot Coaching Detection
+    if (userMessage.includes("struggling") || userMessage.includes("weak") ||
+        userMessage.includes("difficult") || userMessage.includes("help with") ||
+        userMessage.includes("don't understand") ||
+        (payload.context.quizHistory?.weakTopicIds && payload.context.quizHistory.weakTopicIds.length > 0 &&
+         (lowerContent.includes("weak topic") || lowerContent.includes("struggle")))) {
+      const weakTopics = payload.context.quizHistory?.weakTopicIds || [];
+      if (weakTopics.length > 0) {
+        suggestedActions.push({
+          type: "weak_spot_coach",
+          label: "💪 Practice Weak Topics",
+          payload: { weakTopicIds: weakTopics }
+        });
+      }
+    }
+
+    // 4. Exam Prep Mode Detection
+    if (userMessage.includes("exam") || userMessage.includes("midterm") ||
+        userMessage.includes("final") || userMessage.includes("test prep") ||
+        lowerContent.includes("exam prep") || lowerContent.includes("prepare for") ||
+        payload.context.upcomingDeadlines.some(d => d.type === "exam")) {
+      const upcomingExams = payload.context.upcomingDeadlines.filter(d => d.type === "exam");
+      if (upcomingExams.length > 0) {
+        suggestedActions.push({
+          type: "exam_prep",
+          label: "🎓 Exam Preparation Mode",
+          payload: { examId: upcomingExams[0].id }
+        });
+      }
+    }
+
+    // 5. Resource Finding Detection
+    if (lowerContent.includes("resource") || lowerContent.includes("video") ||
+        lowerContent.includes("article") || lowerContent.includes("learning material") ||
+        lowerContent.includes("practice problem") || userMessage.includes("find") ||
+        userMessage.includes("learn more")) {
+      suggestedActions.push({
+        type: "add_resource",
+        label: "📚 Find Resources",
+        payload: {}
+      });
+    }
+
+    // 6. Deadline Management Detection
+    if (userMessage.includes("due") || userMessage.includes("deadline") ||
+        userMessage.includes("when is") || userMessage.includes("upcoming")) {
+      suggestedActions.push({
+        type: "view_deadlines",
+        label: "⏰ View All Deadlines",
+        payload: {}
+      });
+    }
+
+    // 7. Topic Navigation Detection - Check if Claude is referencing specific topics
+    const topicMentions = payload.context.topics.filter((topic) =>
+      content.toLowerCase().includes(topic.title.toLowerCase())
+    );
+    if (topicMentions.length > 0 && topicMentions.length <= 3) {
+      topicMentions.forEach((topic) => {
+        suggestedActions.push({
+          type: "navigate",
+          label: `🗺️ Go to ${topic.title}`,
+          payload: { topicId: topic.id }
+        });
+      });
+    }
+
+    // 8. Concept Connections Detection
+    if (userMessage.includes("relate") || userMessage.includes("connection") ||
+        userMessage.includes("relationship") || userMessage.includes("how does") ||
+        userMessage.includes("difference between")) {
+      // Extract potential topic pairs from the question
+      const mentionedTopics = payload.context.topics.filter(t =>
+        userMessage.includes(t.title.toLowerCase())
+      );
+      if (mentionedTopics.length >= 2) {
+        suggestedActions.push({
+          type: "concept_map",
+          label: "🔗 Explore Concept Connections",
+          payload: { topicIds: mentionedTopics.map(t => t.id) }
+        });
+      }
+    }
+
+    // 9. Progress Check Detection
+    if (userMessage.includes("progress") || userMessage.includes("how am i doing") ||
+        userMessage.includes("stuck") || userMessage.includes("struggling")) {
+      suggestedActions.push({
+        type: "view_progress",
+        label: "📊 View Progress Dashboard",
+        payload: {}
+      });
+    }
+
+    // Remove duplicate actions based on type
+    const uniqueActions = Array.from(
+      new Map(suggestedActions.map(action => [action.type, action])).values()
+    );
+
+    console.log("Chat response length:", content.length);
+    console.log("Suggested actions:", uniqueActions.length);
+
+    return {
+      content,
+      suggestedActions: uniqueActions
+    };
+  }
+
+  // Streaming version of chat for real-time responses
+  async *chatStream(payload: {
+    conversationHistory: ChatMessage[];
+    context: ChatContext;
+    topicContext?: ChatMessage["topicContext"];
+  }): AsyncGenerator<string, void, unknown> {
+    console.log("=== chatStream called ===");
+    console.log("Conversation history length:", payload.conversationHistory.length);
+
+    if (!anthropicClient) {
+      yield "I'm currently unavailable. Please configure the ANTHROPIC_API_KEY to enable the chatbot.";
+      return;
+    }
+
+    // Build the same context as the regular chat method
+    const completedCount = payload.context.completedMicroTopicIds.length;
+    const totalMicroTopics = payload.context.topics.reduce(
+      (sum, topic) =>
+        sum +
+        topic.subTopics.reduce((subSum, sub) => subSum + sub.microTopics.length, 0),
+      0
+    );
+    const progressPercent =
+      totalMicroTopics > 0 ? Math.round((completedCount / totalMicroTopics) * 100) : 0;
+
+    const upcomingDeadlines = payload.context.upcomingDeadlines
+      .slice(0, 5)
+      .map((d) => `- ${d.title} (${d.type}) - Due: ${d.dueDate}`)
+      .join("\n");
+
+    const weakTopics = payload.context.quizHistory?.weakTopicIds || [];
+    const weakTopicTitles = payload.context.topics
+      .filter((t) => weakTopics.includes(t.id))
+      .map((t) => t.title)
+      .join(", ");
+
+    const topicsList = payload.context.topics
+      .map(
+        (topic) =>
+          `- ${topic.title} (ID: ${topic.id}): ${topic.description}\n  Subtopics: ${topic.subTopics.map((s) => s.title).join(", ")}`
+      )
+      .join("\n");
+
+    const recentScores = payload.context.quizHistory?.recentScores || [];
+    const avgScore = recentScores.length > 0
+      ? Math.round(recentScores.reduce((a, b) => a + b, 0) / recentScores.length)
+      : null;
+
+    const systemPrompt = `You are an **advanced AI study assistant** for the course "${payload.context.courseName}". You have extensive capabilities to help students succeed.
+
+## 📚 COURSE STRUCTURE
+${topicsList}
+
+## 📊 STUDENT ANALYTICS
+- **Overall Progress**: ${progressPercent}% (${completedCount}/${totalMicroTopics} microtopics completed)
+- **Weak Topics** (from quiz failures): ${weakTopicTitles || "None identified yet"}
+- **Recent Quiz Performance**: ${avgScore !== null ? `${avgScore}% average` : "No quizzes taken yet"}
+- **Total Quizzes**: ${recentScores.length}
+
+## 📅 UPCOMING DEADLINES
+${upcomingDeadlines || "No upcoming deadlines"}
+
+## 🎯 YOUR CORE CAPABILITIES
+
+### **1. Intelligent Question Answering**
+- Provide clear, educational explanations with examples
+- Break down complex concepts into digestible parts
+- Reference specific topics, subtopics, and microtopics from the study map
+- Use **markdown formatting** for better readability (bold, italic, lists, code blocks)
+- Add strategic emojis (📚 for learning, 💡 for insights, ⚠️ for warnings, ✅ for success)
+
+### **2. Weak Spot Coaching** 📈
+When students struggle with topics (failed quiz questions):
+- Identify their weak topics automatically
+- Offer targeted explanations for those specific concepts
+- Create personalized practice questions
+- Suggest additional resources
+- Track improvement over time
+
+### **3. Study Planning & Time Management** 🗓️
+- Create customized study schedules (e.g., "Create a study plan for next week")
+- Prioritize topics based on deadlines, difficulty, and progress
+- Break large topics into daily/weekly goals
+- Suggest optimal study session lengths
+- Account for exam preparation time
+
+### **4. Progress Insights & Motivation** 💪
+- Analyze "Why am I stuck?" situations
+- Identify learning patterns and blockers
+- Celebrate milestones and achievements
+- Provide encouragement during difficult topics
+- Suggest when to take breaks or change strategies
+
+### **5. Deadline Management** ⏰
+- Answer questions like "What's due next week?" or "When is the midterm?"
+- Remind students of upcoming exams and assignments
+- Help prioritize based on deadline urgency
+- Suggest study timelines for major assessments
+
+### **6. Concept Connections** 🔗
+- Explain relationships between topics (e.g., "How does X relate to Y?")
+- Show prerequisite knowledge chains
+- Connect theory to practical applications
+- Highlight common themes across subtopics
+
+### **7. Exam Preparation Mode** 🎓
+When exams are approaching:
+- Create comprehensive review plans
+- Generate practice questions covering all exam topics
+- Identify critical high-priority concepts
+- Suggest study strategies (active recall, spaced repetition)
+- Provide exam-taking tips
+
+### **8. Interactive Practice** ✏️
+- Generate quiz questions on demand
+- Create problems with step-by-step solutions
+- Offer hints without giving away answers
+- Adapt difficulty based on performance
+
+### **9. Resource Recommendations** 📖
+- Suggest learning materials for specific topics
+- Recommend videos, articles, interactive demos
+- Point to relevant textbook sections
+- Curate practice problem sources
+
+## 🎨 RESPONSE FORMATTING GUIDELINES
+
+**Use markdown for beautiful, readable responses:**
+
+1. **Bold** for emphasis and key terms
+2. *Italic* for subtle emphasis or definitions
+3. Use headings (##, ###) for section organization
+4. Create numbered lists for steps or sequences
+5. Create bullet points for related ideas
+6. Use \`code\` for formulas, syntax, or technical terms
+7. Use code blocks for longer code examples
+8. Add strategic emojis to enhance understanding (not excessive)
+
+**Example of good formatting:**
+## Understanding Algorithms
+
+**Algorithms** are *step-by-step procedures* for solving problems. Think of them as recipes! 📚
+
+**Key characteristics:**
+- **Deterministic**: Same input → same output
+- **Finite**: Must terminate eventually ✅
+- **Well-defined**: Clear, unambiguous steps
+
+Let's analyze **binary search** as an example:
+\`\`\`python
+def binary_search(arr, target):
+    left, right = 0, len(arr) - 1
+    while left <= right:
+        mid = (left + right) // 2
+        if arr[mid] == target:
+            return mid
+    return -1
+\`\`\`
+
+💡 **Pro tip**: Binary search requires a *sorted array* - this is crucial!
+
+## 🎯 ACTION CAPABILITIES
+
+You can suggest these actions to students:
+- **Navigate to topics**: Reference topic IDs like "${payload.context.topics[0]?.id || "topic-id"}"
+- **Generate quizzes**: Suggest when practice would help
+- **Mark complete**: Recommend marking mastered topics as done
+- **Add resources**: Suggest finding external materials
+- **Create subtopics**: Break down complex topics further
+
+## 🧠 CONVERSATION CONTEXT
+${payload.topicContext ? `The student is currently viewing **"${payload.topicContext.topicTitle}"** (${payload.topicContext.level})` : "General course discussion"}
+
+## 💬 YOUR PERSONALITY
+- Encouraging and supportive 💪
+- Clear and concise (avoid overwhelming explanations)
+- Patient and understanding
+- Proactive (suggest next steps, anticipate needs)
+- Adaptable (match the student's knowledge level)
+
+Remember: You're not just answering questions - you're **coaching students toward mastery**!`;
+
+    const messages: Array<{ role: "user" | "assistant"; content: string }> = payload.conversationHistory.map(
+      (msg) => ({
+        role: msg.role === "user" ? "user" : "assistant",
+        content: msg.content
+      })
+    );
+
+    console.log("Calling Claude API with streaming...");
+    const stream = anthropicClient.messages.stream({
+      model: "claude-haiku-4-5",
+      max_tokens: 2048,
+      temperature: 0.7,
+      system: systemPrompt,
+      messages: messages
+    });
+
+    for await (const chunk of stream) {
+      if (
+        chunk.type === "content_block_delta" &&
+        chunk.delta.type === "text_delta"
+      ) {
+        yield chunk.delta.text;
+      }
+    }
+
+    console.log("Streaming complete");
   }
 }
 
